@@ -1,0 +1,192 @@
+.header{
+  width: 100%
+}
+.bg-img{
+  width: 750rpx;
+}
+.search{
+  position: fixed;
+  top: 28rpx;
+  left: 20rpx;
+  border-radius: 28rpx;
+  width: 642rpx;
+  height: 60rpx;
+  background:rgba(0,0,0,1);
+opacity:0.3;
+}
+.search-img{
+  width: 30rpx;
+  height: 30rpx;
+  position: fixed;
+  top: 42rpx;
+  left: 38rpx
+}
+.tips{
+  width:90px;
+height:20px;
+font-size:14px;
+font-family:PingFang SC;
+font-weight:400;
+line-height:20px;
+color:rgba(255,255,255,1);
+opacity:1;
+position: fixed;
+top: 38rpx;
+left: 76rpx
+}
+.personal-center{
+  width: 56rpx;
+  height: 60rpx;
+  position: fixed;
+  top: 30rpx;
+  right: 18rpx
+}
+.problem-container{
+  display: flex;
+  align-items: center;
+  height:86rpx;
+  width: 750rpx
+}
+.problem-img{
+  width: 60rpx;
+  height: 48rpx;
+  padding-left: 20rpx
+}
+.problem-text1{
+  font-size: 32rpx;
+  color: #8DA5FF;
+  font-weight: bold;
+  padding-left: 10rpx
+}
+
+.lunbo{
+  font-size: 28rpx;
+  padding-left: 34rpx
+}
+.problem-text2{
+  font-size: 28rpx;
+  color: #707070;
+  padding-left: 118rpx
+}
+.nextstep1{
+  width: 28rpx;
+  height: 26rpx;
+  
+}
+/*      tab切换         */
+.main{
+  background-color: rgb(248, 248, 248)
+}
+.list{
+  
+  display: flex;
+  margin: 0 40rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  background-color: white
+}
+.item{
+  
+  color: #d8d5d5;
+  flex: 1
+}
+.select{
+  color:#D10202;
+  border-bottom: 1rpx solid
+}
+.wenben{
+  padding: 6rpx 8rpx
+}
+/*    title      */
+.title{
+  text-align: center;
+  margin: 2rpx 0
+
+}
+.title1{
+  font-size: 36rpx;
+ 
+  font-weight: bold;
+
+  border-bottom: 1rpx solid
+ 
+}
+.title2{
+  color: #545454;
+  font-size: 22rpx;
+  
+  
+}
+.title3{
+ font-size: 22rpx;
+ overflow: auto;
+ line-height: 15rpx
+}
+.countryname{
+  display: inline-block;
+  margin-left: 110rpx
+}
+.more-country-1{
+  display: inline-block;
+  float: right
+}
+
+/*        国家列表      */
+.country-list{
+    margin: 0 10rpx
+}
+.img-box{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0
+}
+.country-list-img{
+  width: 498rpx;
+  height: 248rpx;
+  border-radius: 10rpx;
+  
+}
+.country-list-btn{
+  width: 220rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  padding: 40rpx 10rpx 40rpx 20rpx
+  
+}
+.country{
+  font-size: 34rpx;
+  padding-left: 60rpx
+  
+}
+.xunwen-btn{
+  width: 160rpx;
+  height: 52rpx;
+  font-size: 30rpx;
+  padding: 0 0 0 40rpx;
+  
+  vertical-align: middle;
+ 
+ color: white;
+  background-color: #8DA5FF;
+  border-radius: 10rpx
+
+}
+.more-country{
+ width:104rpx;
+height:36rpx;
+font-size:26rpx;
+font-family:PingFang SC;
+font-weight:400;
+line-height:40rpx;
+color:rgba(112,112,112,1);
+opacity:1;
+}
+.nextpage{
+  width:14px;
+height:13px;
+background:rgba(0,0,0,0);
+opacity:1;
+}
+
