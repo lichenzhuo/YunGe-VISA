@@ -28,7 +28,7 @@
   <template is="list" data="{{maintainRecordlist}}" />
 </view>
 
-<!--数据初始加载-->
+<!--数据初始加载1222222222222222-->
 <view hidden="{{currentTab !== 4}}" id="one">
   <template is="list" data="{{maintainRecordlist}}" />
 </view>
