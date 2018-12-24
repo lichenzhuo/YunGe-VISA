@@ -13,7 +13,7 @@
   <template is="list" data="{{maintainRecordlist}}" />
 </view>
 
-<!--月度维保爱仕达545456456大撒多所-->
+<!--月度维保爱仕达54大撒多所-->
 <view hidden="{{currentTab !== 1}}" id="one">
   <template is="list" data="{{maintainRecordlist}}" />
 </view>
