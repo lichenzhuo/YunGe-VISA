@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx12f1e4cf7f5be0a0",
-	"projectname": "project",
+	"projectname": "qianzheng",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -28,13 +28,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/details",
+					"query": ""
+				}
+			]
 		}
 	}
 }

@@ -1,0 +1,64 @@
+<!-- pages/details/details.wxml -->
+<image class="details-top-bg" src="../../images/矩形\ 103.png" />
+<view class="header">
+    <text class="headertitle">日本个人旅游单次签证（免酒店，机票订单，含照片冲洗，包邮）</text>
+    <view class='headerprice-container'>
+        <text class="headerprice">参考价  ￥</text>
+        <text class="headerpricenumber">388</text>
+    </view>
+    <view class='headerdatecontainer'>
+        <text class="headerdate">预计办理</text>
+        <text class="headerdatenumber">7工作日</text>
+        <image class='headerdatenext' src="../../images/符号 8 – 17.png" />
+    </view>
+</view>
+<view class="valid-time">
+    <view class="box1">
+        <image class="box1-img" src="../../images/椭圆 43.png" />
+        <text class="box1-txt">30天</text>
+        <text class="box1-txt1">有效期限</text>
+    </view>
+    <view class="box2">
+        <image class="box2-img" src="../../images/椭圆 43.png" />
+        <text class="box2-txt">30天</text>
+        <text class="box2-txt1">最长停留</text>
+    </view>
+    <view class="box3">
+        <image class="box3-img" src="../../images/椭圆 43.png" />
+        <text class="box3-txt">1次</text>
+        <text class="box3-txt1">入境次数</text>
+    </view>
+</view>
+<view class="package" style="margin-top:80rpx">
+    <view class="package-container">
+        <view class="packagetitle">
+            <text class="nowpackage">当前套餐</text>
+            <text class="packageid">（商品编号：011119）</text>
+            <text class="wholepackage">全部（10）</text>
+            <image class="packagenext" src="../../images/符号 9 – 1.png" />
+        </view>
+        <view class="packageitem">
+            <view class="packagedescription">日本个人旅游单次签证（免酒店，机票订单，含照片冲洗，包邮）</view>
+            <view class="referenceprice">参考价 ￥388</view>
+            <image class="packageselect" src="../../images/符号 10 – 1.png" />
+        </view>
+    </view>
+</view>
+<view class="tabswitch">
+    <view class="tabswitchcontainer">
+        <block wx:for="{{tabswitch}}">
+            <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
+                {{item.tabname}}
+            </view>
+        </block>
+        <!-- <view data-num='2' class="fudong">所需资料</view>
+        <view data-num='3' class="fudong">办理流程</view>
+        <view data-num='4' class="fudong">签证图例</view> -->
+    </view>
+    <scroll-view>
+        <view id="basicinformation"></view>
+        <view id="requiredinformation"></view>
+        <view id="workprocess"></view>
+        <view id="exampleimg"></view>
+    </scroll-view>
+</view>

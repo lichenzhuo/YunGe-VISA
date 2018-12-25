@@ -1,0 +1,10 @@
+<!-- pages/countrylist/countrylist.wxml -->
+<!-- <text class="detailtitle">亚洲 Asia</text> -->
+<view class='country-list'>
+    <view class='img-box'>
+        <image class='country-list-img' src='../../images/japan.jpg'></image>
+        <view class="gotodetails"></view>
+        <text class="gotodetails-name">日本</text>
+        <text class="gotodetails-name1">查看详情</text>
+    </view>
+</view>

@@ -1,0 +1,76 @@
+/* pages/countrylist/countrylist.wxss */
+.country-list {
+    margin: 0 20rpx 0 24rpx
+}
+
+/* .detailtitle {
+    width: 158rpx;
+    height: 50rpx;
+    font-size: 36rpx;
+    font-family: PingFang SC;
+    font-weight: bold;
+    line-height: 50rpx;
+    color: rgba(0, 0, 0, 1);
+    opacity: 1;
+    padding-left: 306rpx
+} */
+
+.img-box {
+
+
+    margin: 20rpx 0;
+    position: relative
+}
+
+.country-list-img {
+    width: 704rpx;
+    height: 248rpx;
+
+
+    border-radius: 3px;
+
+}
+
+.gotodetails {
+    width: 180rpx;
+    height: 180rpx;
+    top: 34rpx;
+    left: 260rpx;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.2;
+
+
+
+
+}
+
+.gotodetails-name {
+
+    width: 42px;
+    height: 29px;
+    font-size: 21px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: absolute;
+    top: 60rpx;
+    left: 300rpx;
+}
+
+.gotodetails-name1 {
+    width: 56px;
+    height: 20px;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: absolute;
+    top: 120rpx;
+    left: 290rpx;
+}

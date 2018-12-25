@@ -5,15 +5,43 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    tabswitch:[{
+      "tabname":'热门',
+      "select":'one'
+    },{
+      "tabname":'亚洲',
+      "select":'two'
+    },{
+      "tabname":'美洲',
+      "select":'three'
+    },{
+      "tabname":'欧洲',
+      "select":'four'
+    },{
+      "tabname":'非洲',
+      "select":'five'
+    },{
+      "tabname":'大洋洲',
+      "select":'six'
+    }],
+    catalogSelect:'one',
+  },
+  tabclick:function(e){
+    // console.log(e)
+    this.setData({
+      catalogSelect:e.currentTarget.dataset.select
+    })
   },
   //事件处理函数
-  bindViewTap: function() {
+  gotocountrylist:function () {
+    // 跳转国家列表页面
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../countrylist/countrylist',
+    })
+  },
+  gotodetails:function(){
+    wx.navigateTo({
+      url: '../details/details',
     })
   },
   onLoad: function () {   //请求数据在这里

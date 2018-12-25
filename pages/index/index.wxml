@@ -10,20 +10,18 @@
     <view class='problem-container'>
       <image class='problem-img' src='../../images/problem.png'></image>
       <text class='problem-text1'>常见问题</text>
-
       <text class='lunbo'>美国签证的通过率高吗</text>
-
-
       <text class='problem-text2'>更多</text>
       <image class='nextstep1' src='../../images/下一步.png'></image>
     </view>
-
   </view>
   <view class='list'>
     <view class='item'>
-      <text class='wenben select'>热门</text>
+      <block wx:for="{{tabswitch}}">
+        <text id="wenben" bindtap="tabclick" data-select="{{item.select}}" class="{{item.select==catalogSelect?'select':''}}">{{item.tabname}}</text>
+      </block>
     </view>
-    <view class='item'>
+    <!-- <view class='item'>
       <text class='wenben'>亚洲</text>
     </view>
     <view class='item'>
@@ -37,36 +35,23 @@
     </view>
     <view class='item'>
       <text class='wenben'>大洋洲</text>
-    </view>
+    </view> -->
   </view>
   <view class='main'>
-
-
-    <scroll-view>
-      <view>
+    <scroll-view scroll-y="true" 
+    style="height: 100%;" 
+    scroll-into-view="two">
+      <view id="one">
         <view class='title'>
           <text class='title1'>热门国家和地区</text>
-          <text class='title2'>
-            Hot country or region
-            </text>
+          <text class='title2'>Hot country or region</text>
         </view>
         <view class='country-list'>
           <view class='img-box'>
             <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>台湾</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>台湾</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
+            <view class="gotodetails"></view>
+            <text class="gotodetails-name">日本</text>
+            <text class="gotodetails-name1">查看详情</text>
             <view class='country-list-btn'>
               <text class='country'>台湾</text>
               <view class='xunwen-btn'>立即咨询</view>
@@ -74,112 +59,29 @@
           </view>
         </view>
       </view>
-      <view>
+      <view id="two">
         <view class='title'>
           <text class='title1'>亚洲</text>
           <view>
             <view class='title3'>
-              <text style='display:inline-block;margin-left:130rpx'>
-        Asia
-               </text>
-        <view style='float:right'>  
-
+              <text style='display:inline-block;margin-left:130rpx'>Asia</text>
+              <view bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/下一步.png'></image>
               </view>
             </view>
           </view>
         </view>
-
-
-
       </view>
-
       <view class='country-list'>
         <view class='img-box'>
-          <image class='country-list-img' src='../../images/japan.jpg'></image>
-          <view class='country-list-btn'>
+          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
+          <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view>
-        </view>
-
-      </view>
-
-      <view>
-        <view class='title'>
-          <text class='title1'>美洲</text>
-          <text class='title2'>
-            America
-            </text>
-        </view>
-        <view class='country-list'>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>美国</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-
+          </view> -->
         </view>
       </view>
-      <view>
-        <view class='title'>
-          <text class='title1'>欧洲</text>
-          <text class='title2'>
-            Europe
-            </text>
-        </view>
-        <view class='country-list'>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/二.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>英国</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-
-        </view>
-      </view>
-      <view>
-        <view class='title'>
-          <text class='title1'>非洲</text>
-          <text class='title2'>
-            Africa
-            </text>
-        </view>
-        <view class='country-list'>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/三.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>埃及</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-
-        </view>
-      </view>
-      <view>
-        <view class='title'>
-          <text class='title1'>大洋洲</text>
-          <text class='title2'>
-            Oceania
-            </text>
-        </view>
-        <view class='country-list'>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class='country-list-btn'>
-              <text class='country'>澳大利亚</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
-
-        </view>
-      </view>
-
     </scroll-view>
   </view>
-
 </view>

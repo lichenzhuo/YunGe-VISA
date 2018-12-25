@@ -1,31 +1,20 @@
-// pages/tab/tab.js
+// pages/countrylist/countrylist.js
 Page({
 
   /**
    * 页面的初始数据
    */
-  data:{
+  data: {
 
-navbar: ['半月维保', '季度维1321保', '半年维保',"年度维保"],
-    //count:[0,2,3],                                  //记录不同状态记录的数量
-    currentTab: 4,
-
-},
-
-  //响应点击导航栏
-  navbarTap: function (e) {
-    var that = this;
-    that.setData({
-      currentTab: e.currentTarget.dataset.idx,
-      TypeItem : that.data.navbar[that.data.currentTab]
-    })
-},
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '亚洲Asia'
+    })
   },
 
   /**
