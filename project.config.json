@@ -37,13 +37,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "details",
 					"pathName": "pages/details/details",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ceshi1",
+					"pathName": "pages/ceshi1/ceshi1"
 				}
 			]
 		}

@@ -1,0 +1,22 @@
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
+<view class="modalDlg" wx:if="{{showModal}}">
+  <block wx:for="{{list}}" wx:key="{{item.id}}">
+    <text id="{{item.id}}" bindtap="go">
+          {{item.title}}
+        </text>
+  </block>
+  <!-- <text bindtap="go">{{list.title}}</text> -->
+
+  <text>欢迎来到模态对话框~</text>
+  <!-- <button bindtap="go">点我可以关掉对话框</button> -->
+
+
+</view>
+
+<button bindtap="submit">点我弹窗</button>
+<!-- <view>
+  <block wx:for="{{list}}" wx:key="{{item.id}}"> -->
+    <view id="{{item.id}}">{{moren}}</view>
+  <!-- </block>
+</view> -->

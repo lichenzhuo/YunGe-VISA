@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/sad/sad",
     "pages/index/index",
+    "pages/sad/sad",
     "pages/countrylist/countrylist",
     "pages/ceshi/ceshi",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/ceshi1/ceshi1"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -20,6 +20,12 @@ Page({
     }],
     catalogSelect:'one',
   },
+  toggleDialog() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
+
+  },
   clicktab:function(e){
     // console.log(e)
     var that=this;
@@ -27,11 +33,28 @@ Page({
       catalogSelect : e.currentTarget.dataset.select
     })
   },
+  //    点击咨询
+  clickzixun:function(){
+    wx.showActionSheet({
+      itemList: ['微信咨询', '手机号咨询'],
+      success(res) {
+        console.log(res.tapIndex)
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+    // wx.showToast({
+    //   title: '成功',
+    //   icon: 'success',
+    //   duration: 2000
+    // })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(document)
   },
 
   /**

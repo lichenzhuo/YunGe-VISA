@@ -1,64 +1,218 @@
 <!-- pages/details/details.wxml -->
-<image class="details-top-bg" src="../../images/矩形\ 103.png" />
-<view class="header">
-    <text class="headertitle">日本个人旅游单次签证（免酒店，机票订单，含照片冲洗，包邮）</text>
-    <view class='headerprice-container'>
-        <text class="headerprice">参考价  ￥</text>
-        <text class="headerpricenumber">388</text>
-    </view>
-    <view class='headerdatecontainer'>
-        <text class="headerdate">预计办理</text>
-        <text class="headerdatenumber">7工作日</text>
-        <image class='headerdatenext' src="../../images/符号 8 – 17.png" />
-    </view>
-</view>
-<view class="valid-time">
-    <view class="box1">
-        <image class="box1-img" src="../../images/椭圆 43.png" />
-        <text class="box1-txt">30天</text>
-        <text class="box1-txt1">有效期限</text>
-    </view>
-    <view class="box2">
-        <image class="box2-img" src="../../images/椭圆 43.png" />
-        <text class="box2-txt">30天</text>
-        <text class="box2-txt1">最长停留</text>
-    </view>
-    <view class="box3">
-        <image class="box3-img" src="../../images/椭圆 43.png" />
-        <text class="box3-txt">1次</text>
-        <text class="box3-txt1">入境次数</text>
-    </view>
-</view>
-<view class="package" style="margin-top:80rpx">
-    <view class="package-container">
-        <view class="packagetitle">
-            <text class="nowpackage">当前套餐</text>
-            <text class="packageid">（商品编号：011119）</text>
-            <text class="wholepackage">全部（10）</text>
-            <image class="packagenext" src="../../images/符号 9 – 1.png" />
+<view id="whole" style="margin-bottom:100rpx">
+    <image class="details-top-bg" src="../../images/矩形\ 103.png" />
+    <view class="header">
+        <text class="headertitle">巴西团队旅游签证</text>
+        <view class='headerprice-container'>
+            <text class="headerprice">参考价  ￥</text>
+            <text class="headerpricenumber">388</text>
         </view>
-        <view class="packageitem">
-            <view class="packagedescription">日本个人旅游单次签证（免酒店，机票订单，含照片冲洗，包邮）</view>
-            <view class="referenceprice">参考价 ￥388</view>
-            <image class="packageselect" src="../../images/符号 10 – 1.png" />
+        <view class='headerdatecontainer'>
+            <text class="headerdate">预计办理</text>
+            <text class="headerdatenumber">7工作日</text>
+            <image class='headerdatenext' src="../../images/符号 8 – 17.png" />
         </view>
     </view>
-</view>
-<view class="tabswitch">
-    <view class="tabswitchcontainer">
-        <block wx:for="{{tabswitch}}">
-            <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
-                {{item.tabname}}
+    <view class="valid-time">
+        <view class="box1">
+            <image class="box1-img" src="../../images/椭圆 43.png" />
+            <text class="box1-txt">30天</text>
+            <text class="box1-txt1">有效期限</text>
+        </view>
+        <view class="box2">
+            <image class="box2-img" src="../../images/椭圆 43.png" />
+            <text class="box2-txt">30天</text>
+            <text class="box2-txt1">最长停留</text>
+        </view>
+        <view class="box3">
+            <image class="box3-img" src="../../images/椭圆 43.png" />
+            <text class="box3-txt">1次</text>
+            <text class="box3-txt1">入境次数</text>
+        </view>
+    </view>
+    <view class="package" style="margin-top:80rpx">
+        <view class="package-container">
+            <view class="packagetitle">
+                <text class="nowpackage">当前套餐</text>
+                <text class="packageid">（商品编号：011119）</text>
+                <text class="wholepackage">全部（10）</text>
+                <image class="packagenext" src="../../images/符号 9 – 1.png" />
             </view>
-        </block>
-        <!-- <view data-num='2' class="fudong">所需资料</view>
+            <view class="packageitem">
+                <view class="packagedescription">巴西团队旅游签证</view>
+                <view class="referenceprice">参考价 ￥388</view>
+                <image class="packageselect" src="../../images/符号 10 – 1.png" />
+            </view>
+        </view>
+    </view>
+    <view class="tabswitch">
+        <view class="tabswitchcontainer">
+            <block wx:for="{{tabswitch}}">
+                <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
+                    {{item.tabname}}
+                </view>
+            </block>
+            <!-- <view data-num='2' class="fudong">所需资料</view>
         <view data-num='3' class="fudong">办理流程</view>
         <view data-num='4' class="fudong">签证图例</view> -->
+        </view>
+        <view id="informationcontainer">
+            <scroll-view>
+                <view id="basicinformation">
+                    <view class="title">基本信息</view>
+                    <view class="content1">
+                        <text class="title1">费用包含</text>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">签证费（签证费代缴）</view>
+                        </view>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">服务费（服务费服务费服务费服务费服务费服务费服务费服务费）</view>
+                        </view>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">签证费（签证费代缴）</view>
+                        </view>
+                    </view>
+                    <view class="content1">
+                        <text class="title1">费用不包含</text>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">办理护照的费用</view>
+                        </view>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">材料寄送给我司的快递费</view>
+                        </view>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">其他未提及费用</view>
+                        </view>
+                    </view>
+                    <view class="content1">
+                        <text class="title1">办理须知</text>
+                        <view class="neirongone">
+                            <view class="dian"></view>
+                            <view class="neirongone1">
+                                在办理签证期间，芊芊可能会根据你的材料情况要求增补其他材料；
+                                领馆也可能会针对你的实际情况。要求增补其他材料，或延长签证受理时间
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view id="requiredinformation">
+                    <view class="title">所需材料</view>
+                    <view class="wholebtn">
+                        <view class="btn">
+                            <view class="btntxt">自由职业者</view>
+                        </view>
+                        <view class="btn">
+                            <view class="btntxt">退休人员</view>
+                        </view>
+                        <view class="btn btnselect">
+                            <view class="btntxt">在职人员</view>
+                        </view>
+                        <view class="btn">
+                            <view class="btntxt">在校学生</view>
+                        </view>
+                        <view class="btn">
+                            <view class="btntxt">学龄前儿童</view>
+                        </view>
+                    </view>
+                    <view class="material">
+                        <view class="materialtitle">*必须提供的资料</view>
+                        <view class="appmaterial">
+                            <text class="title1">APP拍摄资料</text>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1 must">护照*</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1 must">照片*</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="appmaterialdetail">
+                                <text class="appmaterialdetailtxt">查看详细要求</text>
+                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                            </view>
+                        </view>
+                        <view class="appmaterial">
+                            <text class="title1">邮寄资料</text>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1 must">固定资产证明*</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1 must">照片*</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1 must">护照*</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="neirongone">
+                                <view class="dian"></view>
+                                <view class="neirongone1">居住证</view>
+                                <!-- <view class="must">*</view> -->
+                            </view>
+                            <view class="appmaterialdetail">
+                                <text class="appmaterialdetailtxt">查看详细要求</text>
+                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view id="workprocess">
+                    <view class="title">办理流程</view>
+                    <view class="duizhao">
+                        <view class="workprocesstxt1">
+                            <view class="workprocesstltle1">准备上传资料，完善申请表</view>
+                            <view class="workprocesstltle2">准备好资料拍照上传，完善申请表</view>
+                        </view>
+                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
+                    </view>
+                    <view class="duizhao">
+                        <view class="workprocesstxt1">
+                            <view class="workprocesstltle1">下单支付</view>
+                            <view class="workprocesstltle2">选择在线支付方式支付费用</view>
+                        </view>
+                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
+                    </view>
+                    <view class="duizhao">
+                        <view class="workprocesstxt1">
+                            <view class="workprocesstltle1">寄送材料</view>
+                            <view class="workprocesstltle2">按邮寄资料清单寄送资料</view>
+                        </view>
+                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
+                    </view>
+                    <view class="duizhao">
+                        <view class="workprocesstxt1">
+                            <view class="workprocesstltle1">资料审核并送审</view>
+                            <view class="workprocesstltle2">签证专员审核资料，审核通过第一时间安排送馆</view>
+                        </view>
+                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
+                    </view>
+                    <view class="duizhao">
+                        <view class="workprocesstxt1">
+                            <view class="workprocesstltle1">出签送审</view>
+                            <view class="workprocesstltle2">出签后核对签证页信息，顺丰快递到您的收件地址</view>
+                        </view>
+                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
+                    </view>
+                    
+                </view>
+                <view id="exampleimg">
+                    <view class="title">签证图例</view>
+                    <image src="../../images/蒙版组.png" />
+                </view>
+            </scroll-view>
+        </view>
     </view>
-    <scroll-view>
-        <view id="basicinformation"></view>
-        <view id="requiredinformation"></view>
-        <view id="workprocess"></view>
-        <view id="exampleimg"></view>
-    </scroll-view>
+    <view id="talk" bindtap='clickzixun'>咨 询</view>
 </view>

@@ -1,5 +1,6 @@
 .header {
-  width: 100%
+  width: 100%;
+  position: relative
 }
 
 .bg-img {
@@ -7,7 +8,7 @@
 }
 
 .search {
-  position: fixed;
+  position: absolute;
   top: 28rpx;
   left: 20rpx;
   border-radius: 28rpx;
@@ -20,13 +21,13 @@
 .search-img {
   width: 30rpx;
   height: 30rpx;
-  position: fixed;
+  position: absolute;
   top: 42rpx;
   left: 38rpx
 }
 
 .tips {
-  width: 90px;
+  /* width: 90px; */
   height: 20px;
   font-size: 14px;
   font-family: PingFang SC;
@@ -34,7 +35,7 @@
   line-height: 20px;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
-  position: fixed;
+  position: absolute;
   top: 38rpx;
   left: 76rpx
 }
@@ -42,7 +43,7 @@
 .personal-center {
   width: 56rpx;
   height: 60rpx;
-  position: fixed;
+  position: absolute;
   top: 30rpx;
   right: 18rpx
 }

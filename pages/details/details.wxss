@@ -1,4 +1,10 @@
 /* pages/details/details.wxss */
+#whole {
+    position: relative;
+    background-color: rgb(248, 248, 248);
+
+}
+
 .details-top-bg {
     width: 750rpx;
     height: 444rpx;
@@ -7,7 +13,8 @@
 .header {
     width: 750rpx;
     height: 444rpx;
-    margin-top: -444rpx
+    margin-top: -444rpx;
+    background-color: #FFFFFF
 }
 
 .headertitle {
@@ -67,7 +74,7 @@
     background-color: #FFFFFF;
     position: relative;
     border-radius: 5px;
-    position: fixed;
+    position: absolute;
     top: 320rpx;
     left: 46rpx;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
@@ -145,6 +152,10 @@
 }
 
 /*            套餐              */
+.package {
+    background-color: #FFFFFF
+}
+
 .package-container {
     margin: 20rpx;
 }
@@ -189,31 +200,33 @@
     border-radius: 6rpx;
     position: relative;
 }
-.packagedescription{
-width:476rpx;
-/* height:80rpx; */
-font-size:14px;
-font-family:PingFang SC;
-font-weight:400;
-/* line-height:20px; */
-color:rgba(141,165,255,1);
-white-space: normal;
-/* display:inline-block */
-padding: 12rpx 0 16rpx 10rpx 
 
+.packagedescription {
+    width: 476rpx;
+    /* height:80rpx; */
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    /* line-height:20px; */
+    color: rgba(141, 165, 255, 1);
+    white-space: normal;
+    /* display:inline-block */
+    padding: 12rpx 0 16rpx 10rpx
 }
-.referenceprice{
-    font-size:24rpx;
-font-family:PingFang SC;
-font-weight:400;
-line-height:34rpx;
-color:rgba(141,165,255,1);
-/* display:inline-block */
-position: absolute;
-top: 36rpx;
-right: 36rpx
+
+.referenceprice {
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 34rpx;
+    color: rgba(141, 165, 255, 1);
+    /* display:inline-block */
+    position: absolute;
+    top: 30%;
+    right: 36rpx
 }
-.packageselect{
+
+.packageselect {
     width: 54rpx;
     height: 52rpx;
     position: absolute;
@@ -222,20 +235,227 @@ right: 36rpx
 }
 
 /*          tab切换          */
-.tabswitchcontainer{
-    overflow: hidden;margin: 0 24rpx;
+.tabswitch {
+    background-color: #FFFFFF
+}
+
+.tabswitchcontainer {
+    overflow: hidden;
+    margin: 0 24rpx;
     font-size: 32rpx;
-    display: flex;align-items: flex-start;
+    display: flex;
+    align-items: flex-start;
     align-content: flex-start;
     justify-content: space-between;
 }
+
 /* .fudong{
     float: left;
     margin-right: 62rpx;
     padding: 20rpx 0;
 }*/
-.tabselect{
-    border-bottom: 2rpx solid rgba(141,165,255,1);
-    color: rgba(141,165,255,1);
-} 
+.tabselect {
+    border-bottom: 2rpx solid rgba(141, 165, 255, 1);
+    color: rgba(141, 165, 255, 1);
+}
 
+/*                 基本信息                   */
+
+#informationcontainer {
+    margin: 0 28rpx;
+    width: 100%
+}
+
+.title {
+    font-size: 32rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 44rpx;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    margin: 40rpx 0 20rpx 0
+}
+
+.title1 {
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 40rpx;
+    color: rgba(141, 165, 255, 1);
+}
+
+.neirongone {
+    position: relative;
+}
+
+.dian {
+    width: 8rpx;
+    height: 8rpx;
+    background: rgba(112, 112, 112, 1);
+    border-radius: 50%;
+    display: inline-block;
+    /* vertical-align: middle; */
+
+    position: absolute;
+    margin-top: 25rpx;
+    /* top: 16rpx */
+}
+
+.neirongone1 {
+    width: 672rpx;
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 40rpx;
+    display: inline-block;
+    color: rgba(112, 112, 112, 1);
+    margin-left: 30rpx
+}
+
+/*        所需材料           */
+.wholebtn {
+    display: flex;
+    width: 670rpx;
+    justify-content: space-between;
+    padding: 0 0 30rpx 0;
+    border-bottom: 1rpx solid #D5D5D5;
+
+
+}
+
+.btn {
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px solid rgba(213, 213, 213, 1);
+    border-radius: 50%;
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 32rpx;
+    color: rgba(203, 203, 203, 1);
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.btntxt {
+    margin: 14rpx 8rpx;
+    padding-top: 8rpx
+}
+
+.btnselect {
+    border: 2rpx solid #8DA5FF;
+    color: #8DA5FF
+}
+
+.must {
+    color: red
+}
+
+.material {
+    height: 620rpx;
+}
+
+.appmaterial {
+    position: relative;
+    margin-bottom: 30rpx
+}
+
+.materialtitle {
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 34rpx;
+    color: rgba(255, 0, 0, 1);
+    margin-top: 20rpx
+}
+
+.appmaterialdetail {
+    position: absolute;
+    top: -15rpx;
+    right: 92rpx;
+
+}
+
+.appmaterialdetailtxt {
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 34rpx;
+    color: rgba(141, 165, 255, 1);
+    display: inline-block;
+}
+
+.appmaterialdetailimg {
+    width: 10rpx;
+    height: 16rpx;
+    display: inline-block;
+    margin-left: 10rpx
+}
+
+/*       办理流程      */
+.duizhao {
+    position: relative;
+}
+
+.workprocesstxt1 {
+    border-left: 2rpx solid rgba(112, 112, 112, 1);
+
+    margin-left: 16rpx;
+    padding: 10rpx 0
+}
+
+.workprocesstxtdian {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    top: 0
+}
+
+.workprocesstltle1 {
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: bold;
+    line-height: 40rpx;
+    color: rgba(112, 112, 112, 1);
+    display: inline-block;
+    margin-left: 20rpx
+}
+
+.workprocesstltle2 {
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 40rpx;
+    color: rgba(171, 171, 171, 1);
+    margin-left: 20rpx;
+    /* border-bottom: 1px solid rgba(112,112,112,1); */
+
+}
+
+/*     签证图例      */
+
+#exampleimg {
+    background-color: #FFFFFF;
+    padding: 30rpx 0;
+    margin-top: 40rpx;
+    margin-bottom: 120rpx
+}
+
+#exampleimg image {
+    width: 608rpx;
+    height: 384rpx;
+    margin-left: 40rpx;
+
+}
+#talk{
+    width: 100%;
+    height: 88rpx;
+    color: #FFFFFF;
+    line-height: 88rpx;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #6E8CFE;
+    position: fixed;
+    bottom: 0;
+}
