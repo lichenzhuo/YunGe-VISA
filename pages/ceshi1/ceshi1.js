@@ -24,13 +24,13 @@ Page({
 
 
   go: function (e) {
-    this.data.list[e.currentTarget.id].title;
-     var nowtitle = this.data.list[e.currentTarget.id].title;
-    //  var this=that;
-    console.log(nowtitle)
+    // this.data.list[e.currentTarget.id].title;
+      // var nowtitle = this.data.list[e.currentTarget.id].title;
+    // //  var this=that;
+    console.log(e)
     this.setData({
       showModal: false,
-      moren:nowtitle
+      // moren:nowtitle
     })
   }
 

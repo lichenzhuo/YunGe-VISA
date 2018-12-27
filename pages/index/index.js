@@ -62,10 +62,15 @@ Page({
     //   })
     // }
   },
-  tapqqq:function(e){
-    // console.log(e)
-  },
+  // tapqqq:function(e){   //测试
+  //   // console.log(e)
+  // },
   //事件处理函数
+  gotoproblemlist:function(){
+    wx.navigateTo({
+      url:'../problemlist/problemlist'
+    })
+  },
   gotocountrylist:function () {
     // 跳转国家列表页面
     wx.navigateTo({

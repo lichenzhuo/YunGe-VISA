@@ -1,0 +1,12 @@
+<!-- pages/problemlist/problemlist.wxml -->
+<view id='header'>
+    <input class='search'></input>
+    <image class='search-img' src='../../images/icn_disocver_active.png'></image>
+    <text class='tips'>搜索问题关键字</text>
+    <text class="canclesearchbtn">取消</text>
+</view>
+<view id="banner">
+    <view class="morenlist">
+        <view bindtap="gotoproblemdetail" class="listitem">1.申请人尚未离境签证就过期了，怎么办?</view>
+    </view>
+</view>

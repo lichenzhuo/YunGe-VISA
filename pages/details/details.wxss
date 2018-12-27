@@ -459,3 +459,98 @@
     position: fixed;
     bottom: 0;
 }
+
+/*       modal框          */
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 99;
+    opacity: 0.7;
+}
+
+.modalDlg{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+ 
+    z-index: 9999;
+    /* margin: -370rpx 85rpx; */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modaltitleimg{
+    width: 28rpx;
+    height: 28rpx;position:absolute;
+   
+    top:32rpx;
+    left:41rpx;
+    
+}
+.modaltitle{
+    position:relative;
+width:100%;
+border-bottom:1rpx solid #E2E2E2;
+padding:20rpx;
+
+}
+.modaltitletxt{
+    text-align:center;
+    color: #545454
+
+}
+.forpackageitem{
+    margin: 10rpx 0
+}
+.packageitemcontainer{
+    padding: 30rpx 0
+}
+
+/*                时间模态框              */
+.timemodalDlg{
+    width: 548rpx;
+    height: auto;
+    position: fixed;
+    bottom: 50%;
+    left: 15%;
+    border-radius:10px;
+    z-index: 9999;
+    /* margin: -370rpx 85rpx; */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timemodaltitle{
+    position:relative;
+    width:100%;
+    border-bottom:1rpx solid #E2E2E2;
+    padding: 20rpx 0
+}
+.timemodalDlgtxt{
+    padding:30rpx;
+text-align:center;
+
+}
+.timebox{
+    color: #8DA5FF;
+    font-size: 32rpx;
+    border:1px solid rgba(141,165,255,1);border-radius:2px;
+    padding: 0 20rpx;
+}
+.timetxt{
+    font-size:14px;
+    color: #545454;
+    /* margin-top: 10rpx */
+}
+.boldtxt{
+    color: #8DA5FF;
+    font-size: 36rpx;
+    font-weight: bold
+}

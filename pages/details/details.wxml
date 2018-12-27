@@ -10,7 +10,7 @@
         <view class='headerdatecontainer'>
             <text class="headerdate">预计办理</text>
             <text class="headerdatenumber">7工作日</text>
-            <image class='headerdatenext' src="../../images/符号 8 – 17.png" />
+            <image bindtap="timemodal" class='headerdatenext' src="../../images/符号 8 – 17.png" />
         </view>
     </view>
     <view class="valid-time">
@@ -35,19 +35,19 @@
             <view class="packagetitle">
                 <text class="nowpackage">当前套餐</text>
                 <text class="packageid">（商品编号：011119）</text>
-                <text class="wholepackage">全部（10）</text>
-                <image class="packagenext" src="../../images/符号 9 – 1.png" />
+                <text bindtap="submit" class="wholepackage">全部（10）</text>
+                <image bindtap="submit" class="packagenext" src="../../images/符号 9 – 1.png" />
             </view>
             <view class="packageitem">
-                <view class="packagedescription">巴西团队旅游签证</view>
-                <view class="referenceprice">参考价 ￥388</view>
+                <view class="packagedescription">{{taocanlist[nowid].taocanname}}</view>
+                <view class="referenceprice">参考价 ￥{{taocanlist[nowid].price}}</view>
                 <image class="packageselect" src="../../images/符号 10 – 1.png" />
             </view>
         </view>
     </view>
     <view class="tabswitch">
         <view class="tabswitchcontainer">
-            <block wx:for="{{tabswitch}}">
+            <block wx:for="{{tabswitch}}" wx:key="{{item.id}}">
                 <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
                     {{item.tabname}}
                 </view>
@@ -205,7 +205,6 @@
                         </view>
                         <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
                     </view>
-                    
                 </view>
                 <view id="exampleimg">
                     <view class="title">签证图例</view>
@@ -215,4 +214,36 @@
         </view>
     </view>
     <view id="talk" bindtap='clickzixun'>咨 询</view>
+    <view id="modal">
+        <view class="mask" wx:if="{{showModal}}"></view>
+        <view class="modalDlg" wx:if="{{showModal}}">
+            <view class="modaltitle">
+                <image bindtap="cancle" class="modaltitleimg" src="../../images/关闭.png" />
+                <view class="modaltitletxt">套餐类型</view>
+            </view>
+            <!-- <text id="{{item.id}}" bindtap="go">{{item.title}}</text> -->
+            <view class="packageitemcontainer">
+                <view wx:for="{{taocanlist}}" id="{{item.id}}" bindtap="go" class="packageitem forpackageitem">
+                    <view class="packagedescription">{{item.taocanname}}</view>
+                    <view class="referenceprice">参考价 ￥{{item.price}}</view>
+                    <!-- <image class="packageselect" src="../../images/符号 10 – 1.png" /> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view id="timemodal">
+        <view class="mask" wx:if="{{showtimeModal}}"></view>
+        <view class="timemodalDlg" wx:if="{{showtimeModal}}">
+            <view class="timemodaltitle">
+                <image bindtap="timecancle" class="modaltitleimg" src="../../images/关闭.png" />
+                <view class="modaltitletxt">预计办理</view>
+            </view>
+            <view class="timemodalDlgtxt">
+                <text class="timebox">7工作日</text>
+                <text class="timetxt">
+                    从资料收齐后开始计算：资料操作处理<text class="boldtxt">1</text>工作日+使馆受理<text class="boldtxt">6</text>工作日
+                </text>
+            </view>
+        </view>
+    </view>
 </view>

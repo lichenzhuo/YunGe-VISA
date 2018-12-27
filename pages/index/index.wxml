@@ -11,8 +11,8 @@
       <image class='problem-img' src='../../images/problem.png'></image>
       <text class='problem-text1'>常见问题</text>
       <text class='lunbo'>美国签证的通过率高吗</text>
-      <text class='problem-text2'>更多</text>
-      <image class='nextstep1' src='../../images/下一步.png'></image>
+      <text bindtap="gotoproblemlist" class='problem-text2'>更多</text>
+      <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/下一步.png'></image>
     </view>
   </view>
   <view class='list'>

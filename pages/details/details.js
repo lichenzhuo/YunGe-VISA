@@ -5,36 +5,86 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabswitch:[{
-      "tabname":'基本信息',
-      "select":'one'
-    },{
-      "tabname":'所需资料',
-      "select":'two'
-    },{
-      "tabname":'办理流程',
-      "select":'three'
-    },{
-      "tabname":'签证图例',
-      "select":'four'
+    tabswitch: [{
+      "tabname": '基本信息',
+      "select": 'one'
+    }, {
+      "tabname": '所需资料',
+      "select": 'two'
+    }, {
+      "tabname": '办理流程',
+      "select": 'three'
+    }, {
+      "tabname": '签证图例',
+      "select": 'four'
     }],
-    catalogSelect:'one',
+    taocanlist: [{
+      taocanname: '巴西团队旅游签证1',
+      price: '188',
+      id: 0
+    }, {
+      taocanname: '巴西团队旅游签证2',
+      price: '288',
+      id: '1'
+    }, {
+      taocanname: '巴西团队旅游签证3',
+      price: '388',
+      id: '2'
+    }],
+    catalogSelect: 'one',
+    showModal: false,
+    showtimeModal: false,
+    nowid: 0
   },
-  toggleDialog() {
+  timemodal:function(){            //办理时间弹窗打开
     this.setData({
-      showDialog: !this.data.showDialog
-    });
+      showtimeModal: true,
+    })
+  },
+  timecancle:function(){                 //办理时间弹窗关闭
+    this.setData({
+      showtimeModal: false,
+    })
+  },
+  submit: function () {      //点击弹出弹框
+    this.setData({
+      showModal: true
+    })
+  },
+  preventTouchMove: function () {   //防止弹框弹出屏幕滑动
 
   },
-  clicktab:function(e){
+  go: function (e) {
+    console.log(e.currentTarget.id)
+
+    // this.data.taocanlist[e.currentTarget.id].taocanname;
+    // var nowtaocanname = this.data.taocanlist[e.currentTarget.id].taocanlist;
+    this.setData({
+      showModal: false,
+      nowid: e.currentTarget.id
+    })
+  },
+  cancle: function () {          //弹框取消按钮
+    this.setData({
+      showModal: false,
+      nowid: 0
+    })
+  },
+  // toggleDialog() {
+  //   this.setData({
+  //     showDialog: !this.data.showDialog
+  //   });
+
+  // },
+  clicktab: function (e) {
     // console.log(e)
-    var that=this;
-    that.setData({//把选中值放入判断值
-      catalogSelect : e.currentTarget.dataset.select
+    var that = this;
+    that.setData({ //把选中值放入判断值
+      catalogSelect: e.currentTarget.dataset.select
     })
   },
   //    点击咨询
-  clickzixun:function(){
+  clickzixun: function () {
     wx.showActionSheet({
       itemList: ['微信咨询', '手机号咨询'],
       success(res) {

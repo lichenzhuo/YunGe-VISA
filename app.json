@@ -5,7 +5,9 @@
     "pages/countrylist/countrylist",
     "pages/ceshi/ceshi",
     "pages/details/details",
-    "pages/ceshi1/ceshi1"
+    "pages/ceshi1/ceshi1",
+    "pages/problemlist/problemlist",
+    "pages/problemdetail/problemdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
