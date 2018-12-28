@@ -47,7 +47,9 @@
   top: 30rpx;
   right: 18rpx
 }
-
+.problem{
+  border-bottom: 1rpx solid #F8F8F8
+}
 .problem-container {
   display: flex;
   align-items: center;
@@ -92,10 +94,11 @@
 
 .list {
 
-  
+  padding-bottom:20rpx;
+
   margin: 0 40rpx;
   font-size: 28rpx;
-  line-height: 80rpx;
+  /* line-height: 80rpx; */
   background-color: white
 }
 
@@ -119,7 +122,8 @@
 /*    title      */
 .title {
   text-align: center;
-  margin: 2rpx 0
+  margin: 2rpx 0;padding-top:10rpx;
+
 }
 
 .title1 {

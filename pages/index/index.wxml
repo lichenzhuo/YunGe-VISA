@@ -47,7 +47,20 @@
           <text class='title2'>Hot country or region</text>
         </view>
         <view class='country-list'>
-          <view class='img-box'>
+         
+            <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item">
+              <image class='country-list-img' src='http://192.168.1.102:804/Uploads/hot/泰国.jpg'></image>
+              <!-- <image class='country-list-img' src='http://t2.hddhhn.com/uploads/tu/201812/621/640.webp (42).jpg'></image> -->
+              <view class="gotodetails"></view>
+              <text class="gotodetails-name">{{item.Country_ZH}}</text>
+              <text class="gotodetails-name1">查看详情</text>
+              <view class='country-list-btn'>
+                <text class='country'>{{item.Country_ZH}}</text>
+                <view class='xunwen-btn'>立即咨询</view>
+              </view>
+            </view>
+          
+          <!-- <view class='img-box'>
             <image class='country-list-img' src='../../images/一.jpg'></image>
             <view class="gotodetails"></view>
             <text class="gotodetails-name">日本</text>
@@ -66,17 +79,7 @@
               <text class='country'>台湾</text>
               <view class='xunwen-btn'>立即咨询</view>
             </view>
-          </view>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class="gotodetails"></view>
-            <text class="gotodetails-name">日本</text>
-            <text class="gotodetails-name1">查看详情</text>
-            <view class='country-list-btn'>
-              <text class='country'>台湾</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view>
+          </view> -->
         </view>
       </view>
       <view id="two">
