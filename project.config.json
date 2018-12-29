@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -60,7 +60,13 @@
 				{
 					"id": -1,
 					"name": "problemdetail",
-					"pathName": "pages/problemdetail/problemdetail"
+					"pathName": "pages/problemdetail/problemdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "lunbo",
+					"pathName": "pages/lunbo/lunbo"
 				}
 			]
 		}

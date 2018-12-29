@@ -47,39 +47,17 @@
           <text class='title2'>Hot country or region</text>
         </view>
         <view class='country-list'>
-         
-            <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item">
-              <image class='country-list-img' src='http://192.168.1.102:804/Uploads/hot/泰国.jpg'></image>
-              <!-- <image class='country-list-img' src='http://t2.hddhhn.com/uploads/tu/201812/621/640.webp (42).jpg'></image> -->
-              <view class="gotodetails"></view>
-              <text class="gotodetails-name">{{item.Country_ZH}}</text>
-              <text class="gotodetails-name1">查看详情</text>
-              <view class='country-list-btn'>
-                <text class='country'>{{item.Country_ZH}}</text>
-                <view class='xunwen-btn'>立即咨询</view>
-              </view>
-            </view>
-          
-          <!-- <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
+          <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item">
+            <image class='country-list-img' src="{{item.HotImage}}"></image>
+            <!-- <image class='country-list-img' src='http://t2.hddhhn.com/uploads/tu/201812/621/640.webp (42).jpg'></image> -->
             <view class="gotodetails"></view>
-            <text class="gotodetails-name">日本</text>
+            <text class="gotodetails-name">{{item.Country_ZH}}</text>
             <text class="gotodetails-name1">查看详情</text>
             <view class='country-list-btn'>
-              <text class='country'>台湾</text>
+              <text class='country'>{{item.Country_ZH}}</text>
               <view class='xunwen-btn'>立即咨询</view>
             </view>
           </view>
-          <view class='img-box'>
-            <image class='country-list-img' src='../../images/一.jpg'></image>
-            <view class="gotodetails"></view>
-            <text class="gotodetails-name">日本</text>
-            <text class="gotodetails-name1">查看详情</text>
-            <view class='country-list-btn'>
-              <text class='country'>台湾</text>
-              <view class='xunwen-btn'>立即咨询</view>
-            </view>
-          </view> -->
         </view>
       </view>
       <view id="two">
@@ -96,18 +74,27 @@
           </view>
         </view>
       </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
+      <scroll-view scroll-x="true">
+        <view scroll-x="true" class='country-list-asia'>
+          <block wx:for="{{asiadata}}" wx:for-item="item">
+            <view class='img-box-asia'>
+              <image bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+              <view class='topposition'>
+                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+                <view class='toppositionbtn'>立即咨询</view>
+                <view class='toppositiondetail'>查看详情</view>
+              </view>
+              <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
+            </view> -->
+            </view>
+          </block>
         </view>
-      </view>
+      </scroll-view>
       <view id="three">
         <view class='title'>
-          <text class='title1'>亚洲3</text>
+          <text bindtap='tapqqq' class='title1'>美洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
@@ -119,18 +106,27 @@
           </view>
         </view>
       </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
+      <scroll-view scroll-x="true">
+        <view scroll-x="true" class='country-list-asia'>
+          <block wx:for="{{americadata}}" wx:for-item="item">
+            <view class='img-box-asia'>
+              <image bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+              <view class='topposition'>
+                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+                <view class='toppositionbtn'>立即咨询</view>
+                <view class='toppositiondetail'>查看详情</view>
+              </view>
+              <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
+            </view> -->
+            </view>
+          </block>
         </view>
-      </view>
+      </scroll-view>
       <view id="four">
         <view class='title'>
-          <text class='title1'>亚洲4</text>
+          <text bindtap='tapqqq' class='title1'>欧洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
@@ -142,18 +138,27 @@
           </view>
         </view>
       </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
+      <scroll-view scroll-x="true">
+        <view scroll-x="true" class='country-list-asia'>
+          <block wx:for="{{europedata}}" wx:for-item="item">
+            <view class='img-box-asia'>
+              <image bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+              <view class='topposition'>
+                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+                <view class='toppositionbtn'>立即咨询</view>
+                <view class='toppositiondetail'>查看详情</view>
+              </view>
+              <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
+            </view> -->
+            </view>
+          </block>
         </view>
-      </view>
+      </scroll-view>
       <view id="five">
         <view class='title'>
-          <text class='title1'>亚洲5</text>
+          <text bindtap='tapqqq' class='title1'>非洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
@@ -165,18 +170,27 @@
           </view>
         </view>
       </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
+      <scroll-view scroll-x="true">
+        <view scroll-x="true" class='country-list-asia'>
+          <block wx:for="{{afrivcadata}}" wx:for-item="item">
+            <view class='img-box-asia'>
+              <image bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+              <view class='topposition'>
+                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+                <view class='toppositionbtn'>立即咨询</view>
+                <view class='toppositiondetail'>查看详情</view>
+              </view>
+              <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
+            </view> -->
+            </view>
+          </block>
         </view>
-      </view>
+      </scroll-view>
       <view id="six">
         <view class='title'>
-          <text class='title1'>亚洲6</text>
+          <text bindtap='tapqqq' class='title1'>大洋洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
@@ -188,84 +202,24 @@
           </view>
         </view>
       </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
-            <text class='country'>日本</text>
-            <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
-        </view>
-      </view>
-      <view id="seven">
-        <view class='title'>
-          <text class='title1'>亚洲7</text>
-          <view>
-            <view class='title3'>
-              <text style='display:inline-block;margin-left:130rpx'>Asia</text>
-              <view bindtap="gotocountrylist" style='float:right'>
-                <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+      <scroll-view scroll-x="true">
+        <view scroll-x="true" class='country-list-asia'>
+          <block wx:for="{{oceaniadata}}" wx:for-item="item">
+            <view class='img-box-asia'>
+              <image bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+              <view class='topposition'>
+                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+                <view class='toppositionbtn'>立即咨询</view>
+                <view class='toppositiondetail'>查看详情</view>
               </view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
+              <!-- <view class='country-list-btn'>
             <text class='country'>日本</text>
             <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
-        </view>
-      </view>
-      <view id="eight">
-        <view class='title'>
-          <text class='title1'>亚洲8</text>
-          <view>
-            <view class='title3'>
-              <text style='display:inline-block;margin-left:130rpx'>Asia</text>
-              <view bindtap="gotocountrylist" style='float:right'>
-                <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
-              </view>
+            </view> -->
             </view>
-          </view>
+          </block>
         </view>
-      </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
-            <text class='country'>日本</text>
-            <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
-        </view>
-      </view>
-      <view id="nine">
-        <view class='title'>
-          <text class='title1'>亚洲9</text>
-          <view>
-            <view class='title3'>
-              <text style='display:inline-block;margin-left:130rpx'>Asia</text>
-              <view bindtap="gotocountrylist" style='float:right'>
-                <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class='country-list'>
-        <view class='img-box'>
-          <image bindtap='gotodetails' class='country-list-img' src='../../images/japan.jpg'></image>
-          <!-- <view class='country-list-btn'>
-            <text class='country'>日本</text>
-            <view class='xunwen-btn'>立即咨询</view>
-          </view> -->
-        </view>
-      </view>
+      </scroll-view>
     </scroll-view>
   </view>
 </view>

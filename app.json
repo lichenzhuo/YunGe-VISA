@@ -7,7 +7,8 @@
     "pages/details/details",
     "pages/ceshi1/ceshi1",
     "pages/problemlist/problemlist",
-    "pages/problemdetail/problemdetail"
+    "pages/problemdetail/problemdetail",
+    "pages/lunbo/lunbo"
   ],
   "window": {
     "backgroundTextStyle": "light",

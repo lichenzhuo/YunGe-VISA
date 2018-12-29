@@ -5,9 +5,17 @@ import {
   config
 } from '../../config.js'
 // let http=new HTTP()
+const img_base_url = 'http://192.168.1.102:907'
 Page({
   data: {
+    img_base_url: 'http://192.168.1.102:907',
     hotdata: [],
+    asiadata: [],
+    americadata: [],
+    europedata: [],
+    afrivcadata: [],
+    oceaniadata: [],
+
     tabswitch: [{
       "tabname": '热门',
       "select": '0',
@@ -40,8 +48,29 @@ Page({
       "id": 5
     }],
     catalogSelect: 'one',
+    ret: [],
   },
-  tabclick: function(e) {
+  changeIndicatorDots(e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots
+    })
+  },
+  changeAutoplay(e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange(e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange(e) {
+    this.setData({
+      duration: e.detail.value
+    })
+  },
+  tabclick: function (e) {
 
     var scrollid = e.currentTarget.id
     var that = this
@@ -65,28 +94,26 @@ Page({
     //   })
     // }
   },
-  // tapqqq:function(e){   //测试
-  //   // console.log(e)
-  // },
+
   //事件处理函数
-  gotoproblemlist: function() {
+  gotoproblemlist: function () {
     wx.navigateTo({
       url: '../problemlist/problemlist'
     })
   },
-  gotocountrylist: function() {
+  gotocountrylist: function () {
     // 跳转国家列表页面
     wx.navigateTo({
       url: '../countrylist/countrylist',
     })
   },
-  gotodetails: function() {
+  gotodetails: function () {
     wx.navigateTo({
       url: '../details/details',
     })
   },
   //    ----------------------------------------------------------测试跳转
-  onPageScroll: function(e) { // 获取滚动条当前位置
+  onPageScroll: function (e) { // 获取滚动条当前位置
     // console.log(e)
     //  console.log(e.scrollTop)//获取滚动条当前位置的值
   },
@@ -105,51 +132,54 @@ Page({
   // }, 
   //    ----------------------------------------------------------测试跳转
 
-  onLoad: function() { //请求数据在这里
-    // http.request({
-    //   url:'Index/GetHomeData',
-    //   method:"POST",
-    //   success:(res)=>{
-    //     console.log(res)
-    //   }
-    // })
-
-
+  onLoad: function () { //请求数据在这里
     wx.request({
       url: config.api_base_url + 'Index/GetHomeData',
       method: 'post',
       success: (res) => {
-        // console.log(http://192.168.1.102:804+hotdata)
-        console.log(res.data.Data.Hot[0].HotImage)
-        var str = res.data.Data.Hot[0].HotImage
-        // '\Uploads\hot\泰国.jpg'.replace(new RegExp('\''g'),' / '))
-        // console.log(res.data.Data.Hot[0].HotImage.replace(new RegExp('\''g'),'/')))
-        // console.log(str.toString().replace(/\/g, '/'))
-        // console.log(str.toString().replace(new RegExp(\,'g'),"/"))
-
-
-        console.log(JSON.stringify(str).replace("\\","/")) 
-
-
-        // let newarr = [_this.HotCountry, _this.AsiaCountry, _this.AmericaCountry, _this.EuropeCountry, _this.AfrivcaCountry, _this.OceaniaCountry]
-        // for (let i = 0; i < newarr.length; i++) {
-        //   // console.log(1)
-        //   for (let j = 0; j < newarr[i].length; j++) {
-        //     newarr[i][j].HomeImage = _this.imgUel + newarr[i][j].HomeImage
-        //     newarr[i][j].HotImage = _this.imgUel + newarr[i][j].HotImage
-        //   }
+        console.log(res.data.Data)
+        // console.log(res.data.Data.Hot)
+        console.log(res.data.Data.Afrivca)
+        var thisHot = res.data.Data.Hot
+        var thisAfrivca = res.data.Data.Hot.Afrivca
+        var thiAmerica = res.data.Data.Hot.America
+        var thiAsia = res.data.Data.Hot.Asia
+        var thiEurope = res.data.Data.Hot.Europe
+        var thiOceania = res.data.Data.Hot.Oceania
+        // console.log(res.data.Data.Hot)
+        // // console.log(hot)
+        // var newarr = [thisHot, thisAfrivca, thiAmerica, thiAsia, thiEurope, thiOceania]
+        //  for (var i = 0; i <newarr.length; i++) {
+        //   //  console.log(newarr.length)
+        //    for (var j = 0; j <newarr[i].length; j++) {
+        //      console.log(newarr[i].length)
+        //      newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
+        //      newarr[i][j].HotImage = img_base_url + newarr[i][j].HotImage.replace(/\\/g, "\/")
+        //    }
+        //  }
+        for (var a = 0; a < thisHot.length; a++) {
+          res.data.Data.Hot[a].HotImage = img_base_url + thisHot[a].HotImage.replace(/\\/g, "\/")
+        };
+        // for (var b = 0; b < thisAfrivca.length; b++) {
+        //   res.data.Data.Afrivca[b].HomeImage = img_base_url + thisAfrivca[b].HomeImage.replace(/\\/g, "\/")
+        // };
+        // for (var b = 0; b < thisAfrivca.length; b++) {
+        //   res.data.Data.Afrivca[a].HomeImage = img_base_url + thisAfrivca[a].HomeImage.replace(/\\/g, "\/")
+        // };
+        // for (var a = 0; a < Afrivca.length; a++) {
+        //   res.data.Data.Afrivca[i].HomeImage = img_base_url + Afrivca[i].HomeImage.replace(/\\/g, "\/")
         // }
-
-
-        // console.log(hotdata)
         this.setData({
-          hotdata: res.data.Data.Hot
+          hotdata: res.data.Data.Hot,
+          asiadata: res.data.Data.Asia,
+          americadata: res.data.Data.America,
+          europedata: res.data.Data.Europe,
+          afrivcadata: res.data.Data.Afrivca,
+          oceaniadata: res.data.Data.Oceania,
+
         })
       }
     })
-    // this.setData({
-    //   hotdatakey:hotdata
-    // })
 
     // if (app.globalData.userInfo) {
     //   this.setData({
@@ -178,7 +208,7 @@ Page({
     //   })
     // }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

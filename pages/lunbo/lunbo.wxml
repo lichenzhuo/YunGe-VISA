@@ -1,0 +1,25 @@
+<scroll-view scroll-x="true">
+    <view class="uploadWrap" scroll-x="true">
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+        <view class="upload_Item">
+            <image class="upload_Item_img" src="../../images/japan.jpg"></image>
+        </view>
+    </view>
+</scroll-view>

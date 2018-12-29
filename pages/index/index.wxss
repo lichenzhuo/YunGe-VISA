@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  position: relative
+  position: relative;
 }
 
 .bg-img {
@@ -23,7 +23,7 @@
   height: 30rpx;
   position: absolute;
   top: 42rpx;
-  left: 38rpx
+  left: 38rpx;
 }
 
 .tips {
@@ -37,7 +37,7 @@
   opacity: 1;
   position: absolute;
   top: 38rpx;
-  left: 76rpx
+  left: 76rpx;
 }
 
 .personal-center {
@@ -45,65 +45,64 @@
   height: 60rpx;
   position: absolute;
   top: 30rpx;
-  right: 18rpx
+  right: 18rpx;
 }
-.problem{
-  border-bottom: 1rpx solid #F8F8F8
+
+.problem {
+  border-bottom: 1rpx solid #f8f8f8;
 }
+
 .problem-container {
   display: flex;
   align-items: center;
   height: 86rpx;
-  width: 750rpx
+  width: 750rpx;
 }
 
 .problem-img {
   width: 60rpx;
   height: 48rpx;
-  padding-left: 20rpx
+  padding-left: 20rpx;
 }
 
 .problem-text1 {
   font-size: 32rpx;
-  color: #8DA5FF;
+  color: #8da5ff;
   font-weight: bold;
-  padding-left: 10rpx
+  padding-left: 10rpx;
 }
 
 .lunbo {
   font-size: 28rpx;
-  padding-left: 34rpx
+  padding-left: 34rpx;
 }
 
 .problem-text2 {
   font-size: 28rpx;
   color: #707070;
-  padding-left: 118rpx
+  padding-left: 118rpx;
 }
 
 .nextstep1 {
   width: 28rpx;
   height: 26rpx;
-
 }
 
 /*      tab切换         */
+
 .main {
-  background-color: rgb(248, 248, 248)
+  background-color: rgb(248, 248, 248);
 }
 
 .list {
-
-  padding-bottom:20rpx;
-
+  padding-bottom: 20rpx;
   margin: 0 40rpx;
   font-size: 28rpx;
   /* line-height: 80rpx; */
-  background-color: white
+  background-color: white;
 }
 
 .item {
-
   color: #d8d5d5;
   display: flex;
   align-items: flex-start;
@@ -112,53 +111,55 @@
 }
 
 .select {
-  color: #D10202;
-  border-bottom: 1rpx solid
+  color: #d10202;
+  border-bottom: 1rpx solid;
 }
 
 /* .wenben{
   padding: 6rpx 8rpx
 } */
+
 /*    title      */
+
 .title {
   text-align: center;
-  margin: 2rpx 0;padding-top:10rpx;
-
+  margin: 2rpx 0;
+  padding-top: 10rpx;
 }
 
 .title1 {
   font-size: 36rpx;
-
   font-weight: bold;
-
-  border-bottom: 1rpx solid
+  border-bottom: 1rpx solid;
 }
 
 .title2 {
   color: #545454;
   font-size: 22rpx;
-  display: block
+  display: block;
 }
 
 .title3 {
   font-size: 22rpx;
   overflow: auto;
-  line-height: 15rpx
+  line-height: 15rpx;
 }
 
 .countryname {
   display: inline-block;
-  margin-left: 110rpx
+  margin-left: 110rpx;
 }
 
 .more-country-1 {
   display: inline-block;
-  float: right
+  float: right;
 }
 
 /*        国家列表      */
+
 .country-list {
-  margin: 0 10rpx
+  margin: 0 10rpx;
+  /* display: flex */
 }
 
 .img-box {
@@ -172,7 +173,6 @@
   width: 498rpx;
   height: 248rpx;
   border-radius: 10rpx;
-
 }
 
 .gotodetails {
@@ -219,13 +219,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #FFFFFF;
-  padding: 40rpx 10rpx 40rpx 20rpx
+  background-color: #fff;
+  padding: 40rpx 10rpx 40rpx 20rpx;
 }
 
 .country {
   font-size: 34rpx;
-  padding-left: 60rpx
+  padding-left: 60rpx;
 }
 
 .xunwen-btn {
@@ -233,12 +233,10 @@
   height: 52rpx;
   font-size: 30rpx;
   padding: 0 0 0 40rpx;
-
   vertical-align: middle;
-
   color: white;
-  background-color: #8DA5FF;
-  border-radius: 10rpx
+  background-color: #8da5ff;
+  border-radius: 10rpx;
 }
 
 .more-country {
@@ -258,3 +256,44 @@
   background: rgba(0, 0, 0, 0);
   opacity: 1;
 }
+.topposition{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 170rpx;
+  top: 40rpx
+}
+.topposition view {
+ display: table-cell;
+ color: white;
+text-align: center;
+  vertical-align: middle;
+  margin: 6rpx 0
+}
+.toppositionbtn{
+  background-color: #8DA5FF;
+  padding:2rpx 20rpx;
+border-radius:11px;
+font-size: 28rpx
+
+}
+.toppositioncountry{
+  font-size: 36rpx
+}
+.toppositiondetail{
+  font-size: 24rpx
+}
+.country-list-asia {
+  margin: 0 10rpx;
+  display: flex;
+  
+}
+
+.img-box-asia {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 30rpx 20rpx 0;
+  position: relative;
+}
+
+
