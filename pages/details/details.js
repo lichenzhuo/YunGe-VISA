@@ -1,10 +1,20 @@
 // pages/details/details.js
+import {
+  config
+} from '../../config.js'
+// let http=new HTTP()
+const img_base_url = 'http://192.168.1.102:907'
+var thatid
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    morendatadetail: [],
+    taocanlength: '',
+    morendata: [],
+    dataildata: [],
     tabswitch: [{
       "tabname": '基本信息',
       "select": 'one'
@@ -18,53 +28,44 @@ Page({
       "tabname": '签证图例',
       "select": 'four'
     }],
-    taocanlist: [{
-      taocanname: '巴西团队旅游签证1',
-      price: '188',
-      id: 0
-    }, {
-      taocanname: '巴西团队旅游签证2',
-      price: '288',
-      id: '1'
-    }, {
-      taocanname: '巴西团队旅游签证3',
-      price: '388',
-      id: '2'
-    }],
+    // taocanlist: [{
+    //   taocanname: '巴西团队旅游签证1',
+    //   price: '188',
+    //   id: 0
+    // }, {
+    //   taocanname: '巴西团队旅游签证2',
+    //   price: '288',
+    //   id: '1'
+    // }, {
+    //   taocanname: '巴西团队旅游签证3',
+    //   price: '388',
+    //   id: '2'
+    // }],
     catalogSelect: 'one',
     showModal: false,
     showtimeModal: false,
     nowid: 0
   },
-  timemodal:function(){            //办理时间弹窗打开
+  timemodal: function() { //办理时间弹窗打开
     this.setData({
       showtimeModal: true,
     })
   },
-  timecancle:function(){                 //办理时间弹窗关闭
+  timecancle: function() { //办理时间弹窗关闭
     this.setData({
       showtimeModal: false,
     })
   },
-  submit: function () {      //点击弹出弹框
+  submit: function() { //点击弹出弹框
     this.setData({
       showModal: true
     })
   },
-  preventTouchMove: function () {   //防止弹框弹出屏幕滑动
+  preventTouchMove: function() { //防止弹框弹出屏幕滑动
 
   },
-  go: function (e) {
-    console.log(e.currentTarget.id)
 
-    // this.data.taocanlist[e.currentTarget.id].taocanname;
-    // var nowtaocanname = this.data.taocanlist[e.currentTarget.id].taocanlist;
-    this.setData({
-      showModal: false,
-      nowid: e.currentTarget.id
-    })
-  },
-  cancle: function () {          //弹框取消按钮
+  cancle: function() { //弹框取消按钮
     this.setData({
       showModal: false,
       nowid: 0
@@ -76,7 +77,7 @@ Page({
   //   });
 
   // },
-  clicktab: function (e) {
+  clicktab: function(e) {
     // console.log(e)
     var that = this;
     that.setData({ //把选中值放入判断值
@@ -84,15 +85,15 @@ Page({
     })
   },
   //    点击咨询
-  clickzixun: function () {
+  clickzixun: function() {
     wx.showActionSheet({
       itemList: ['微信咨询', '手机号咨询'],
       success(res) {
         console.log(res.tapIndex)
       },
-      fail(res) {
-        console.log(res.errMsg)
-      }
+      // fail(res) {
+      //   console.log(res.errMsg)
+      // }
     })
     // wx.showToast({
     //   title: '成功',
@@ -100,59 +101,123 @@ Page({
     //   duration: 2000
     // })
   },
+  go: function(e) {
+    console.log(e.currentTarget.id)
+
+    // this.data.taocanlist[e.currentTarget.id].taocanname;
+    // var nowtaocanname = this.data.taocanlist[e.currentTarget.id].taocanlist;
+    wx.request({
+      url: config.api_base_url + 'Products/ProductDetail',
+      method: 'post',
+      data: {
+        Id: e.currentTarget.id
+      },
+      success: (res) => {
+        console.log(res.data.Data)
+        this.setData({
+          morendatadetail: res.data.Data
+        })
+      }
+    })
+    this.setData({
+      showModal: false,
+      nowid: e.currentTarget.id,
+      
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(document)
+  onLoad: function(options) {
+    var _that = this
+    // console.log(options.id)
+    wx.request({
+      url: config.api_base_url + 'Products/list',
+      method: 'post',
+      data: {
+        CategoryId: options.id
+      },
+      success: (res) => {
+        console.log(res.data.Data[0])
+
+        var thatid = res.data.Data[0].Id
+        // console.log(thatid)
+        // console.log(typeof (thatid))
+        _that.setData({
+            dataildata: res.data.Data,
+            morendata: res.data.Data[0],
+            taocanlength: res.data.Data.length,
+
+          }),
+          wx.request({
+            url: config.api_base_url + 'Products/ProductDetail',
+            method: 'post',
+            data: {
+              Id: thatid
+            },
+            success: (res) => {
+              console.log(res.data.Data)
+
+              this.setData({
+                morendatadetail: res.data.Data,
+              
+              })
+
+
+            }
+          })
+
+      }
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

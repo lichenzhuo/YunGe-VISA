@@ -8,7 +8,8 @@
     "pages/ceshi1/ceshi1",
     "pages/problemlist/problemlist",
     "pages/problemdetail/problemdetail",
-    "pages/lunbo/lunbo"
+    "pages/lunbo/lunbo",
+    "pages/searchcountry/searchcountry"
   ],
   "window": {
     "backgroundTextStyle": "light",

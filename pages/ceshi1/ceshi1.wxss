@@ -23,3 +23,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+swiper{
+    overflow: hidden;
+    height: 25px;
+}

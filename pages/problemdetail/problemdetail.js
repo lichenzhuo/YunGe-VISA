@@ -1,17 +1,38 @@
 // pages/problemdetail/problemdetail.js
+import {
+  config
+} from '../../config.js'
+// let http=new HTTP()
+const img_base_url = 'http://192.168.1.102:907'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    problemlunbo:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options.id)
+    var thatid=options.id
+    wx.request({
+      url: config.api_base_url + 'Index/GetFAQsModel',
+      method: 'post',
+      data: {
+        Id: thatid
+      },
+      success: (res) => {
+        // console.log(res.data.Data)
+        this.setData({
+           problemlunbo: res.data.Data
+        })
+
+      }
+    })
 
   },
 

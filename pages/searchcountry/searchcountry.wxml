@@ -1,0 +1,48 @@
+<!-- pages/searchcountry/searchcountry.wxml -->
+<view class='page_row' bindtap="suo">
+    <view class="search">
+        <view class="df search_arr">
+            <icon class="searchcion" size='20' type='search'></icon>
+            <input focus='true' placeholder="搜索国家/地区" value="{{searchValue}}" bindinput="searchValueInput" />
+        </view>
+    </view>
+    <view class='sousuo' bindtap="quxiaosousuo">取消</view>
+</view>
+<view class="listmoren" wx:if="{{lishi_Show}}">
+    <view style="padding:15rpx 0 20rpx 0">
+        <image style="height:26rpx;width:26rpx;padding-left:30rpx" src="../../images/历史@2x.png" />
+        <view class="searchhis">搜索历史</view>
+    </view>
+    <view style="margin-bottom:20rpx" class="txt searchhis-tips">暂无搜索历史</view>
+    <view style="margin-bottom:20rpx" class="txt searchhis-tips">暂无搜索历史</view>
+    <view style="padding:15rpx 0 20rpx 0">
+        <image style="height:26rpx;width:22rpx;padding-left:30rpx" src="../../images/热门@2x.png" />
+        <view class="hotsearch">热门搜索</view>
+    </view>
+    <view style="margin-bottom:20rpx" class="txt hotsearch-tips">德国</view>
+    <view style="margin-bottom:20rpx" class="txt hotsearch-tips">德国</view>
+    <view style="margin-bottom:20rpx" class="txt hotsearch-tips">德国</view>
+    <view style="margin-bottom:20rpx" class="txt hotsearch-tips">德国</view>
+</view>
+<view wx:if="{{jieguo_show}}">
+    <view>
+        <view class="searchbox1">
+            <image style="width:18rpx;height:24rpx" src="../../images/目的地@2x.png" />
+            <view class="mudidi">目的地</view>
+        </view>
+        <view class="searchtxt1">{{searchValue}}</view>
+    </view>
+    <view>
+        <view class="searchbox1">
+            <image style="width:24rpx;height:24rpx" src="../../images/签证2@2x.png" />
+            <view class="mudidi">签证</view>
+        </view>
+        <block wx:for="{{searchdata}}">
+            <view class="searchtxt1">{{item.Name}}</view>
+        </block>
+    </view>
+    <!-- <view class="mudidi">签证</view>
+    <block wx:for="{{searchdata}}">
+        <view>{{item.Name}}</view>
+    </block> -->
+</view>

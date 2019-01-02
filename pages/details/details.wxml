@@ -2,31 +2,31 @@
 <view id="whole" style="margin-bottom:100rpx">
     <image class="details-top-bg" src="../../images/矩形\ 103.png" />
     <view class="header">
-        <text class="headertitle">巴西团队旅游签证</text>
+        <text class="headertitle">{{morendatadetail.Name}}</text>
         <view class='headerprice-container'>
             <text class="headerprice">参考价  ￥</text>
-            <text class="headerpricenumber">388</text>
+            <text class="headerpricenumber">{{morendatadetail.ReferencePrice}}</text>
         </view>
         <view class='headerdatecontainer'>
             <text class="headerdate">预计办理</text>
-            <text class="headerdatenumber">7工作日</text>
+            <text class="headerdatenumber">{{morendatadetail.TimeLong}}工作日</text>
             <image bindtap="timemodal" class='headerdatenext' src="../../images/符号 8 – 17.png" />
         </view>
     </view>
     <view class="valid-time">
         <view class="box1">
             <image class="box1-img" src="../../images/椭圆 43.png" />
-            <text class="box1-txt">30天</text>
+            <text class="box1-txt">{{morendatadetail.ValidityPeriod}}</text>
             <text class="box1-txt1">有效期限</text>
         </view>
         <view class="box2">
             <image class="box2-img" src="../../images/椭圆 43.png" />
-            <text class="box2-txt">30天</text>
+            <text class="box2-txt">{{morendatadetail.StayMaxTime}}</text>
             <text class="box2-txt1">最长停留</text>
         </view>
         <view class="box3">
             <image class="box3-img" src="../../images/椭圆 43.png" />
-            <text class="box3-txt">1次</text>
+            <text class="box3-txt">{{morendatadetail.UseNumber}}</text>
             <text class="box3-txt1">入境次数</text>
         </view>
     </view>
@@ -35,12 +35,12 @@
             <view class="packagetitle">
                 <text class="nowpackage">当前套餐</text>
                 <text class="packageid">（商品编号：011119）</text>
-                <text bindtap="submit" class="wholepackage">全部（10）</text>
+                <text bindtap="submit" class="wholepackage">全部（{{taocanlength}}）</text>
                 <image bindtap="submit" class="packagenext" src="../../images/符号 9 – 1.png" />
             </view>
             <view class="packageitem">
-                <view class="packagedescription">{{taocanlist[nowid].taocanname}}</view>
-                <view class="referenceprice">参考价 ￥{{taocanlist[nowid].price}}</view>
+                <view class="packagedescription">{{morendatadetail.Name}}</view>
+                <view class="referenceprice">参考价 ￥{{morendatadetail.ReferencePrice}}</view>
                 <image class="packageselect" src="../../images/符号 10 – 1.png" />
             </view>
         </view>
@@ -170,41 +170,16 @@
                 </view>
                 <view id="workprocess">
                     <view class="title">办理流程</view>
-                    <view class="duizhao">
+                    <block wx:for="{{morendatadetail.processes}}">
+                     <view class="duizhao">
                         <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">准备上传资料，完善申请表</view>
-                            <view class="workprocesstltle2">准备好资料拍照上传，完善申请表</view>
+                            <view class="workprocesstltle1">{{item.Title}}</view>
+                            <view class="workprocesstltle2">{{item.Description}}</view>
                         </view>
                         <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
                     </view>
-                    <view class="duizhao">
-                        <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">下单支付</view>
-                            <view class="workprocesstltle2">选择在线支付方式支付费用</view>
-                        </view>
-                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
-                    </view>
-                    <view class="duizhao">
-                        <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">寄送材料</view>
-                            <view class="workprocesstltle2">按邮寄资料清单寄送资料</view>
-                        </view>
-                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
-                    </view>
-                    <view class="duizhao">
-                        <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">资料审核并送审</view>
-                            <view class="workprocesstltle2">签证专员审核资料，审核通过第一时间安排送馆</view>
-                        </view>
-                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
-                    </view>
-                    <view class="duizhao">
-                        <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">出签送审</view>
-                            <view class="workprocesstltle2">出签后核对签证页信息，顺丰快递到您的收件地址</view>
-                        </view>
-                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
-                    </view>
+                    </block>
+                   
                 </view>
                 <view id="exampleimg">
                     <view class="title">签证图例</view>
@@ -223,9 +198,9 @@
             </view>
             <!-- <text id="{{item.id}}" bindtap="go">{{item.title}}</text> -->
             <view class="packageitemcontainer">
-                <view wx:for="{{taocanlist}}" id="{{item.id}}" bindtap="go" class="packageitem forpackageitem">
-                    <view class="packagedescription">{{item.taocanname}}</view>
-                    <view class="referenceprice">参考价 ￥{{item.price}}</view>
+                <view wx:for="{{dataildata}}" id="{{item.Id}}" bindtap="go" class="packageitem forpackageitem">
+                    <view class="packagedescription">{{item.Name}}</view>
+                    <view class="referenceprice">参考价 ￥{{item.ReferencePrice}}</view>
                     <!-- <image class="packageselect" src="../../images/符号 10 – 1.png" /> -->
                 </view>
             </view>

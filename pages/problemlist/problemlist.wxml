@@ -7,6 +7,8 @@
 </view>
 <view id="banner">
     <view class="morenlist">
-        <view bindtap="gotoproblemdetail" class="listitem">1.申请人尚未离境签证就过期了，怎么办?</view>
+        <block wx:for="{{problemlunbo}}">
+            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">{{index+1+'、'+item.Problem}}</view>
+        </block>
     </view>
 </view>

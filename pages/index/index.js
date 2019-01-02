@@ -15,7 +15,7 @@ Page({
     europedata: [],
     afrivcadata: [],
     oceaniadata: [],
-
+    problemlunbo: [],
     tabswitch: [{
       "tabname": '热门',
       "select": '0',
@@ -96,20 +96,51 @@ Page({
   },
 
   //事件处理函数
+  searchcountry: function () {
+    wx.navigateTo({
+      url: '../searchcountry/searchcountry'
+    })
+  },
+  thisproblemdetail: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../problemdetail/problemdetail?id=' + e.currentTarget.dataset.id
+    })
+  },
   gotoproblemlist: function () {
     wx.navigateTo({
       url: '../problemlist/problemlist'
     })
-  },
-  gotocountrylist: function () {
-    // 跳转国家列表页面
+  }, // 跳转国家列表页面
+  gotocountrylistasia: function () {
     wx.navigateTo({
-      url: '../countrylist/countrylist',
+      url: "../countrylist/countrylist?listid=1",
     })
   },
-  gotodetails: function () {
+  gotocountrylistamerica: function () {
     wx.navigateTo({
-      url: '../details/details',
+      url: "../countrylist/countrylist?listid=2",
+    })
+  },
+  gotocountrylisteurope: function () {
+    wx.navigateTo({
+      url: "../countrylist/countrylist?listid=3",
+    })
+  },
+  gotocountrylistafrica: function () {
+    wx.navigateTo({
+      url: "../countrylist/countrylist?listid=4",
+    })
+  },
+  gotocountrylistoceania: function () {
+    wx.navigateTo({
+      url: "../countrylist/countrylist?listid=5",
+    })
+  },
+  gotodetails: function (e) {
+// console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../details/details?id='+e.currentTarget.dataset.id,
     })
   },
   //    ----------------------------------------------------------测试跳转
@@ -134,79 +165,54 @@ Page({
 
   onLoad: function () { //请求数据在这里
     wx.request({
-      url: config.api_base_url + 'Index/GetHomeData',
-      method: 'post',
-      success: (res) => {
-        console.log(res.data.Data)
-        // console.log(res.data.Data.Hot)
-        console.log(res.data.Data.Afrivca)
-        var thisHot = res.data.Data.Hot
-        var thisAfrivca = res.data.Data.Hot.Afrivca
-        var thiAmerica = res.data.Data.Hot.America
-        var thiAsia = res.data.Data.Hot.Asia
-        var thiEurope = res.data.Data.Hot.Europe
-        var thiOceania = res.data.Data.Hot.Oceania
-        // console.log(res.data.Data.Hot)
-        // // console.log(hot)
-        // var newarr = [thisHot, thisAfrivca, thiAmerica, thiAsia, thiEurope, thiOceania]
-        //  for (var i = 0; i <newarr.length; i++) {
-        //   //  console.log(newarr.length)
-        //    for (var j = 0; j <newarr[i].length; j++) {
-        //      console.log(newarr[i].length)
-        //      newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
-        //      newarr[i][j].HotImage = img_base_url + newarr[i][j].HotImage.replace(/\\/g, "\/")
-        //    }
-        //  }
-        for (var a = 0; a < thisHot.length; a++) {
-          res.data.Data.Hot[a].HotImage = img_base_url + thisHot[a].HotImage.replace(/\\/g, "\/")
-        };
-        // for (var b = 0; b < thisAfrivca.length; b++) {
-        //   res.data.Data.Afrivca[b].HomeImage = img_base_url + thisAfrivca[b].HomeImage.replace(/\\/g, "\/")
-        // };
-        // for (var b = 0; b < thisAfrivca.length; b++) {
-        //   res.data.Data.Afrivca[a].HomeImage = img_base_url + thisAfrivca[a].HomeImage.replace(/\\/g, "\/")
-        // };
-        // for (var a = 0; a < Afrivca.length; a++) {
-        //   res.data.Data.Afrivca[i].HomeImage = img_base_url + Afrivca[i].HomeImage.replace(/\\/g, "\/")
-        // }
-        this.setData({
-          hotdata: res.data.Data.Hot,
-          asiadata: res.data.Data.Asia,
-          americadata: res.data.Data.America,
-          europedata: res.data.Data.Europe,
-          afrivcadata: res.data.Data.Afrivca,
-          oceaniadata: res.data.Data.Oceania,
+        url: config.api_base_url + 'Index/GetHomeData',
+        method: 'post',
+        success: (res) => {
+          // console.log(res.data.Data)
+          // console.log(res.data.Data.Hot)
+          // console.log(res.data.Data.Afrivca)
+          var thisHot = res.data.Data.Hot
+          var thisAfrivca = res.data.Data.Hot.Afrivca
+          var thiAmerica = res.data.Data.Hot.America
+          var thiAsia = res.data.Data.Hot.Asia
+          var thiEurope = res.data.Data.Hot.Europe
+          var thiOceania = res.data.Data.Hot.Oceania
 
-        })
-      }
-    })
+          //    for (var j = 0; j <newarr[i].length; j++) {
+          //      console.log(newarr[i].length)
+          //      newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
+          //      newarr[i][j].HotImage = img_base_url + newarr[i][j].HotImage.replace(/\\/g, "\/")
+          //    }
+          //  }
+          for (var a = 0; a < thisHot.length; a++) {
+            res.data.Data.Hot[a].HotImage = img_base_url + thisHot[a].HotImage.replace(/\\/g, "\/")
+          };
 
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // } else if (this.data.canIUse){
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //   }
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       app.globalData.userInfo = res.userInfo
-    //       this.setData({
-    //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }
+          this.setData({
+            hotdata: res.data.Data.Hot,
+            asiadata: res.data.Data.Asia,
+            americadata: res.data.Data.America,
+            europedata: res.data.Data.Europe,
+            afrivcadata: res.data.Data.Afrivca,
+            oceaniadata: res.data.Data.Oceania,
+
+          })
+        }
+      }),
+      wx.request({
+        url: config.api_base_url + 'Index/GetFAQsList',
+        method: 'post',
+        data: {
+          Grate: 1
+        },
+        success: (res1) => {
+          console.log(res1.data.Data)
+          this.setData({
+            problemlunbo: res1.data.Data
+          })
+
+        }
+      })
   },
   getUserInfo: function (e) {
     console.log(e)

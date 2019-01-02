@@ -48,7 +48,7 @@
 
 .gotodetails-name {
 
-    width: 42px;
+    /* width: 42px; */
     height: 29px;
     font-size: 21px;
     font-family: PingFang SC;

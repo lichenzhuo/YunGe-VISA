@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -66,7 +66,19 @@
 				{
 					"id": -1,
 					"name": "lunbo",
-					"pathName": "pages/lunbo/lunbo"
+					"pathName": "pages/lunbo/lunbo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "searchcountry",
+					"pathName": "pages/searchcountry/searchcountry",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "countrylist",
+					"pathName": "pages/countrylist/countrylist"
 				}
 			]
 		}

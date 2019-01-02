@@ -80,7 +80,7 @@
 .problem-text2 {
   font-size: 28rpx;
   color: #707070;
-  padding-left: 118rpx;
+  /* padding-left: 118rpx; */
 }
 
 .nextstep1 {
@@ -190,9 +190,9 @@
   position: absolute;
   top: 74rpx;
   left: 198rpx;
-  width: 42px;
+  /* width: 42px; */
   height: 29px;
-  font-size: 21px;
+  font-size: 18px;
   font-family: PingFang SC;
   font-weight: 400;
   line-height: 29px;

@@ -13,3 +13,24 @@
 <view id="{{item.id}}">{{moren}}</view>
 <!-- </block>
 </view> -->
+
+ 
+
+
+
+
+
+<swiper autoplay="{{true}}" interval="1000" duration="500" vertical="{{true}}">
+  <block wx:for="{{problemlunbo}}">
+  <swiper-item style="height:100rpx">
+    <text>{{item.Problem}}</text>
+  </swiper-item>
+  </block>
+</swiper>
+
+
+<block wx:for="{{problemlunbo}}">
+    <text >
+        {{item.Problem}}
+    </text>
+</block>
