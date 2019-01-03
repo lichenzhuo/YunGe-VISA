@@ -75,6 +75,10 @@
 .lunbo {
   font-size: 28rpx;
   padding-left: 34rpx;
+  width: 200rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .problem-text2 {
@@ -94,12 +98,23 @@
   background-color: rgb(248, 248, 248);
 }
 
-.list {
-  padding-bottom: 20rpx;
-  margin: 0 40rpx;
+#list {
+  /* padding-bottom: 20rpx; */
+  padding: 0 40rpx 20rpx 40rpx;
+  width: 680rpx;
+
+  /* margin: 0 40rpx; */
   font-size: 28rpx;
   /* line-height: 80rpx; */
   background-color: white;
+}
+
+#list1 {
+  height: 98rpx;
+}
+
+.show {
+  visibility: hidden;
 }
 
 .item {
@@ -256,37 +271,42 @@
   background: rgba(0, 0, 0, 0);
   opacity: 1;
 }
-.topposition{
+
+.topposition {
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 170rpx;
   top: 40rpx
 }
+
 .topposition view {
- display: table-cell;
- color: white;
-text-align: center;
+  display: table-cell;
+  color: white;
+  text-align: center;
   vertical-align: middle;
   margin: 6rpx 0
 }
-.toppositionbtn{
-  background-color: #8DA5FF;
-  padding:2rpx 20rpx;
-border-radius:11px;
-font-size: 28rpx
 
+.toppositionbtn {
+  background-color: #8DA5FF;
+  padding: 2rpx 20rpx;
+  border-radius: 11px;
+  font-size: 28rpx
 }
-.toppositioncountry{
+
+.toppositioncountry {
   font-size: 36rpx
 }
-.toppositiondetail{
+
+.toppositiondetail {
   font-size: 24rpx
 }
+
 .country-list-asia {
   margin: 0 10rpx;
   display: flex;
-  
+
 }
 
 .img-box-asia {
@@ -297,3 +317,8 @@ font-size: 28rpx
 }
 
 
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 9999
+}

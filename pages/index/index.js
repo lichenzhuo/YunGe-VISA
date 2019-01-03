@@ -47,7 +47,8 @@ Page({
       "scrollTop": 1580,
       "id": 5
     }],
-    catalogSelect: 'one',
+    catalogSelect: '0',
+    fixedsel: false,
     ret: [],
   },
   changeIndicatorDots(e) {
@@ -74,26 +75,98 @@ Page({
 
     var scrollid = e.currentTarget.id
     var that = this
-    // console.log(e)
-    // console.log(scrollid)
+    //  console.log(e)
+    console.log(scrollid)
     this.setData({
       catalogSelect: e.currentTarget.dataset.select
 
     })
     // console.log(that.data.tabswitch[scrollid].scrollTop)
-    if (scrollid) {
+    if (scrollid == 0) {
       wx.pageScrollTo({
-        scrollTop: that.data.tabswitch[scrollid].scrollTop,
+        scrollTop: 280,
+        duration: 300
+      })
+    } else if (scrollid == 1) {
+      wx.pageScrollTo({
+        scrollTop: 700,
+        duration: 300
+      })
+    } else if (scrollid == 2) {
+      wx.pageScrollTo({
+        scrollTop: 900,
+        duration: 300
+      })
+    } else if (scrollid == 3) {
+      wx.pageScrollTo({
+        scrollTop: 1094,
+        duration: 300
+      })
+    } else if (scrollid == 4) {
+      wx.pageScrollTo({
+        scrollTop: 1288,
+        duration: 300
+      })
+    } else if (scrollid == 5) {
+      wx.pageScrollTo({
+        scrollTop: 1400,
         duration: 300
       })
     }
-    // else{
-    //   wx.pageScrollTo({
-    //     scrollTop: 1400,
-    //     duration: 300
-    //   })
-    // }
   },
+  onPageScroll: function (e) { // 获取滚动条当前位置
+    // console.log(e)
+    if (e.scrollTop >= 280 && e.scrollTop < 700) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '0'
+      })
+    } else if (e.scrollTop >= 700 && e.scrollTop < 900) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '1'
+      })
+    } else if (e.scrollTop >= 900 && e.scrollTop < 1094) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '2'
+      })
+    } else if (e.scrollTop >= 1094 && e.scrollTop < 1288) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '3'
+      })
+    } else if (e.scrollTop >= 1288 && e.scrollTop < 1400) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '4'
+      })
+    } else if (e.scrollTop >= 1400 && e.scrollTop < 1500) {
+      this.setData({
+        fixedsel: true,
+        catalogSelect: '5'
+      })
+    } else {
+      this.setData({
+        fixedsel: false
+      })
+    }
+    console.log(e.scrollTop) //获取滚动条当前位置的值
+  },
+
+  // goTop: function (e) {  // 一键回到顶部
+  //  if (wx.pageScrollTo) {//判断这个方法是否可用
+  //     wx.pageScrollTo({
+  //       scrollTop: 0
+  //     })
+  //   } else {
+  //     wx.showModal({
+  //       title: '提示',
+  //       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+  //     })
+  //   }
+  // }, 
+  //    ----------------------------------------------------------测试跳转
 
   //事件处理函数
   searchcountry: function () {
@@ -138,32 +211,42 @@ Page({
     })
   },
   gotodetails: function (e) {
-// console.log(e.currentTarget.dataset.id)
+    // console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../details/details?id='+e.currentTarget.dataset.id,
+      url: '../details/details?id=' + e.currentTarget.dataset.id,
     })
   },
   //    ----------------------------------------------------------测试跳转
-  onPageScroll: function (e) { // 获取滚动条当前位置
-    // console.log(e)
-    //  console.log(e.scrollTop)//获取滚动条当前位置的值
-  },
-
-  // goTop: function (e) {  // 一键回到顶部
-  //  if (wx.pageScrollTo) {//判断这个方法是否可用
-  //     wx.pageScrollTo({
-  //       scrollTop: 0
-  //     })
-  //   } else {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-  //     })
-  //   }
-  // }, 
-  //    ----------------------------------------------------------测试跳转
 
   onLoad: function () { //请求数据在这里
+    var that=this
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res.userInfo)
+        console.log(res.userInfo.avatarUrl)
+        console.log(res.userInfo.nickName)
+        that.setData({
+          nickName: res.userInfo.nickName,
+         avatarUrl: res.userInfo.avatarUrl,
+      })
+      },
+    })
+    wx.login({
+      success(res) {
+        // console.log(res)
+        if (res.code) {
+          // 发起网络请求
+          wx.request({
+            url: 'https://test.com/onLogin',
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
     wx.request({
         url: config.api_base_url + 'Index/GetHomeData',
         method: 'post',

@@ -1,0 +1,22 @@
+<view class="bg">
+    <image style="width:750rpx;height:288rpx" src="../../images/矩形103.png" />
+    <view class="centerbox">
+        <image class="useimg" src="{{avatarUrl}}"></image>
+        <view class="usename">{{nickName}}</view>
+    </view>
+</view>
+<view>
+    <view class="txt" style="border-bottom:4rpx solid #F8F8F8">
+        <view class="txt1">微信号</view>
+        <view style="" class="txt2">13855555555</view>
+        <image class="next" src="../../images/下一步.png" />
+    </view>
+    <view class="txt">
+        <view class="txt1">微信号</view>
+        <view class="txt2">13855555555</view>
+        <image class="next" src="../../images/下一步.png" />
+    </view>
+</view>
+<button  type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>

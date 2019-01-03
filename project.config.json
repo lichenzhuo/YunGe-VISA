@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -65,12 +65,6 @@
 				},
 				{
 					"id": -1,
-					"name": "lunbo",
-					"pathName": "pages/lunbo/lunbo",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "searchcountry",
 					"pathName": "pages/searchcountry/searchcountry",
 					"query": ""
@@ -78,7 +72,14 @@
 				{
 					"id": -1,
 					"name": "countrylist",
-					"pathName": "pages/countrylist/countrylist"
+					"pathName": "pages/countrylist/countrylist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "selfcenter",
+					"pathName": "pages/selfcenter/selfcenter",
+					"query": ""
 				}
 			]
 		}

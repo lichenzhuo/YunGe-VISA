@@ -1,3 +1,8 @@
+import {
+  config
+} from '../../config.js'
+// let http=new HTTP()
+const img_base_url = 'http://192.168.1.102:907'
 var app = getApp();
 var searchValue = ''
 Page({
@@ -7,20 +12,23 @@ Page({
    */
   data: {
     lishi_Show: true,
-    jieguo_show:false,
+    jieguo_show: false,
     searchValue: '',
     img: '',
     nanshen_card: '',
-    searchdata: []
+    searchdata: [],
+    searchcountry: [],
+    baocunname: []
+
   },
   searchValueInput: function (e) {
-    var that=this
+    var that = this
     var value = e.detail.value;
     that.setData({
-      lishi_Show:false,
-      jieguo_show:true
+      lishi_Show: false,
+      jieguo_show: true
     })
-    console.log(e)
+    // console.log(e)
     that.setData({
       searchValue: value,
     });
@@ -36,11 +44,12 @@ Page({
         Name: value
       },
       success: function (res) {
-        console.log(res.data.Data.Name)
-
-        
+        // console.log(res.data.Data.Name)
+        console.log(res.data.Data.CountryName[0].Country_ZH)
         that.setData({
-          searchdata : res.data.Data.Name
+          searchdata: res.data.Data.Name,
+          searchcountry: res.data.Data.CountryName,
+          baocunname: res.data.Data.CountryName[0].Country_ZH
         })
 
 
@@ -52,6 +61,23 @@ Page({
         });
       },
     });
+  },
+  searchcountryclick: function (e) {
+    //  console.log(e.currentTarget.dataset.id)
+
+    wx.navigateTo({
+      url: '../details/details?id=' + e.currentTarget.dataset.id,
+    })
+     wx.request({
+      url: config.api_base_url + 'Historical/SaveHistorical',
+      method: 'post',
+      data: {
+        Contents: this.data.baocunname
+      }
+    })
+  },
+  searchproclick: function (e) {
+    // console.log(e.currentTarget.dataset.proid)
   },
   // suo: function (e) {
   //   var id = e.currentTarget.dataset.id
@@ -81,7 +107,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: config.api_base_url + 'Historical/SelectHistorical',
+      method: 'post',
+      success: (res) => {
+         console.log(res)
+      }
+    })
   },
 
   /**

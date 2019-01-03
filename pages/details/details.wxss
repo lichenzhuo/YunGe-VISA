@@ -343,7 +343,7 @@
     padding-top: 8rpx
 }
 
-.btnselect {
+#btnselect {
     border: 2rpx solid #8DA5FF;
     color: #8DA5FF
 }
@@ -353,7 +353,7 @@
 }
 
 .material {
-    height: 620rpx;
+    /* height: 620rpx; */
 }
 
 .appmaterial {

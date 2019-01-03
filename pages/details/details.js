@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    requiredata:[],
     morendatadetail: [],
     taocanlength: '',
     morendata: [],
@@ -28,19 +29,23 @@ Page({
       "tabname": '签证图例',
       "select": 'four'
     }],
-    // taocanlist: [{
-    //   taocanname: '巴西团队旅游签证1',
-    //   price: '188',
-    //   id: 0
-    // }, {
-    //   taocanname: '巴西团队旅游签证2',
-    //   price: '288',
-    //   id: '1'
-    // }, {
-    //   taocanname: '巴西团队旅游签证3',
-    //   price: '388',
-    //   id: '2'
-    // }],
+    jobswitch:[{
+      "tabname":'自由职业者',
+      "select": 'one'
+    },{
+      "tabname":'退休人员',
+      "select": 'two'
+    },{
+      "tabname":'在职人员',
+      "select": 'three'
+    },{
+      "tabname":'在校学生',
+      "select": 'four'
+    },{
+      "tabname":'学龄前儿童',
+      "select": 'five'
+    }],
+    jobswitchselect:'one',
     catalogSelect: 'one',
     showModal: false,
     showtimeModal: false,
@@ -84,6 +89,34 @@ Page({
       catalogSelect: e.currentTarget.dataset.select
     })
   },
+  jobtab:function(e){
+    var that = this;
+    that.setData({ //把选中值放入判断值
+      jobswitchselect: e.currentTarget.dataset.select
+    })
+    var thatselect=e.currentTarget.dataset.select
+    if(e.currentTarget.dataset.select=='one'){
+      that.setData({
+        requiredata: that.data.morendatadetail.datum.freeOcc
+      })
+    }else if (e.currentTarget.dataset.select=='two') {
+      that.setData({
+        requiredata: that.data.morendatadetail.datum.retire
+      })
+    }else if (e.currentTarget.dataset.select=='three') {
+      that.setData({
+        requiredata:that.data.morendatadetail.datum.jobPerson
+      })
+    }else if (e.currentTarget.dataset.select=='four') {
+      that.setData({
+        requiredata:that.data.morendatadetail.datum.student
+      })
+    }else {
+      that.setData({
+        requiredata:that.data.morendatadetail.datum.children
+      })
+    }
+  },
   //    点击咨询
   clickzixun: function() {
     wx.showActionSheet({
@@ -91,9 +124,6 @@ Page({
       success(res) {
         console.log(res.tapIndex)
       },
-      // fail(res) {
-      //   console.log(res.errMsg)
-      // }
     })
     // wx.showToast({
     //   title: '成功',
@@ -102,10 +132,6 @@ Page({
     // })
   },
   go: function(e) {
-    console.log(e.currentTarget.id)
-
-    // this.data.taocanlist[e.currentTarget.id].taocanname;
-    // var nowtaocanname = this.data.taocanlist[e.currentTarget.id].taocanlist;
     wx.request({
       url: config.api_base_url + 'Products/ProductDetail',
       method: 'post',
@@ -113,11 +139,13 @@ Page({
         Id: e.currentTarget.id
       },
       success: (res) => {
-        console.log(res.data.Data)
+        // console.log(res.data.Data)
         this.setData({
           morendatadetail: res.data.Data
         })
-      }
+        // console.log(this.data.morendatadetail)
+      },
+      
     })
     this.setData({
       showModal: false,
@@ -130,7 +158,6 @@ Page({
    */
   onLoad: function(options) {
     var _that = this
-    // console.log(options.id)
     wx.request({
       url: config.api_base_url + 'Products/list',
       method: 'post',
@@ -138,11 +165,9 @@ Page({
         CategoryId: options.id
       },
       success: (res) => {
-        console.log(res.data.Data[0])
+        // console.log(res.data.Data[0])
 
         var thatid = res.data.Data[0].Id
-        // console.log(thatid)
-        // console.log(typeof (thatid))
         _that.setData({
             dataildata: res.data.Data,
             morendata: res.data.Data[0],
@@ -156,12 +181,12 @@ Page({
               Id: thatid
             },
             success: (res) => {
-              console.log(res.data.Data)
-
+              // console.log(res.data.Data)
               this.setData({
                 morendatadetail: res.data.Data,
-              
+                requiredata:res.data.Data.datum.freeOcc
               })
+              // console.log(this.data.morendatadetail)
 
 
             }

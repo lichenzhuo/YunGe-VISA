@@ -1,83 +1,112 @@
-
-.search{
-  width: 80%;
+.search {
+  width: 700rpx
 }
+
 .search_arr {
-  border: 1px solid #d0d0d0;
+  /* border: 1px solid #d0d0d0; */
   border-radius: 14px 14px 16px 14px;
   margin-left: 20rpx;
+  background-color: #FAFAFA
 }
-.search_arr input{
+
+.search_arr input {
   margin-left: 60rpx;
   height: 60rpx;
   border-radius: 5px;
 }
+
 .bc_text {
   line-height: 68rpx;
   height: 68rpx;
   margin-top: 34rpx;
 }
- 
+
 .sousuo {
   margin-left: 15rpx;
-  width: 15%;
-  line-height: 150%;
-  text-align: center;
-  
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 1);
+  padding-top: 10rpx;
+  /* text-align: center; */
+
   border-radius: 10rpx;
 }
-.page_row{
+
+.page_row {
   display: flex;
   flex-direction: row
 }
+
 .searchcion {
   margin: 10rpx 10rpx 10rpx 10rpx;
   position: absolute;
-  left:25rpx;
+  left: 25rpx;
   z-index: 2;
   width: 20px;
   height: 20px;
   text-align: center;
 }
-.searchhis{
+
+.searchhis {
   display: inline-block;
-    font-size:28rpx;
-    font-weight: bold;
+  font-size: 28rpx;
+  font-weight: bold;
 }
-.searchhis-tips{
-    
-    background:rgba(171,171,171,1);
-    border-radius:14px;
-    display: inline;
-    margin-left: 40rpx
+
+.searchhis-tips {
+
+  background: #FAFAFA;
+  border-radius: 14px;
+  display: inline;
+  margin-left: 40rpx
 }
-.hotsearch{
-    font-size:28rpx;
-    font-weight: bold;
-    /* padding-left: 30rpx; */
+
+/* .hotsearch {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: inline-block;
+
+} */
+
+/* .hotsearch-tips {
+  background: #FAFAFA;
+  border-radius: 14px;
+  display: inline;
+  margin: 20rpx 40rpx 0
+} */
+
+.mudidi {
+  color: #ABABAB;
+}
+
+.mudidi {
   display: inline-block;
 
 }
-.hotsearch-tips{
-    background:rgba(171,171,171,1);
-    border-radius:14px;
-    display: inline;margin-left: 40rpx
+
+.searchbox1 {
+  margin: 22rpx 0 22rpx 22rpx;
+  border-bottom: 1rpx solid #FAFAFA;
+  padding-bottom: 20rpx;
 }
-.mudidi{
-  color:rgba(171,171,171,1);
-}
-.mudidi{
-  display:inline-block;
+
+.searchtxt1 {
+  padding: 0 0 22rpx 40rpx;
+  border-bottom: 1rpx solid #FAFAFA;
 
 }
-.searchbox1{
-  margin:22rpx 0 22rpx 22rpx;
-  border-bottom:1rpx solid black;
-  padding-bottom:20rpx;
-}
-.searchtxt1{
-  padding: 0 0 22rpx 40rpx
-}
+
 .txt {
   padding: 0 30rpx
+}
+.clear{
+  display:inline-block;
+  font-size:13px;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:18px;
+  color:rgba(0,0,0,1);
+  margin-left: 20rpx
 }

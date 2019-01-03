@@ -6,14 +6,16 @@
     <text bindtap="searchcountry" class='tips'>搜索国家/地区</text>
     <image class='personal-center' src='../../images/个人中心.png'></image>
   </view>
-  <view class='problem' >
+  <view class='problem'>
     <view class='problem-container'>
       <image class='problem-img' src='../../images/problem.png'></image>
       <text class='problem-text1'>常见问题</text>
-      <swiper style="height:56rpx;overflow:hidden;width:440rpx" circular="{{true}}" autoplay="{{true}}" interval="2000" duration="500" vertical="{{true}}">
+      <swiper style="height:160rpx;overflow:hidden;width:440rpx;maigin-right:60rpx" circular='true' autoplay='true' interval="3000" duration="500" vertical='true'>
         <block wx:for="{{problemlunbo}}">
           <swiper-item>
-            <text bindtap="thisproblemdetail" class='lunbo' data-id="{{item.Id}}">{{item.Problem}}</text>
+            <text bindtap="thisproblemdetail" class='lunbo' data-id="{{item.Id}}">
+              {{item.Problem}}
+            </text>
           </swiper-item>
         </block>
       </swiper>
@@ -21,7 +23,7 @@
       <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/下一步.png'></image>
     </view>
   </view>
-  <view class='list'>
+  <view id='list' class="{{fixedsel?'fixed':''}}">
     <view class='item'>
       <block wx:for="{{tabswitch}}">
         <text id="{{item.id}}" bindtap="tabclick" data-select="{{item.select}}" class="{{item.select==catalogSelect?'select':''}}">
@@ -29,22 +31,10 @@
         </text>
       </block>
     </view>
-    <!-- <view class='item'>
-      <text class='wenben'>亚洲</text>
-    </view>
-    <view class='item'>
-      <text class='wenben'>美洲</text>
-    </view>
-    <view class='item'>
-      <text class='wenben'>欧洲</text>
-    </view>
-    <view class='item'>
-      <text class='wenben'>非洲</text>
-    </view>
-    <view class='item'>
-      <text class='wenben'>大洋洲</text>
-    </view> -->
   </view>
+  <!-- <view id="list1" class="{{fixedsel?'':'show'}}">
+
+  </view> -->
   <view class='main'>
     <scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="two">
       <view id="one">
@@ -178,7 +168,7 @@
       </view>
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
-          <block wx:for="{{afrivcadata}}" wx:for-item="item" >
+          <block wx:for="{{afrivcadata}}" wx:for-item="item">
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
               <view class='topposition'>
@@ -228,5 +218,5 @@
       </scroll-view>
     </scroll-view>
   </view>
-  
+  <image style="width:750rpx;height:638rpx" src="../../images/foot.png" />
 </view>

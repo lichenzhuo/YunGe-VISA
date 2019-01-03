@@ -3,7 +3,7 @@
 <view class='country-list'>
     <block wx:for="{{asialist}}">
         <view class='img-box' data-id="{{item.Id}}">
-            <image class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
+            <image bindtap="gotodetails" data-id="{{item.Id}}" class='country-list-img' src="{{img_base_url+item.HomeImage}}"></image>
             <view class="gotodetails"></view>
             <text class="gotodetails-name">{{item.Country_ZH}}</text>
             <text class="gotodetails-name1">查看详情</text>

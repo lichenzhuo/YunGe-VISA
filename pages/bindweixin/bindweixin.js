@@ -1,44 +1,18 @@
-// pages/countrylist/countrylist.js
+// pages/bindweixin/bindweixin.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    asialist: [],
-    img_base_url: 'http://192.168.1.102:907',
 
   },
-  gotodetails: function (e) {
-     console.log(e.currentTarget.dataset.id)
-        wx.navigateTo({
-          url: '../details/details?id='+e.currentTarget.dataset.id,
-        })
-      },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var that=this
-    console.log(options.listid)
-    var listid=options.listid
-    wx.setNavigationBarTitle({
-      title: '亚洲Asia'
-    })
-    wx.request({
-      url: 'http://192.168.1.102:804/api/Index/CountryList',
-      method: 'post',
-      data: {
-        Continent: listid
-      },
-      success: (res) => {
-        console.log(res.data.Data)
-        this.setData({
-          asialist: res.data.Data
-        })
 
-      }
-    })
   },
 
   /**

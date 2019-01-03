@@ -1,6 +1,6 @@
 <!-- pages/details/details.wxml -->
 <view id="whole" style="margin-bottom:100rpx">
-    <image class="details-top-bg" src="../../images/矩形\ 103.png" />
+    <image class="details-top-bg" src="../../images/矩形103.png" />
     <view class="header">
         <text class="headertitle">{{morendatadetail.Name}}</text>
         <view class='headerprice-container'>
@@ -104,10 +104,12 @@
                 <view id="requiredinformation">
                     <view class="title">所需材料</view>
                     <view class="wholebtn">
-                        <view class="btn">
-                            <view class="btntxt">自由职业者</view>
-                        </view>
-                        <view class="btn">
+                        <block wx:for="{{jobswitch}}" wx:key="{{item.id}}">
+                            <view class="btn" bindtap="jobtab" data-select="{{item.select}}" id="{{item.select==jobswitchselect?'btnselect':''}}">
+                                <view class="btntxt">{{item.tabname}}</view>
+                            </view>
+                        </block>
+                        <!-- <view class="btn">
                             <view class="btntxt">退休人员</view>
                         </view>
                         <view class="btn btnselect">
@@ -118,22 +120,24 @@
                         </view>
                         <view class="btn">
                             <view class="btntxt">学龄前儿童</view>
-                        </view>
+                        </view> -->
                     </view>
                     <view class="material">
                         <view class="materialtitle">*必须提供的资料</view>
                         <view class="appmaterial">
                             <text class="title1">APP拍摄资料</text>
-                            <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1 must">护照*</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
-                            <view class="neirongone">
+                            <block wx:for="{{requiredata.App}}">
+                                <view class="neirongone">
+                                    <view class="dian"></view>
+                                    <view class="neirongone1">{{item.Name}}</view>
+                                    <!-- <view class="must">*</view> -->
+                                </view>
+                            </block>
+                            <!-- <view class="neirongone">
                                 <view class="dian"></view>
                                 <view class="neirongone1 must">照片*</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
+                                
+                            </view> -->
                             <view class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
                                 <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
@@ -141,26 +145,13 @@
                         </view>
                         <view class="appmaterial">
                             <text class="title1">邮寄资料</text>
-                            <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1 must">固定资产证明*</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
-                            <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1 must">照片*</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
-                            <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1 must">护照*</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
-                            <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1">居住证</view>
-                                <!-- <view class="must">*</view> -->
-                            </view>
+                            <block wx:for="{{requiredata.Ems}}">
+                                <view class="neirongone">
+                                    <view class="dian"></view>
+                                    <view class="neirongone1">{{item.Name}}</view>
+                                    <!-- <view class="must">*</view> -->
+                                </view>
+                            </block>
                             <view class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
                                 <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
@@ -171,15 +162,14 @@
                 <view id="workprocess">
                     <view class="title">办理流程</view>
                     <block wx:for="{{morendatadetail.processes}}">
-                     <view class="duizhao">
-                        <view class="workprocesstxt1">
-                            <view class="workprocesstltle1">{{item.Title}}</view>
-                            <view class="workprocesstltle2">{{item.Description}}</view>
+                        <view class="duizhao">
+                            <view class="workprocesstxt1">
+                                <view class="workprocesstltle1">{{item.Title}}</view>
+                                <view class="workprocesstltle2">{{item.Description}}</view>
+                            </view>
+                            <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
                         </view>
-                        <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
-                    </view>
                     </block>
-                   
                 </view>
                 <view id="exampleimg">
                     <view class="title">签证图例</view>
@@ -216,7 +206,11 @@
             <view class="timemodalDlgtxt">
                 <text class="timebox">7工作日</text>
                 <text class="timetxt">
-                    从资料收齐后开始计算：资料操作处理<text class="boldtxt">1</text>工作日+使馆受理<text class="boldtxt">6</text>工作日
+                    从资料收齐后开始计算：资料操作处理
+                    <text class="boldtxt">1</text>
+                    工作日+使馆受理
+                    <text class="boldtxt">6</text>
+                    工作日
                 </text>
             </view>
         </view>

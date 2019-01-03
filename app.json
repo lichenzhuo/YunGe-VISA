@@ -9,7 +9,10 @@
     "pages/problemlist/problemlist",
     "pages/problemdetail/problemdetail",
     "pages/lunbo/lunbo",
-    "pages/searchcountry/searchcountry"
+    "pages/searchcountry/searchcountry",
+    "pages/selfcenter/selfcenter",
+    "pages/bindphone/bindphone",
+    "pages/bindweixin/bindweixin"
   ],
   "window": {
     "backgroundTextStyle": "light",
