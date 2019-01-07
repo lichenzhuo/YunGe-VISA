@@ -1,2 +1,12 @@
-<!--pages/bindweixin/bindweixin.wxml-->
-<text>pages/bindweixin/bindweixin.wxml</text>
+<view class="main">
+    <view class='page_row' bindtap="suo">
+        <view class="search">
+            <view class="df search_arr">
+                <view class="searchcion">微信号</view>
+                <input style="overflow:visible" focus='true' placeholder="{{wxnum}}" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="searchValueInput" />
+            </view>
+        </view>
+        <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->
+    </view>
+    <view class="btn" bindtap="bindphone">绑定</view>
+</view>

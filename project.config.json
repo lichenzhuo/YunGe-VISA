@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx12f1e4cf7f5be0a0",
+	"appid": "wx2905c9c6d412246c",
 	"projectname": "qianzheng",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -80,6 +80,29 @@
 					"name": "selfcenter",
 					"pathName": "pages/selfcenter/selfcenter",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bindweixin",
+					"pathName": "pages/bindweixin/bindweixin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shuju",
+					"pathName": "pages/shuju/shuju",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bindphone",
+					"pathName": "pages/bindphone/bindphone"
 				}
 			]
 		}

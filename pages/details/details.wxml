@@ -188,7 +188,7 @@
             </view>
             <!-- <text id="{{item.id}}" bindtap="go">{{item.title}}</text> -->
             <view class="packageitemcontainer">
-                <view wx:for="{{dataildata}}" id="{{item.Id}}" bindtap="go" class="packageitem forpackageitem">
+                <view wx:for="{{dataildata}}" id="{{item.Id}}" bindtap="gotoselect" class="packageitem forpackageitem">
                     <view class="packagedescription">{{item.Name}}</view>
                     <view class="referenceprice">参考价 ￥{{item.ReferencePrice}}</view>
                     <!-- <image class="packageselect" src="../../images/符号 10 – 1.png" /> -->

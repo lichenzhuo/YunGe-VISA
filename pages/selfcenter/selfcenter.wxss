@@ -4,7 +4,7 @@
 
 .centerbox {
     width: 750rpx;
-    height: 288rpx;
+    
     position: absolute;
     top: 0;
     /* top: 60rpx;
@@ -53,9 +53,32 @@
     margin-left: 370rpx
 }
 
-  .next  {
+.next {
     width: 14rpx;
     height: 24rpx;
     float: right;
     margin: 22rpx 10rpx 0 0;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    z-index: 99;
+    opacity: 1;
+    
+    /* position: relative; */
+}
+.logoimg{
+    /* position: absolute;
+    top: 0 */
+}
+.btncontainer{
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+    margin-top: 100rpx
 }

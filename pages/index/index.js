@@ -71,6 +71,11 @@ Page({
       duration: e.detail.value
     })
   },
+  gotoselfcenter:function(e){
+    wx.navigateTo({
+      url: '../selfcenter/selfcenter'
+    })
+  },
   tabclick: function (e) {
 
     var scrollid = e.currentTarget.id
@@ -219,34 +224,34 @@ Page({
   //    ----------------------------------------------------------测试跳转
 
   onLoad: function () { //请求数据在这里
-    var that=this
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res.userInfo)
-        console.log(res.userInfo.avatarUrl)
-        console.log(res.userInfo.nickName)
-        that.setData({
-          nickName: res.userInfo.nickName,
-         avatarUrl: res.userInfo.avatarUrl,
-      })
-      },
-    })
-    wx.login({
-      success(res) {
-        // console.log(res)
-        if (res.code) {
-          // 发起网络请求
-          wx.request({
-            url: 'https://test.com/onLogin',
-            data: {
-              code: res.code
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+    // var that=this
+    // wx.getUserInfo({
+    //   success: function (res) {
+    //     console.log(res.userInfo)
+    //     console.log(res.userInfo.avatarUrl)
+    //     console.log(res.userInfo.nickName)
+    //     that.setData({
+    //       nickName: res.userInfo.nickName,
+    //      avatarUrl: res.userInfo.avatarUrl,
+    //   })
+    //   },
+    // })
+    // wx.login({
+    //   success(res) {
+    //     // console.log(res)
+    //     if (res.code) {
+    //       // 发起网络请求
+    //       wx.request({
+    //         url: 'https://test.com/onLogin',
+    //         data: {
+    //           code: res.code
+    //         }
+    //       })
+    //     } else {
+    //       console.log('登录失败！' + res.errMsg)
+    //     }
+    //   }
+    // })
     wx.request({
         url: config.api_base_url + 'Index/GetHomeData',
         method: 'post',

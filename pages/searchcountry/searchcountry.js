@@ -44,8 +44,9 @@ Page({
         Name: value
       },
       success: function (res) {
-        // console.log(res.data.Data.Name)
-        console.log(res.data.Data.CountryName[0].Country_ZH)
+        console.log(res)
+        //  console.log(res.data.Data.Name)
+        // console.log(res.data.Data.CountryName[0].Country_ZH)
         that.setData({
           searchdata: res.data.Data.Name,
           searchcountry: res.data.Data.CountryName,
@@ -68,16 +69,26 @@ Page({
     wx.navigateTo({
       url: '../details/details?id=' + e.currentTarget.dataset.id,
     })
-     wx.request({
-      url: config.api_base_url + 'Historical/SaveHistorical',
-      method: 'post',
-      data: {
-        Contents: this.data.baocunname
-      }
-    })
+    //  wx.request({
+    //   url: config.api_base_url + 'Historical/SaveHistorical',
+    //   method: 'post',
+    //   data: {
+    //     Contents: this.data.baocunname
+    //   }
+    // })
   },
   searchproclick: function (e) {
-    // console.log(e.currentTarget.dataset.proid)
+     console.log(e)
+     wx.navigateTo({
+      url: "../details/details?id=" + e.currentTarget.dataset.id+"&proid="+ e.currentTarget.dataset.proid,
+    })
+    //  wx.request({
+    //   url: config.api_base_url + 'Historical/SaveHistorical',
+    //   method: 'post',
+    //   data: {
+    //     Contents: this.data.baocunname
+    //   }
+    // })
   },
   // suo: function (e) {
   //   var id = e.currentTarget.dataset.id

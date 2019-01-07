@@ -28,11 +28,11 @@
 
 .tips {
   /* width: 90px; */
-  height: 20px;
-  font-size: 14px;
+  height: 40rpx;
+  font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 40rpx;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
   position: absolute;
@@ -194,8 +194,8 @@
   position: absolute;
   top: 34rpx;
   left: 150rpx;
-  width: 90px;
-  height: 90px;
+  width: 180rpx;
+  height: 180rpx;
   background: rgba(255, 255, 255, 1);
   border-radius: 50%;
   opacity: 0.2;
@@ -206,11 +206,11 @@
   top: 74rpx;
   left: 198rpx;
   /* width: 42px; */
-  height: 29px;
-  font-size: 18px;
+  height: 58rpx;
+  font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  line-height: 29px;
+  line-height: 58rpx;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
 }
@@ -219,12 +219,12 @@
   position: absolute;
   top: 136rpx;
   left: 184rpx;
-  width: 56px;
-  height: 20px;
-  font-size: 14px;
+  width: 112rpx;
+  height: 40rpx;
+  font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 40rpx;
   color: rgba(255, 255, 255, 1);
   opacity: 1;
 }
@@ -266,8 +266,8 @@
 }
 
 .nextpage {
-  width: 14px;
-  height: 13px;
+  width: 28rpx;
+  height: 26rpx;
   background: rgba(0, 0, 0, 0);
   opacity: 1;
 }
@@ -291,7 +291,7 @@
 .toppositionbtn {
   background-color: #8DA5FF;
   padding: 2rpx 20rpx;
-  border-radius: 11px;
+  border-radius: 22rpx;
   font-size: 28rpx
 }
 
@@ -321,4 +321,11 @@
   position: fixed;
   top: 0;
   z-index: 9999
+}
+
+.swiper {
+  height: 160rpx;
+  overflow: hidden;
+  width: 440rpx;
+  margin-right: 60rpx
 }

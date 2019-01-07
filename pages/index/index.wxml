@@ -4,13 +4,13 @@
     <input class='search'></input>
     <image class='search-img' src='../../images/icn_disocver_active.png'></image>
     <text bindtap="searchcountry" class='tips'>搜索国家/地区</text>
-    <image class='personal-center' src='../../images/个人中心.png'></image>
+    <image bindtap="gotoselfcenter" class='personal-center' src='../../images/个人中心.png'></image>
   </view>
   <view class='problem'>
     <view class='problem-container'>
       <image class='problem-img' src='../../images/problem.png'></image>
       <text class='problem-text1'>常见问题</text>
-      <swiper style="height:160rpx;overflow:hidden;width:440rpx;maigin-right:60rpx" circular='true' autoplay='true' interval="3000" duration="500" vertical='true'>
+      <swiper class="swiper" circular='true' autoplay='true' interval="3000" duration="500" vertical='true'>
         <block wx:for="{{problemlunbo}}">
           <swiper-item>
             <text bindtap="thisproblemdetail" class='lunbo' data-id="{{item.Id}}">
@@ -219,4 +219,16 @@
     </scroll-view>
   </view>
   <image style="width:750rpx;height:638rpx" src="../../images/foot.png" />
+  
+  <!-- <view >
+    <image src="../../images/problem.png" />
+    <view >常见问题</view>
+    <swiper autoplay='true' interval="3000" duration="500" vertical='true'>
+    <block wx:for="{{problemlunbo}}">
+      <swiper-item>
+        <text bindtap="thisproblemdetail" data-id="{{item.Id}}">{{item.Problem}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+  </view> -->
 </view>

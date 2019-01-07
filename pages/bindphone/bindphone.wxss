@@ -1,1 +1,91 @@
-/* pages/bindphone/bindphone.wxss */
+/* pages/bindweixin/bindweixin.wxss */
+.main {
+    width: 750rpx;
+    height: 380rpx;
+    background-color: #FAFAFA;
+    padding-top: 40rpx;
+
+}
+
+.page_row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30rpx;
+    align-items: middle
+}
+
+.search {
+    width: 700rpx
+}
+
+.search_arr {
+    /* border: 1px solid #d0d0d0; */
+    border-radius: 20rpx;
+    margin-left: 20rpx;
+    background-color: #ffff;
+    
+}
+
+.search_arr input {
+    /* margin-left: 60rpx; */
+    height: 60rpx;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 17px;
+    color: rgba(171, 171, 171, 1);
+    overflow: visible !important;
+}
+
+.searchcion {
+    display: inline-block;
+    margin: 10rpx 40rpx;
+    font-size: 28rpx;
+    color: #000000
+}
+
+.placeholderStyle {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 17px;
+    color: #8DA5FF;
+}
+
+.btn {
+    color: #fff;
+    background-color: #8DA5FF;
+    width: 660rpx;
+    height: 60rpx;
+    background: rgba(141, 165, 255, 1);
+    opacity: 1;
+    border-radius: 38rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin: 90rpx 0 0 30rpx;
+    vertical-align: middle;
+    line-height: 60rpx
+}
+
+
+
+.btnclick {
+    
+    display: inline-block;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(141, 165, 255, 1);
+    width:120rpx
+ 
+}
+.yanzhengma{
+    color: #8DA5FF;
+    
+}
+.btncontainer{
+    display: inline
+}

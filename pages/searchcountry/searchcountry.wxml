@@ -41,7 +41,7 @@
       <view class="mudidi">签证</view>
     </view>
     <block wx:for="{{searchdata}}">
-      <view bindtap="searchproclick" data-proid="{{item.Id}}" class="searchtxt1">
+      <view bindtap="searchproclick" data-proid="{{item.Id}}" data-id="{{item.CategoryId}}" class="searchtxt1">
         {{item.Name}}
       </view>
     </block>

@@ -12,7 +12,9 @@
     "pages/searchcountry/searchcountry",
     "pages/selfcenter/selfcenter",
     "pages/bindphone/bindphone",
-    "pages/bindweixin/bindweixin"
+    "pages/bindweixin/bindweixin",
+    "pages/login/login",
+    "pages/shuju/shuju"
   ],
   "window": {
     "backgroundTextStyle": "light",

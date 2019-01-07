@@ -1,2 +1,25 @@
-<!--pages/bindphone/bindphone.wxml-->
-<text>pages/bindphone/bindphone.wxml</text>
+<view class="main">
+  <view class='page_row' bindtap="suo">
+    <view class="search">
+      <view class="df search_arr">
+        <view class="searchcion">手机号</view>
+        <input style="overflow:visible" focus='true' placeholder="请输入手机号" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="searchValueInput" />
+      </view>
+    </view>
+    <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->
+  </view>
+  <view class='page_row' bindtap="suo">
+    <view class="search">
+      <view class="df search_arr">
+        <view class="searchcion">验证码</view>
+        <input style="overflow:visible" focus='true' placeholder="请输入验证码" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="yanzhengmaInput" />
+        
+        <!-- <input style="overflow:visible" focus='true' placeholder="请输入验证码" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="searchValueInput" /> -->
+        <view class="btncontainer">
+          <input placeholder="{{text}}" placeholderStyle="yanzhengma" class="btnclick" bindtap="bindButtonTap" disabled='{{disabled}}' style="background-color:{{color}}" ></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="bindphone">绑定</view>
+</view>
