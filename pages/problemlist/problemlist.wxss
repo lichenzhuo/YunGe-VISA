@@ -1,59 +1,38 @@
-/*               搜索栏          */
-#header {
-    width: 100%;
-    position: relative;
-    height: 60rpx;
-    margin: 20rpx 0
+.page_row {
+    display: flex;
+    flex-direction: row
 }
-
 
 .search {
-    position: absolute;
-    left: 20rpx;
-    border-radius: 28rpx;
-    width: 642rpx;
+    width: 700rpx
+}
+
+.search_arr {
+    /* border: 1px solid #d0d0d0; */
+    border-radius: 14px 14px 16px 14px;
+    margin-left: 20rpx;
+    background-color: #FAFAFA
+}
+.search_arr input {
+    margin-left: 60rpx;
     height: 60rpx;
-    background: #ABABAB;
-    opacity: 0.3;
-}
-
-.search-img {
-    width: 30rpx;
-    height: 30rpx;
+    border-radius: 5px;
+  }
+  
+.searchcion {
+    margin: 10rpx 10rpx 10rpx 10rpx;
     position: absolute;
-    top: 14rpx;
-    left: 38rpx;
-}
-
-.tips {
-    /* width: 90px; */
+    left: 25rpx;
+    z-index: 2;
+    width: 20px;
     height: 20px;
-    font-size: 14px;
-    font-family: PingFang SC;
-    font-weight: 400;
-    line-height: 20px;
-    color: #707070;
-    opacity: 1;
-    position: absolute;
-    top: 10rpx;
-    left: 76rpx
+    text-align: center;
 }
-
-.canclesearchbtn {
-    position: absolute;
-    right: 0;
-    font-size: 30rpx;
-    margin-right: 15rpx;
-    padding-top: 10rpx;
-    font-weight: bold
-}
-
 
 /*           搜索列表            */
-#banner {
-   
-}
-.morenlist{
+#banner {}
+
+.morenlist {
     /* background-color: #ABABAB */
     height: 100%;
 }

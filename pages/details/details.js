@@ -122,7 +122,8 @@ Page({
   },
   //    点击咨询
   clickzixun: function () {
-    var that=this
+    var that = this
+    console.log(that.data.morendatadetail.Name)
     wx.showActionSheet({
       itemList: ['微信咨询', '手机号咨询'],
       success(res) {
@@ -139,22 +140,38 @@ Page({
                 method: 'post',
                 data: {
                   //微信咨询传的值
+                  ContactType: 1,
+                  Name: that.data.morendatadetail.Name
                 },
-                success:()=>{
-                  wx.showToast({
-                    title: '我们将会在24小时之内联系您',
-                    icon: 'none',
-                    duration: 2000
-                  });
+                header: {
+                  'content-type': 'application/json',
+                  'Authorization': 'BasicAuth ' + that.data.Token
+                },
+                success: (res) => {
+                  console.log(res)
+                  if (res.data.Code == 0) {
+                    wx.showToast({
+                      title: '我们将会在24小时之内联系您',
+                      icon: 'none',
+                      duration: 2000
+                    });
+                  } else {
+                    wx.showToast({
+                      title: '未知错误，发送失败',
+                      icon: 'none',
+                      duration: 2000
+                    });
+                  }
+
                 }
               })
             }
-          }else{
+          } else {
             wx.navigateTo({
               url: '../selfcenter/selfcenter',
             })
           }
-        } else{
+        } else {
           if (that.data.Token) {
             if (that.data.wxnum = '') {
               wx.navigateTo({
@@ -166,23 +183,39 @@ Page({
                 method: 'post',
                 data: {
                   //微信咨询传的值
+                  ContactType: 2,
+                  Name: that.data.morendatadetail.Name
                 },
-                success:()=>{
-                  wx.showToast({
-                    title: '我们将会在24小时之内联系您',
-                    icon: 'none',
-                    duration: 2000
-                  });
+                header: {
+                  'content-type': 'application/json',
+                  'Authorization': 'BasicAuth ' + that.data.Token
+                },
+                success: (res) => {
+                  console.log(res)
+                  if (res.data.Code == 0) {
+                    wx.showToast({
+                      title: '我们将会在24小时之内联系您',
+                      icon: 'none',
+                      duration: 2000
+                    });
+                  } else {
+                    wx.showToast({
+                      title: '未知错误，发送失败',
+                      icon: 'none',
+                      duration: 2000
+                    });
+                  }
+
                 }
               })
             }
-          }else{
+          } else {
             wx.navigateTo({
               url: '../selfcenter/selfcenter',
             })
           }
         }
-        
+
       },
     })
     // wx.showToast({
@@ -221,7 +254,8 @@ Page({
     wx.getStorage({
       key: 'token',
       success(res) {
-        console.log(res)
+        // console.log(res)
+
         that.setData({
           Token: res.data,
         })

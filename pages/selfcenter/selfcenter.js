@@ -24,6 +24,7 @@ Page({
   },
   getUserInfo: function () {
     var that = this
+
     that.setData({
       xianshi: false
     })
@@ -32,12 +33,17 @@ Page({
     function _getUserInfo() {
       wx.getUserInfo({
         success: function (res) {
+          console.log("获取iv加密数据成功")
+          console.log(res.iv)
+          console.log(res.encryptedData)
           that.setData({
             theiv: res.iv,
             theencrypt: res.encryptedData
           })
           wx.login({
             success: function (res) {
+              console.log("获取code成功")
+              console.log(res.code)
               that.setData({
                 codema: res.code
               })
@@ -50,18 +56,22 @@ Page({
                   encryptedData: that.data.theencrypt
                 },
                 success: function (res) {
+                  console.log("获取token成功11111")
+                  console.log(res)
                   wx.setStorage({
                     key: 'token',
                     data: res.data.Data,
                     success() {
+                      console.log("缓存token成功")
                       wx.getStorage({
                         key: 'token',
                         success(res) {
-                          console.log(res.data)
+                          console.log("获取缓存token成功")
+                          console.log(res)
                           that.setData({
                             Token: res.data
                           })
-                          console.log(that.data.Token)
+                          console.log(that.data.Token + "这是data中的token")
                           wx.request({
                             url: config.api_base_url + 'User/GetUserInfo',
                             method: 'post',
@@ -70,7 +80,7 @@ Page({
                               'Authorization': 'BasicAuth ' + that.data.Token
                             },
                             success: function (res) {
-
+                              console.log("获取用户数据成功")
                               console.log(res)
                               that.setData({
                                 nickName: res.data.Data.NickName,
@@ -81,7 +91,7 @@ Page({
                             },
 
                           })
-                          console.log(that.data)
+                          // console.log(that.data)
                         }
                       })
                     }
@@ -126,7 +136,7 @@ Page({
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + that.data.Token
           },
-          success: function (res) {
+          success: function (res) { //此处应该添加判断，token过期的话能否有反馈。没有的话就清除缓存，重新获取并存储token
             console.log(res)
             that.setData({
               nickName: res.data.Data.NickName,
@@ -138,10 +148,20 @@ Page({
         })
       },
       fail(res) {
-        console.log(res)
+        console.log("取缓存失败")
         that.setData({
-          xianshi:true
+          xianshi: true
         })
+        // wx.removeStorage({
+        //   key: 'token',
+        //   success(res) {
+        //     console.log(res)
+        //     // that.setData({
+        //     //   xianshi:true
+        //     // })
+        //   }
+        // })
+
       }
 
     })

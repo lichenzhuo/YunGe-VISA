@@ -1,12 +1,16 @@
-// pages/countrylist/countrylist.js
+import {
+  config
+} from '../../config.js'
+// let http=new HTTP()
+const img_base_url = 'http://192.168.1.102:907'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    asialist: [],
-    img_base_url: 'http://192.168.1.102:907',
+    countrylist: [],
+    
 
   },
   gotodetails: function (e) {
@@ -22,9 +26,9 @@ Page({
     // var that=this
     console.log(options.listid)
     var listid=options.listid
-    wx.setNavigationBarTitle({
-      title: '亚洲Asia'
-    })
+    // wx.setNavigationBarTitle({
+    //   title: '亚洲Asia'
+    // })
     wx.request({
       url: 'http://192.168.1.102:804/api/Index/CountryList',
       method: 'post',
@@ -33,8 +37,14 @@ Page({
       },
       success: (res) => {
         console.log(res.data.Data)
+        let newarr=[res.data.Data]
+        for(let i = 0; i < newarr.length; i++){
+          for(let j = 0; j < newarr[i].length; j++){
+            newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
+          }
+        }
         this.setData({
-          asialist: res.data.Data
+          countrylist: newarr[0]
         })
 
       }

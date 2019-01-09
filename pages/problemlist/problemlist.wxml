@@ -1,14 +1,26 @@
 <!-- pages/problemlist/problemlist.wxml -->
-<view id='header'>
-    <input class='search'></input>
-    <image class='search-img' src='../../images/icn_disocver_active.png'></image>
-    <text class='tips'>搜索问题关键字</text>
-    <text class="canclesearchbtn">取消</text>
+<view class='page_row' bindtap="suo">
+    <view class="search">
+        <view class="df search_arr">
+            <icon class="searchcion" size='20' type='search'></icon>
+            <input focus='true' placeholder="搜索国家/地区" bindinput="searchValueInput" />
+        </view>
+    </view>
+    <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->
 </view>
 <view id="banner">
-    <view class="morenlist">
+    <view class="morenlist" wx:if="{{listshow}}">
         <block wx:for="{{problemlunbo}}">
-            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">{{index+1+'、'+item.Problem}}</view>
+            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">
+                {{index+1+'、'+item.Problem}}
+            </view>
+        </block>
+    </view>
+    <view class="morenlist" wx:if="{{searchshow}}">
+        <block wx:for="{{searchValue}}">
+            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">
+                {{index+1+'、'+item.Problem}}
+            </view>
         </block>
     </view>
 </view>

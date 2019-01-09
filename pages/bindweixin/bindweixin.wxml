@@ -10,3 +10,13 @@
     </view>
     <view class="btn" bindtap="bindphone">绑定</view>
 </view>
+<view class="modal" wx:if="{{xianshi}}">
+    <view class="btncontainer">
+        <image class="logoimg" style="width:312rpx;height:312rpx" src="../../images/weixinlogo.png" />
+    </view>
+    <view class="btncontainer">
+        <button style="border-radius:38rpx;padding:14rpx 160rpx;line-height:50rpx;display:block" wx:if="{{xianshi}}" class="modalbtn" type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
+            微信授权登录
+        </button>
+    </view>
+</view>

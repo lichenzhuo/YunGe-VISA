@@ -45,8 +45,8 @@
             </view>
         </view>
     </view>
-    <view class="tabswitch">
-        <view class="tabswitchcontainer">
+    <view class="tabswitch" >
+        <view class="tabswitchcontainer" style="position: sticky;position: -webkit-sticky;top:0;z-index:9;background-color:white">
             <block wx:for="{{tabswitch}}" wx:key="{{item.id}}">
                 <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
                     {{item.tabname}}

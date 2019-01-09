@@ -3,7 +3,7 @@ import {
 } from '../../config.js'
 // let http=new HTTP()
 const img_base_url = 'http://192.168.1.102:907'
-var app = getApp();
+// var app = getApp();
 var searchValue = ''
 Page({
 
@@ -18,7 +18,8 @@ Page({
     nanshen_card: '',
     searchdata: [],
     searchcountry: [],
-    baocunname: []
+    baocunname: [],
+    Token: '',
 
   },
   searchValueInput: function (e) {
@@ -78,9 +79,9 @@ Page({
     // })
   },
   searchproclick: function (e) {
-     console.log(e)
-     wx.navigateTo({
-      url: "../details/details?id=" + e.currentTarget.dataset.id+"&proid="+ e.currentTarget.dataset.proid,
+    console.log(e)
+    wx.navigateTo({
+      url: "../details/details?id=" + e.currentTarget.dataset.id + "&proid=" + e.currentTarget.dataset.proid,
     })
     //  wx.request({
     //   url: config.api_base_url + 'Historical/SaveHistorical',
@@ -118,13 +119,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    wx.getStorage({
+      key: 'token',
+      success(res) {
+        //  console.log(res)
+        that.setData({
+          Token: res.data,
+        })
+        console.log(that.data.Token)
+      },
+    })
     wx.request({
       url: config.api_base_url + 'Historical/SelectHistorical',
       method: 'post',
+      header: {
+        'content-type': 'application/json',
+        'Authorization': 'BasicAuth ' + that.data.Token
+      },
       success: (res) => {
-         console.log(res)
+        console.log(res)
+        console.log(that.data.Token)
       }
     })
+
   },
 
   /**

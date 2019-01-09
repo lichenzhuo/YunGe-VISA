@@ -1,36 +1,43 @@
-<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-<view class="modalDlg" wx:if="{{showModal}}">
-  <block wx:for="{{list}}" wx:key="{{item.id}}">
-    <text id="{{item.id}}" bindtap="go">{{item.title}}</text>
-  </block>
-  <!-- <text bindtap="go">{{list.title}}</text> -->
-  <text>欢迎来到模态对话框~</text>
-  <!-- <button bindtap="go">点我可以关掉对话框</button> -->
-</view>
-<button bindtap="submit">点我弹窗</button>
-<!-- <view>
-  <block wx:for="{{list}}" wx:key="{{item.id}}"> -->
-<view id="{{item.id}}">{{moren}}</view>
-<!-- </block>
+<!-- <view class="problem-main">
+  <image class='problem-img' src='../../images/problem.png'></image>
+  <text class='problem-text1'>常见问题</text>
+  <swiper style="width: 200rpx;" class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+    <block wx:for="{{problemlunbo}}">
+      <swiper-item>
+        <view bindtap="thisproblemdetail" data-id="{{item.Id}}" class="swiper_item">
+          {{item.Problem}}
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <text class='problem-text2'>更多</text>
+  <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/下一步.png'></image>
 </view> -->
+<!-- <view style="height:1500rpx">
+</view> -->
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
 
- 
+<van-tabs color="red" sticky scroll-top="{{ scrollTop }}" swipe-threshold="10">
+  <van-tab title="热门"></van-tab>
+  <van-tab title="亚洲"></van-tab>
+  <van-tab title="美洲"></van-tab>
+  <van-tab title="欧洲"></van-tab>
+  <van-tab title="非洲"></van-tab>
+  <van-tab title="大洋洲"></van-tab>
+</van-tabs>
+
+<view class="no1" style="height:300rpx;background-color:red;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:yellow;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:green;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:black;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:pink;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
+<view style="height:300rpx;background-color:blue;margin:20rpx 0"></view>
 
 
-
-
-
-<swiper autoplay="{{true}}" interval="1000" duration="500" vertical="{{true}}">
-  <block wx:for="{{problemlunbo}}">
-  <swiper-item style="height:100rpx">
-    <text>{{item.Problem}}</text>
-  </swiper-item>
-  </block>
-</swiper>
-
-
-<block wx:for="{{problemlunbo}}">
-    <text >
-        {{item.Problem}}
-    </text>
-</block>

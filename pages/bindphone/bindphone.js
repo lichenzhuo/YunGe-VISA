@@ -14,7 +14,10 @@ Page({
     disabled: false,
     phone: '',
     yanzhengma: '',
-    Token: ''
+    Token: '',
+    xianshi: false,
+    wxnum: '',
+    phonenum: '',
   },
   //获取框内输入数据
   searchValueInput: function (e) {
@@ -44,9 +47,9 @@ Page({
         'Authorization': 'BasicAuth ' + that.data.Token
       },
       success: (res) => {
-        if(res.data.Code==0){
+        if (res.data.Code == 0) {
           console.log('验证码发送成功')
-        }else{
+        } else {
           console.log('验证码发送失败')
         }
       }
@@ -103,44 +106,128 @@ Page({
   },
   //点击提交
   bindphone: function () {
-    var  that =this
-    console.log(that.data.yanzhengma)
-    if(that.data.phone==''){
-      wx.showModal({
-        title: '提示',
-        content: '手机号码不能为空'
-      })
-    }else{
-      wx.request({
-        url: config.api_base_url + 'User/BindPhone',
-        method: 'post',
-        data: {
-          phone: that.data.phone,
-          code:that.data.yanzhengma
-        },
-        header: {
-          'content-type': 'application/json',
-          'Authorization': 'BasicAuth ' + that.data.Token
-        },
-        success: (res) => {
-          console.log(res)
-          if(res.data.Code==0){
-            wx.showToast({
-              title: '绑定手机号码成功',
-              icon: 'none',
-              duration: 2000
-            });
-            wx.navigateBack({
-              
-            })
+    var that = this
+    if (that.data.Token) {
+      console.log(that.data.yanzhengma)
+      if (that.data.phone == '') {
+        wx.showModal({
+          title: '提示',
+          content: '手机号码不能为空'
+        })
+      } else {
+        wx.request({
+          url: config.api_base_url + 'User/BindPhone',
+          method: 'post',
+          data: {
+            phone: that.data.phone,
+            code: that.data.yanzhengma
+          },
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + that.data.Token
+          },
+          success: (res) => {
+            console.log(res)
+            if (res.data.Code == 0) {
+              wx.showToast({
+                title: '绑定手机号码成功',
+                icon: 'none',
+                duration: 2000
+              });
+              wx.navigateBack({
+
+              })
+            } else {
+              wx.showToast({
+                title: '未知错误，绑定失败',
+                icon: 'none',
+                duration: 2000
+              });
+            }
           }
-          else{
-            wx.showToast({
-              title: '未知错误，绑定失败',
-              icon: 'none',
-              duration: 2000
-            });
-          }
+        })
+      }
+    } else {
+      wx.showToast({
+        title: '请返回个人中心获取微信授权后再绑定',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+
+
+  },
+  getUserInfo: function () {
+    var that = this
+    that.setData({
+      xianshi: false
+    })
+    _getUserInfo();
+
+    function _getUserInfo() {
+      wx.getUserInfo({
+        success: function (res) {
+          that.setData({
+            theiv: res.iv,
+            theencrypt: res.encryptedData
+          })
+          wx.login({
+            success: function (res) {
+              that.setData({
+                codema: res.code
+              })
+              wx.request({
+                url: config.api_base_url + 'User/GetSmallUserToken',
+                method: 'get',
+                data: {
+                  code: that.data.codema,
+                  iv: that.data.theiv,
+                  encryptedData: that.data.theencrypt
+                },
+                success: function (res) {
+                  wx.setStorage({
+                    key: 'token',
+                    data: res.data.Data,
+                    success() {
+                      wx.getStorage({
+                        key: 'token',
+                        success(res) {
+                          console.log(res.data)
+                          that.setData({
+                            Token: res.data
+                          })
+                          console.log(that.data.Token)
+                          wx.request({
+                            url: config.api_base_url + 'User/GetUserInfo',
+                            method: 'post',
+                            header: {
+                              'content-type': 'application/json',
+                              'Authorization': 'BasicAuth ' + that.data.Token
+                            },
+                            success: function (res) {
+
+                              console.log(res)
+                              that.setData({
+                                nickName: res.data.Data.NickName,
+                                avatarUrl: res.data.Data.headimgurl,
+                                wxnum: res.data.Data.VXNumber,
+                                phonenum: res.data.Data.Phone,
+                              })
+                            },
+
+                          })
+                          console.log(that.data)
+                        }
+                      })
+                    }
+                  })
+
+
+                }
+              })
+
+            }
+          })
         }
       })
     }
@@ -150,11 +237,19 @@ Page({
     wx.getStorage({
       key: 'token',
       success(res) {
-         console.log(res)
+        console.log(res)
         that.setData({
           Token: res.data,
+          xianshi: false
         })
       },
+      fail(res) {
+        console.log("Token获取失败")
+        that.setData({
+          xianshi: true
+        })
+
+      }
     })
   },
 
