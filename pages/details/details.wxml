@@ -4,38 +4,44 @@
     <view class="header">
         <text class="headertitle">{{morendatadetail.Name}}</text>
         <view class='headerprice-container'>
-            <text class="headerprice">参考价  ￥</text>
-            <text class="headerpricenumber">{{morendatadetail.ReferencePrice}}</text>
+            <view class="headerprice" bindtap="pricemodal">参考价</view>
+            <view class="headerpricenumber" bindtap="pricemodal">
+                ￥{{morendatadetail.ReferencePrice}}
+            </view>
+            <view class="mingxi" bindtap="pricemodal">明细</view>
         </view>
         <view class='headerdatecontainer'>
-            <text class="headerdate">预计办理</text>
-            <text class="headerdatenumber">{{morendatadetail.TimeLong}}工作日</text>
-            <image bindtap="timemodal" class='headerdatenext' src="../../images/符号 8 – 17.png" />
+            <view bindtap="timemodal" class="headerdate">
+                预计办理  {{morendatadetail.TimeLong}}工作日
+            </view>
+            <!-- <text bindtap="timemodal" class="headerdatenumber"> -->
+            <!-- </text> -->
+            <!-- <image bindtap="timemodal" class='headerdatenext' src="../../images/符号 8 – 17.png" /> -->
         </view>
     </view>
     <view class="valid-time">
-        <view class="box1">
-            <image class="box1-img" src="../../images/椭圆 43.png" />
-            <text class="box1-txt">{{morendatadetail.ValidityPeriod}}</text>
-            <text class="box1-txt1">有效期限</text>
+        <view class="box1" bindtap="timelongmodal">
+            <!-- <image class="box1-img" src="../../images/椭圆 43.png" /> -->
+            <view class="box1-txt">{{morendatadetail.ValidityPeriod}}</view>
+            <view class="box1-txt1">有效期限</view>
         </view>
-        <view class="box2">
-            <image class="box2-img" src="../../images/椭圆 43.png" />
-            <text class="box2-txt">{{morendatadetail.StayMaxTime}}</text>
-            <text class="box2-txt1">最长停留</text>
+        <view class="box2" bindtap="timelongmodal">
+            <!-- <image class="box2-img" src="../../images/椭圆 43.png" /> -->
+            <view class="box2-txt">{{morendatadetail.StayMaxTime}}</view>
+            <view class="box2-txt1">最长停留</view>
         </view>
-        <view class="box3">
-            <image class="box3-img" src="../../images/椭圆 43.png" />
-            <text class="box3-txt">{{morendatadetail.UseNumber}}</text>
-            <text class="box3-txt1">入境次数</text>
+        <view class="box3" bindtap="timelongmodal">
+            <!-- <image class="box3-img" src="../../images/椭圆 43.png" /> -->
+            <view class="box3-txt">{{morendatadetail.UseNumber}}</view>
+            <view class="box3-txt1">入境次数</view>
         </view>
     </view>
-    <view class="package" style="margin-top:80rpx">
+    <view class="package">
         <view class="package-container">
             <view class="packagetitle">
                 <text class="nowpackage">当前套餐</text>
                 <text class="packageid">（商品编号：011119）</text>
-                <text bindtap="submit" class="wholepackage">全部（{{taocanlength}}）</text>
+                <text bindtap="submit" class="wholepackage">全部（{{dataildata.length}}）</text>
                 <image bindtap="submit" class="packagenext" src="../../images/符号 9 – 1.png" />
             </view>
             <view class="packageitem">
@@ -45,22 +51,27 @@
             </view>
         </view>
     </view>
-    <view class="tabswitch" >
+    <view class="tabswitch">
         <view class="tabswitchcontainer" style="position: sticky;position: -webkit-sticky;top:0;z-index:9;background-color:white">
             <block wx:for="{{tabswitch}}" wx:key="{{item.id}}">
-                <view bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
+                <view style="padding-bottom:10rpx" bindtap="clicktab" data-select="{{item.select}}" class="{{item.select==catalogSelect?'tabselect':''}}">
                     {{item.tabname}}
                 </view>
             </block>
-            <!-- <view data-num='2' class="fudong">所需资料</view>
-        <view data-num='3' class="fudong">办理流程</view>
-        <view data-num='4' class="fudong">签证图例</view> -->
         </view>
         <view id="informationcontainer">
-            <scroll-view>
-                <view id="basicinformation">
-                    <view class="title">基本信息</view>
-                    <view class="content1">
+            <scroll-view scroll-y="{{true}}" scroll-into-view="{{toView}}" scroll-with-animation="{{true}}">
+                <view id="one">
+                    <view class="title">办理须知</view>
+                    <block wx:for="{{needknow}}" wx:key="index">
+                        <view class="neirongone">
+                            <view class="neirongone1">
+                                <view class="dian"></view>
+                                {{item}}
+                            </view>
+                        </view>
+                    </block>
+                    <!-- <view class="content1">
                         <text class="title1">费用包含</text>
                         <view class="neirongone">
                             <view class="dian"></view>
@@ -99,13 +110,13 @@
                                 领馆也可能会针对你的实际情况。要求增补其他材料，或延长签证受理时间
                             </view>
                         </view>
-                    </view>
+                    </view> -->
                 </view>
-                <view id="requiredinformation">
+                <view id="two">
                     <view class="title">所需材料</view>
                     <view class="wholebtn">
                         <block wx:for="{{jobswitch}}" wx:key="{{item.id}}">
-                            <view class="btn" bindtap="jobtab" data-select="{{item.select}}" id="{{item.select==jobswitchselect?'btnselect':''}}">
+                            <view class="btn" bindtap="jobtab" data-index="{{index+1}}" data-select="{{item.select}}" id="{{item.select==jobswitchselect?'btnselect':''}}">
                                 <view class="btntxt">{{item.tabname}}</view>
                             </view>
                         </block>
@@ -124,12 +135,15 @@
                     </view>
                     <view class="material">
                         <view class="materialtitle">*必须提供的资料</view>
-                        <view class="appmaterial">
-                            <text class="title1">APP拍摄资料</text>
-                            <block wx:for="{{requiredata.App}}">
+                        <view wx:if="{{requiredata.App[0]}}" class="appmaterial">
+                            <text wx:if="{{requiredata.App[0]}}" class="title1">App拍摄资料</text>
+                            <block wx:for="{{requiredata.App}}" wx:key="index">
                                 <view class="neirongone">
-                                    <view class="dian"></view>
-                                    <view class="neirongone1">{{item.Name}}</view>
+                                    <view class="neirongone2">
+                                        <view class="dian"></view>
+                                        {{item.Name}}
+                                        <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+                                    </view>
                                     <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
@@ -138,30 +152,67 @@
                                 <view class="neirongone1 must">照片*</view>
                                 
                             </view> -->
-                            <view class="appmaterialdetail">
+                            <view bindtap="moreDetails" wx:if="{{requiredata.App[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
                                 <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
                             </view>
                         </view>
-                        <view class="appmaterial">
-                            <text class="title1">邮寄资料</text>
-                            <block wx:for="{{requiredata.Ems}}">
+                        <view wx:if="{{requiredata.Ems[0]}}" class="appmaterial">
+                            <text wx:if="{{requiredata.Ems}}" class="title1">邮寄资料</text>
+                            <block wx:for="{{requiredata.Ems}}" wx:key="index">
                                 <view class="neirongone">
-                                    <view class="dian"></view>
-                                    <view class="neirongone1">{{item.Name}}</view>
+                                    <view class="neirongone2">
+                                        <view class="dian"></view>
+                                        {{item.Name}}
+                                        <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+                                    </view>
                                     <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
-                            <view class="appmaterialdetail">
+                            <view bindtap="moreDetails" wx:if="{{requiredata.Ems[0]}}" class="appmaterialdetail">
+                                <text class="appmaterialdetailtxt">查看详细要求</text>
+                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                            </view>
+                        </view>
+                        <view wx:if="{{requiredata.Face[0]}}" class="appmaterial">
+                            <text wx:if="{{requiredata.Face}}" class="title1">邮寄资料</text>
+                            <block wx:for="{{requiredata.Face}}" wx:key="index">
+                                <view class="neirongone">
+                                    <view class="neirongone2">
+                                        <view class="dian"></view>
+                                        {{item.Name}}
+                                        <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+                                    </view>
+                                    <!-- <view class="must">*</view> -->
+                                </view>
+                            </block>
+                            <view bindtap="moreDetails" wx:if="{{requiredata.Face[0]}}" class="appmaterialdetail">
+                                <text class="appmaterialdetailtxt">查看详细要求</text>
+                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                            </view>
+                        </view>
+                        <view wx:if="{{requiredata.Inbound[0]}}" class="appmaterial">
+                            <text wx:if="{{requiredata.Inbound}}" class="title1">邮寄资料</text>
+                            <block wx:for="{{requiredata.Inbound}}" wx:key="index">
+                                <view class="neirongone">
+                                    <view class="neirongone2">
+                                        <view class="dian"></view>
+                                        {{item.Name}}
+                                        <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+                                    </view>
+                                    <!-- <view class="must">*</view> -->
+                                </view>
+                            </block>
+                            <view bindtap="moreDetails" wx:if="{{requiredata.Inbound[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
                                 <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
                             </view>
                         </view>
                     </view>
                 </view>
-                <view id="workprocess">
+                <view id="three">
                     <view class="title">办理流程</view>
-                    <block wx:for="{{morendatadetail.processes}}">
+                    <block wx:for="{{morendatadetail.processes}}" wx:key="index">
                         <view class="duizhao">
                             <view class="workprocesstxt1">
                                 <view class="workprocesstltle1">{{item.Title}}</view>
@@ -171,24 +222,26 @@
                         </view>
                     </block>
                 </view>
-                <view id="exampleimg">
+                <view id="four">
                     <view class="title">签证图例</view>
-                    <image src="../../images/蒙版组.png" />
+                    <image src="{{morendatadetail.VisaPath}}" />
                 </view>
             </scroll-view>
         </view>
     </view>
-    <view id="talk" bindtap='clickzixun'>咨 询</view>
+    <button id="talk" bindtap='clickzixun' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        咨 询
+    </button>
     <view id="modal">
         <view class="mask" wx:if="{{showModal}}"></view>
-        <view class="modalDlg" wx:if="{{showModal}}">
+        <view class="modalDlg" wx:if="{{showModal}}" wx:key="index">
             <view class="modaltitle">
                 <image bindtap="cancle" class="modaltitleimg" src="../../images/关闭.png" />
                 <view class="modaltitletxt">套餐类型</view>
             </view>
             <!-- <text id="{{item.id}}" bindtap="go">{{item.title}}</text> -->
             <view class="packageitemcontainer">
-                <view wx:for="{{dataildata}}" id="{{item.Id}}" bindtap="gotoselect" class="packageitem forpackageitem">
+                <view wx:for="{{dataildata}}" wx:key="index" id="{{item.Id}}" bindtap="gotoselect" class="packageitem forpackageitem">
                     <view class="packagedescription">{{item.Name}}</view>
                     <view class="referenceprice">参考价 ￥{{item.ReferencePrice}}</view>
                     <!-- <image class="packageselect" src="../../images/符号 10 – 1.png" /> -->
@@ -196,7 +249,7 @@
             </view>
         </view>
     </view>
-    <view id="timemodal">
+    <!-- <view id="timemodal">
         <view class="mask" wx:if="{{showtimeModal}}"></view>
         <view class="timemodalDlg" wx:if="{{showtimeModal}}">
             <view class="timemodaltitle">
@@ -214,5 +267,5 @@
                 </text>
             </view>
         </view>
-    </view>
+    </view> -->
 </view>

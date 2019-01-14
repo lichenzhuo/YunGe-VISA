@@ -13,9 +13,15 @@
     <image style="height:26rpx;width:26rpx;padding-left:30rpx" src="../../images/历史@2x.png" />
     <view class="searchhis">搜索历史</view>
     <image style="width:20rpx;height:26rpx;margin-left:450rpx" src="../../images/清空@2x.png" />
-    <view class="clear">清空</view>
+    <view class="clear" bindtap="clearhis">清空</view>
   </view>
-  <!-- <view style="margin-bottom:20rpx" class="txt searchhis-tips">日本</view> -->
+  <!-- 搜索历史 -->
+  <block wx:for="{{historyrecord}}" wx:key="index">
+  <view style="margin-bottom:20rpx" class="txt searchhis-tips" bindtap="searchhistoryclick" data-name="{{item.Contents}} ">
+    {{item.Contents}}   
+  </view>
+  </block>
+  
   <!-- <view style="padding:15rpx 0 20rpx 0">
     <image style="height:26rpx;width:22rpx;padding-left:30rpx" src="../../images/热门@2x.png" />
     <view class="hotsearch">热门搜索</view>
@@ -23,7 +29,8 @@
   <view style="margin-bottom:20rpx" class="txt hotsearch-tips">马来西亚</view>
   <view style="margin-bottom:20rpx" class="txt hotsearch-tips">德国</view> -->
 </view>
-<view wx:if="{{jieguo_show}}">
+ <!-- 搜索结果 -->
+<view wx:if="{{jieguo_show}}">   
   <view>
     <view class="searchbox1">
       <image style="width:18rpx;height:24rpx" src="../../images/目的地@2x.png" />

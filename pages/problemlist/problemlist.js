@@ -3,7 +3,7 @@ import {
   config
 } from '../../config.js'
 // let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907'
+const img_base_url = 'http://192.168.1.102:907/'
 Page({
 
   /**
@@ -15,10 +15,11 @@ Page({
     searchValue: '',
   },
   gotoproblemdetail: function (e) {
-    // console.log(e.currentTarget.dataset.id)
+     console.log(e.currentTarget.dataset.id)
+     console.log(e.currentTarget.dataset.index)
 
     wx.navigateTo({
-      url: '../problemdetail/problemdetail?id=' + e.currentTarget.dataset.id
+      url: '../problemdetail/problemdetail?id=' + e.currentTarget.dataset.id+'&index='+ e.currentTarget.dataset.index
     })
   },
   searchValueInput: function (e) {

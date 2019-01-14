@@ -17,7 +17,7 @@ Page({
     Token: '',
     xianshi: false,
     wxnum: '',
-    phonenum: '',
+    phonenum: '请输入手机号',
   },
   //获取框内输入数据
   searchValueInput: function (e) {
@@ -94,6 +94,8 @@ Page({
     //判断 当提示错误信息文字不为空 即手机号输入有问题时提示用户错误信息 并且提示完之后一定要让按钮为可用状态 因为点击按钮时设置了只要点击了按钮就让按钮禁用的情况
     if (warn != null) {
       wx.showModal({
+        showCancel: false,
+      confirmColor: '#8DA5FF',
         title: '提示',
         content: warn
       })
@@ -111,6 +113,8 @@ Page({
       console.log(that.data.yanzhengma)
       if (that.data.phone == '') {
         wx.showModal({
+          showCancel: false,
+          confirmColor: '#8DA5FF',
           title: '提示',
           content: '手机号码不能为空'
         })
@@ -134,9 +138,9 @@ Page({
                 icon: 'none',
                 duration: 2000
               });
-              wx.navigateBack({
-
-              })
+              setTimeout(()=>{
+                wx.navigateBack()
+              },3000)
             } else {
               wx.showToast({
                 title: '未知错误，绑定失败',
@@ -241,6 +245,25 @@ Page({
         that.setData({
           Token: res.data,
           xianshi: false
+        })
+        wx.request({
+          url: config.api_base_url + 'User/GetUserInfo',
+          method: 'post',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + that.data.Token
+          },
+          success: function (res) {
+
+            console.log(res)
+            that.setData({
+              nickName: res.data.Data.NickName,
+              avatarUrl: res.data.Data.headimgurl,
+              wxnum: res.data.Data.VXNumber,
+              phonenum: res.data.Data.Phone,
+            })
+          },
+
         })
       },
       fail(res) {

@@ -1,0 +1,83 @@
+<view id="main">
+    <view class="container" wx:if="{{!App.length==0}}">
+        <view class="title">
+            <image style="width:6rpx;height:28rpx;margin-right:12rpx" src="../../images/icon.jpg" />
+            APP拍摄资料
+        </view>
+        <view class="box" wx:for="{{App}}" wx:key="index">
+            <view class="name">
+                {{item.Name}}
+                <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+            </view>
+            <block wx:for="{{item.Description}}" wx:key="index">
+                <view class="neirongone">
+                    <view class="neirongone1">
+                        <view class="dian"></view>
+                        {{item}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="container" wx:if="{{!Ems.length==0}}">
+        <view class="title">
+            <image style="width:6rpx;height:28rpx;margin-right:12rpx" src="../../images/icon.jpg" />
+            邮寄资料
+        </view>
+        <view class="box" wx:for="{{Ems}}" wx:key="index">
+            <view class="name">
+                {{item.Name}}
+                <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+            </view>
+            <block wx:for="{{item.Description}}" wx:key="index">
+                <view class="neirongone">
+                    <view class="neirongone1">
+                        <view class="dian"></view>
+                         {{item}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+     <view class="container" wx:if="{{!Face.length==0}}">
+        <view class="title">
+            <image style="width:6rpx;height:28rpx;margin-right:12rpx" src="../../images/icon.jpg" />
+            面试携带资料
+        </view>
+        <view class="box" wx:for="{{Face}}" wx:key="index">
+            <view class="name">
+                {{item.Name}}
+                <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+            </view>
+            <block wx:for="{{item.Description}}" wx:key="index">
+                <view class="neirongone">
+                    <view class="neirongone1">
+                        <view class="dian"></view>
+                         {{item}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+     <view class="container" wx:if="{{!Inbound.length==0}}">
+        <view class="title">
+            <image style="width:6rpx;height:28rpx;margin-right:12rpx" src="../../images/icon.jpg" />
+            入境携带资料
+        </view>
+        <view class="box" wx:for="{{Inbound}}" wx:key="index">
+            <view class="name">
+                {{item.Name}}
+                <text wx:if="{{item.IsMust==0}}" class="must">*</text>
+            </view>
+            <block wx:for="{{item.Description}}" wx:key="index">
+                <view class="neirongone">
+                    <view class="neirongone1">
+                        <view class="dian"></view>
+                         {{item}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    
+</view>

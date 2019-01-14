@@ -14,12 +14,14 @@
     "pages/bindphone/bindphone",
     "pages/bindweixin/bindweixin",
     "pages/login/login",
-    "pages/shuju/shuju"
+    "pages/shuju/shuju",
+    "pages/morerequire/morerequire"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "云鸽签证",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

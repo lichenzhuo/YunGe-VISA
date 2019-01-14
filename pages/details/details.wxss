@@ -2,7 +2,7 @@
 #whole {
     position: relative;
     background-color: rgb(248, 248, 248);
-
+    width: 750rpx
 }
 
 .details-top-bg {
@@ -18,7 +18,7 @@
 }
 
 .headertitle {
-    width: 600rpx;
+    width: 100%;
     /* height: 100rpx; */
     font-size: 36rpx;
     font-family: PingFang SC;
@@ -26,27 +26,45 @@
     line-height: 50rpx;
     color: rgba(255, 255, 255, 1);
     text-align: center;
-    padding-left: 76rpx;
+    /* padding-left: 76rpx; */
     padding-top: 42rpx;
     display: block
 }
 
 .headerprice-container {
+    width: 100%;
     text-align: center;
     color: #FFFFFF;
-    margin: 19rpx 10rpx 32rpx 0
+    margin: 32rpx 0;
+    height: 52rpx;
+
 }
 
 .headerprice {
     font-size: 28rpx;
     font-family: PingFang SC;
+    display: inline-block;
 }
 
 .headerpricenumber {
-    font-size: 40rpx
+    font-size: 40rpx;
+    display: inline-block;
+    padding-left: 12rpx
+}
+
+.mingxi {
+    border-radius: 45%;
+    font-size: 18rpx;
+    padding: 0 2rpx 0 0;
+    border: 1px solid white;
+    display: inline-block;
+    padding: 5rpx;
+    line-height: 18rpx
+
 }
 
 .headerdatecontainer {
+    margin-top:20rpx; 
     text-align: center;
     color: #FFFFFF;
 }
@@ -72,92 +90,125 @@
     width: 658rpx;
     height: 188rpx;
     background-color: #FFFFFF;
-    position: relative;
+    /* position: relative; */
     border-radius: 5px;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
     top: 320rpx;
     left: 46rpx;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
 }
 
-.valid-time image {
+/* .valid-time image {
     width: 152rpx;
     height: 152rpx;
-}
+} */
 
 
 .box1 {
-    position: relative;
+    /* position: relative; */
+    width: 152rpx;
+    height: 152rpx;
+    background-color: #489BE8;
+    border-radius: 50%;
+    text-align: center;
+
+}
+
+.box2 {
+    width: 152rpx;
+    height: 152rpx;
+    background-color: #489BE8;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.box3 {
+    width: 152rpx;
+    height: 152rpx;
+    background-color: #489BE8;
+    border-radius: 50%;
+    text-align: center;
 }
 
 
 .box1-img {
-    position: absolute;
+    /* position: absolute;
     top: 18rpx;
-    left: 28rpx;
+    left: 28rpx; */
 }
 
 .box1-txt {
-    position: absolute;
-    top: 56rpx;
-    left: 68rpx;
-    font-size: 32rpx
+
+    font-size: 32rpx;
+    padding-top: 34rpx;
+    color: white;
 }
 
 .box1-txt1 {
-    position: absolute;
-    top: 94rpx;
-    left: 48rpx;
-    font-size: 28rpx
+
+    font-size: 28rpx;
+
+    color: white;
 }
 
 .box2-img {
-    position: absolute;
+    /* position: absolute;
     top: 18rpx;
-    left: 254rpx;
+    left: 254rpx; */
 }
 
 .box2-txt {
-    position: absolute;
-    top: 56rpx;
-    left: 294rpx;
-    font-size: 32rpx
+    font-size: 32rpx;
+    padding-top: 34rpx;
+    color: white;
+
 }
 
 .box2-txt1 {
-    position: absolute;
-    top: 94rpx;
-    left: 274rpx;
-    font-size: 28rpx
+    font-size: 28rpx;
+
+    color: white;
+
 }
 
 .box3-img {
-    position: absolute;
+    /* position: absolute;
     top: 18rpx;
-    left: 480rpx;
+    left: 480rpx; */
 }
 
 .box3-txt {
-    position: absolute;
-    top: 56rpx;
-    left: 530rpx;
-    font-size: 32rpx
+
+    font-size: 32rpx;
+    padding-top: 34rpx;
+    color: white;
+
 }
 
 .box3-txt1 {
-    position: absolute;
-    top: 94rpx;
-    left: 500rpx;
-    font-size: 28rpx
+    font-size: 28rpx;
+
+    color: white;
+
 }
 
 /*            套餐              */
 .package {
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
+    margin-top: 80rpx
 }
 
 .package-container {
-    margin: 20rpx;
+    /* margin: 20rpx; */
+}
+
+.packagetitle {
+    padding-left: 12rpx;
+
 }
 
 .nowpackage {
@@ -183,7 +234,7 @@
     font-weight: 400;
     line-height: 40rpx;
     color: rgba(141, 165, 255, 1);
-    padding-left: 200rpx
+    padding-left: 220rpx
 }
 
 .packagenext {
@@ -194,17 +245,20 @@
 
 /*     套餐选项    */
 .packageitem {
+    margin-left: 12rpx;
+    margin-top: 14rpx;
     width: 710rpx;
     /* height: 108rpx; */
     border: 2rpx solid rgba(141, 165, 255, 1);
     border-radius: 6rpx;
     position: relative;
+    padding: 8rpx 0;
 }
 
 .packagedescription {
     width: 476rpx;
     /* height:80rpx; */
-    font-size: 14px;
+    font-size: 28rpx;
     font-family: PingFang SC;
     font-weight: 400;
     /* line-height:20px; */
@@ -236,17 +290,20 @@
 
 /*          tab切换          */
 .tabswitch {
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
+    margin-top: 20rpx
 }
 
 .tabswitchcontainer {
     overflow: hidden;
-    margin: 0 24rpx;
+    /* margin: 0 24rpx; */
+    padding: 10rpx 0;
     font-size: 32rpx;
     display: flex;
     align-items: flex-start;
     align-content: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
+    color: #545454;
 }
 
 /* .fudong{
@@ -262,8 +319,9 @@
 /*                 基本信息                   */
 
 #informationcontainer {
-    margin: 0 28rpx;
-    width: 100%
+    /* padding: 0 28rpx; */
+    width: 700rpx;
+    margin-left: 40rpx
 }
 
 .title {
@@ -297,19 +355,46 @@
     /* vertical-align: middle; */
 
     position: absolute;
+    /* margin-top: 25rpx; */
+    top: 16rpx;
+    left: 0;
+}
+
+.dian1 {
+    width: 8rpx;
+    height: 8rpx;
+    background: rgba(112, 112, 112, 1);
+    border-radius: 50%;
+    display: inline-block;
+    /* vertical-align: middle; */
+
+    position: absolute;
     margin-top: 25rpx;
     /* top: 16rpx */
 }
 
 .neirongone1 {
-    width: 672rpx;
+    width: 650rpx;
     font-size: 28rpx;
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 40rpx;
-    display: inline-block;
+    
     color: rgba(112, 112, 112, 1);
-    margin-left: 30rpx
+    margin-left: 30rpx;
+    margin-bottom: 10rpx;
+}
+
+.neirongone2 {
+    width: auto;
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 40rpx;
+ 
+    color: rgba(112, 112, 112, 1);
+    margin-left: 30rpx;
+    margin-bottom: 10rpx;
 }
 
 /*        所需材料           */
@@ -326,7 +411,7 @@
 .btn {
     width: 100rpx;
     height: 100rpx;
-    border: 1px solid rgba(213, 213, 213, 1);
+    border: 2rpx solid rgba(213, 213, 213, 1);
     border-radius: 50%;
     font-size: 28rpx;
     font-family: PingFang SC;
@@ -340,7 +425,7 @@
 
 .btntxt {
     margin: 14rpx 8rpx;
-    padding-top: 8rpx
+    text-indent: 6rpx
 }
 
 #btnselect {
@@ -349,7 +434,8 @@
 }
 
 .must {
-    color: red
+    color: red;
+    margin-left: 10rpx
 }
 
 .material {
@@ -435,21 +521,22 @@
 
 /*     签证图例      */
 
-#exampleimg {
+#four {
     background-color: #FFFFFF;
     padding: 30rpx 0;
     margin-top: 40rpx;
     margin-bottom: 120rpx
 }
 
-#exampleimg image {
+#four image {
     width: 608rpx;
     height: 384rpx;
     margin-left: 40rpx;
 
 }
-#talk{
-    width: 100%;
+
+#talk {
+    width: 750rpx;
     height: 88rpx;
     color: #FFFFFF;
     line-height: 88rpx;
@@ -461,7 +548,7 @@
 }
 
 /*       modal框          */
-.mask{
+.mask {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -472,12 +559,12 @@
     opacity: 0.7;
 }
 
-.modalDlg{
+.modalDlg {
     width: 100%;
     height: auto;
     position: fixed;
     bottom: 0;
- 
+
     z-index: 9999;
     /* margin: -370rpx 85rpx; */
     background-color: #fff;
@@ -485,41 +572,46 @@
     flex-direction: column;
     align-items: center;
 }
-.modaltitleimg{
+
+.modaltitleimg {
     width: 28rpx;
-    height: 28rpx;position:absolute;
-   
-    top:32rpx;
-    left:41rpx;
-    
-}
-.modaltitle{
-    position:relative;
-width:100%;
-border-bottom:1rpx solid #E2E2E2;
-padding:20rpx;
+    height: 28rpx;
+    position: absolute;
+
+    top: 32rpx;
+    left: 41rpx;
 
 }
-.modaltitletxt{
-    text-align:center;
+
+.modaltitle {
+    position: relative;
+    width: 100%;
+    border-bottom: 1rpx solid #E2E2E2;
+    padding: 20rpx;
+
+}
+
+.modaltitletxt {
+    text-align: center;
     color: #545454
-
 }
-.forpackageitem{
+
+.forpackageitem {
     margin: 10rpx 0
 }
-.packageitemcontainer{
+
+.packageitemcontainer {
     padding: 30rpx 0
 }
 
 /*                时间模态框              */
-.timemodalDlg{
+.timemodalDlg {
     width: 548rpx;
     height: auto;
     position: fixed;
     bottom: 50%;
     left: 15%;
-    border-radius:10px;
+    border-radius: 10px;
     z-index: 9999;
     /* margin: -370rpx 85rpx; */
     background-color: #fff;
@@ -527,30 +619,40 @@ padding:20rpx;
     flex-direction: column;
     align-items: center;
 }
-.timemodaltitle{
-    position:relative;
-    width:100%;
-    border-bottom:1rpx solid #E2E2E2;
+
+.timemodaltitle {
+    position: relative;
+    width: 100%;
+    border-bottom: 1rpx solid #E2E2E2;
     padding: 20rpx 0
 }
-.timemodalDlgtxt{
-    padding:30rpx;
-text-align:center;
+
+.timemodalDlgtxt {
+    padding: 30rpx;
+    text-align: center;
 
 }
-.timebox{
+
+.timebox {
     color: #8DA5FF;
     font-size: 32rpx;
-    border:1px solid rgba(141,165,255,1);border-radius:2px;
+    border: 1px solid rgba(141, 165, 255, 1);
+    border-radius: 2px;
     padding: 0 20rpx;
 }
-.timetxt{
-    font-size:14px;
+
+.timetxt {
+    font-size: 14px;
     color: #545454;
     /* margin-top: 10rpx */
 }
-.boldtxt{
+
+.boldtxt {
     color: #8DA5FF;
     font-size: 36rpx;
     font-weight: bold
+}
+
+ul.circle {
+    list-style-type: circle;
 }

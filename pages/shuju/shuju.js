@@ -2,7 +2,7 @@ import {
   config
 } from '../../config.js'
 // let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907'
+const img_base_url = 'http://192.168.1.102:907/'
 const appsecret = 'c6a2e0b2bfcd78c151d631d271e76980'
 const Appid = 'wx2905c9c6d412246c'
 Page({

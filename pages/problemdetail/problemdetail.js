@@ -3,21 +3,23 @@ import {
   config
 } from '../../config.js'
 // let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907'
+const img_base_url = 'http://192.168.1.102:907/'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    problemlunbo:[]
+    problemlunbo:[],
+    thatindex:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options.id)
+     console.log(options.id)
+     console.log(options.index)
     var thatid=options.id
     wx.request({
       url: config.api_base_url + 'Index/GetFAQsModel',
@@ -28,7 +30,8 @@ Page({
       success: (res) => {
         // console.log(res.data.Data)
         this.setData({
-           problemlunbo: res.data.Data
+           problemlunbo: res.data.Data,
+           thatindex:options.index
         })
 
       }

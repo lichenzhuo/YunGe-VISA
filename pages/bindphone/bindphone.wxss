@@ -51,7 +51,7 @@
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 17px;
-    color: #8DA5FF;
+    color: #ABABAB;
 }
 
 .btn {
@@ -79,7 +79,7 @@
     font-weight: 400;
     line-height: 20px;
     color: rgba(141, 165, 255, 1);
-    width: 120rpx
+    width: 144rpx
 }
 
 .yanzhengma {

@@ -1,6 +1,6 @@
 <view class="container">
     <view class="title">
-        1、{{problemlunbo.Problem}}
+        {{thatindex}}、{{problemlunbo.Problem}}
     </view>
     <view class="detail">
         {{problemlunbo.Answer}}        

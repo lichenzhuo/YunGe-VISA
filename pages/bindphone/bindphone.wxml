@@ -3,7 +3,7 @@
     <view class="search">
       <view class="df search_arr">
         <view class="searchcion">手机号</view>
-        <input style="overflow:visible" focus='true' placeholder="请输入手机号" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="searchValueInput" />
+        <input style="overflow:visible" focus='true' placeholder="{{phonenum}}" placeholder-class="placeholderStyle" value="{{searchValue}}" bindinput="searchValueInput" />
       </view>
     </view>
     <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->

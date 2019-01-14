@@ -12,7 +12,7 @@ Page({
   data: {
     searchValue: '',
     Token: '',
-    wxnum: '',
+    wxnum: '请输入微信号',
     phonenum: '',
     xianshi: false,
   },
@@ -66,6 +66,9 @@ Page({
               //   })
               // }
             });
+            setTimeout(()=>{
+              wx.navigateBack()
+            },3000)
 
           } else {
             wx.showToast({
@@ -168,6 +171,26 @@ Page({
         that.setData({
           Token: res.data,
           xianshi: false
+        })
+        wx.request({
+          url: config.api_base_url + 'User/GetUserInfo',
+          method: 'post',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + that.data.Token
+          },
+          success: function (res) {
+
+            console.log(res)
+            that.setData({
+              nickName: res.data.Data.NickName,
+              avatarUrl: res.data.Data.headimgurl,
+              wxnum: res.data.Data.VXNumber,
+              phonenum: res.data.Data.Phone,
+            })
+            console.log(that.data.wxnum)
+          },
+
         })
 
       },

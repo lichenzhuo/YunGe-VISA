@@ -2,7 +2,7 @@ import {
   config
 } from '../../config.js'
 // let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907'
+const img_base_url = 'http://192.168.1.102:907/'
 // var app = getApp();
 var searchValue = ''
 Page({
@@ -20,8 +20,11 @@ Page({
     searchcountry: [],
     baocunname: [],
     Token: '',
+    historyrecord: [],
+    thatsearchname: '',
 
   },
+  //搜索框点击输入
   searchValueInput: function (e) {
     var that = this
     var value = e.detail.value;
@@ -39,7 +42,21 @@ Page({
       });
     }
     wx.request({
-      url: 'http://192.168.1.102:804/api/Index/GetProductsList', //后台搜索接口
+      url: config.api_base_url + 'Historical/SaveHistorical', //添加搜索记录
+      method: 'post',
+      data: {
+        Contents: value
+      },
+      header: {
+        'content-type': 'application/json',
+        'Authorization': 'BasicAuth ' + that.data.Token
+      },
+      success: function (res) {
+        console.log(res)
+      },
+    });
+    wx.request({
+      url: config.api_base_url + 'Index/GetProductsList', //搜索结果
       method: 'post',
       data: {
         Name: value
@@ -53,8 +70,6 @@ Page({
           searchcountry: res.data.Data.CountryName,
           baocunname: res.data.Data.CountryName[0].Country_ZH
         })
-
-
       },
       fail: function (e) {
         wx.showToast({
@@ -63,7 +78,9 @@ Page({
         });
       },
     });
+
   },
+  //点击国家
   searchcountryclick: function (e) {
     //  console.log(e.currentTarget.dataset.id)
 
@@ -78,6 +95,7 @@ Page({
     //   }
     // })
   },
+  //点击商品
   searchproclick: function (e) {
     console.log(e)
     wx.navigateTo({
@@ -91,57 +109,103 @@ Page({
     //   }
     // })
   },
-  // suo: function (e) {
-  //   var id = e.currentTarget.dataset.id
-  //   console.log(e)
-  //   var program_id = app.program_id;
-  //   console.log(app.program_id);
-  //   var that = this;
-  //   wx.request({
-  //     url: 'http://192.168.1.102:804/api/Index/GetProductsList', //后台搜索接口
-  //     method: 'post',
-  //     data: {
-  //       Contents: '巴西'
-  //     },
-  //     success: function (res) {
-  //       console.log(res)
-  //     },
-  //     fail: function (e) {
-  //       wx.showToast({
-  //         title: '网络异常！',
-  //         duration: 2000
-  //       });
-  //     },
-  //   });
-  // },
-
+  //点击搜索历史
+  //  注释-----------e.currentTarget.dataset.name后面会多个空格，不知什么原因。两种方法去后面的空格
+  //  1、trim()方法去空格
+  //  2、replace(/\s*/g,"")去除所有空格
+  searchhistoryclick: function (e) {
+    var that = this
+    // console.log(e.currentTarget.dataset.name)
+    console.log(typeof (e.currentTarget.dataset.name))
+    that.setData({
+      thatsearchname:e.currentTarget.dataset.name.trim()
+    })
+    wx.request({
+      url: config.api_base_url + 'Index/GetProductsList', //搜索结果
+      method: 'post',
+      data: {
+        Name: that.data.thatsearchname
+      },
+      success: function (res) {
+        console.log(res.data.Data.CountryName[0].Id)
+        wx.navigateTo({
+          url: '../details/details?id=' + res.data.Data.CountryName[0].Id,
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    });
+  },
+  clearhis:function(){
+    let that=this
+    wx.request({
+      url: config.api_base_url + 'Historical/DeleteHistorical', //搜索结果
+      method: 'post',
+      header: {
+        'content-type': 'application/json',
+        'Authorization': 'BasicAuth ' + that.data.Token
+      },
+      success: function (res) {
+        console.log(res)
+        wx.request({ //获取搜索记录
+          url: config.api_base_url + 'Historical/SelectHistorical',
+          method: 'post',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + that.data.Token
+          },
+          success: (res) => {
+            that.setData({
+              historyrecord: res.data.Data
+            })
+            console.log(res)
+            console.log("搜索记录")
+          }
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '清除搜索历史记录失败',
+          duration: 2000
+        });
+      },
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
-    wx.getStorage({
+    wx.getStorage({ //进入页面获取缓存
       key: 'token',
       success(res) {
         //  console.log(res)
         that.setData({
           Token: res.data,
         })
-        console.log(that.data.Token)
+        console.log(that.data.Token + "这是token")
+        wx.request({ //获取搜索记录
+          url: config.api_base_url + 'Historical/SelectHistorical',
+          method: 'post',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + that.data.Token
+          },
+          success: (res) => {
+            that.setData({
+              historyrecord: res.data.Data
+            })
+            console.log(res)
+            console.log("搜索记录")
+          }
+        })
       },
     })
-    wx.request({
-      url: config.api_base_url + 'Historical/SelectHistorical',
-      method: 'post',
-      header: {
-        'content-type': 'application/json',
-        'Authorization': 'BasicAuth ' + that.data.Token
-      },
-      success: (res) => {
-        console.log(res)
-        console.log(that.data.Token)
-      }
-    })
+
 
   },
 
@@ -177,7 +241,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
+    wx.showToast({
+      title:"loading",
+      icon:'loading',
+      duration:1000,
+      success:function(){
+        wx.stopPullDownRefresh()
+      }
+  })
   },
 
   /**

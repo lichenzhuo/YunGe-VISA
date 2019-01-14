@@ -50,7 +50,7 @@
     line-height: 34rpx;
     color: rgba(171, 171, 171, 1);
     display: inline-block;
-    margin-left: 370rpx
+    margin-left: 410rpx
 }
 
 .next {

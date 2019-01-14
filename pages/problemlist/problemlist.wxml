@@ -2,8 +2,8 @@
 <view class='page_row' bindtap="suo">
     <view class="search">
         <view class="df search_arr">
-            <icon class="searchcion" size='20' type='search'></icon>
-            <input focus='true' placeholder="搜索国家/地区" bindinput="searchValueInput" />
+            <icon class="searchcion" size='16' type='search'></icon>
+            <input focus='true' placeholder="请输入问题关键字" bindinput="searchValueInput" />
         </view>
     </view>
     <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->
@@ -11,14 +11,14 @@
 <view id="banner">
     <view class="morenlist" wx:if="{{listshow}}">
         <block wx:for="{{problemlunbo}}">
-            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">
+            <view bindtap="gotoproblemdetail" class="listitem" data-index="{{index+1}}" data-id="{{item.Id}}">
                 {{index+1+'、'+item.Problem}}
             </view>
         </block>
     </view>
     <view class="morenlist" wx:if="{{searchshow}}">
         <block wx:for="{{searchValue}}">
-            <view bindtap="gotoproblemdetail" class="listitem" data-id="{{item.Id}}">
+            <view bindtap="gotoproblemdetail" class="listitem" data-index="{{index+1}}" data-id="{{item.Id}}">
                 {{index+1+'、'+item.Problem}}
             </view>
         </block>

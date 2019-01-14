@@ -5,6 +5,7 @@
 
 .bg-img {
   width: 750rpx;
+  height: 490rpx;
 }
 
 .search {
@@ -62,7 +63,7 @@
   align-items: center;
   /* -webkit-justify-content: center; */
   /* justify-content: center; */
-  padding: 16rpx 0 26rpx 0;
+  padding: 8rpx 0 14rpx 0;
   border-bottom: 1rpx solid #F8F8F8
 }
 
@@ -126,7 +127,7 @@
   /* width: 680rpx; */
 
   /* margin: 0 40rpx; */
-  font-size: 28rpx;
+  /* font-size: 28rpx; */
   /* line-height: 80rpx; */
   background-color: white;
 }
@@ -139,17 +140,18 @@
   visibility: hidden;
 }
 
-.item {
+/* .item {
   color: #d8d5d5;
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
-  justify-content: space-between;
-}
+  justify-content: space-around;
+} */
 
 .select {
+  padding-bottom: 20rpx;
   color: #d10202;
-  border-bottom: 1rpx solid;
+  border-bottom: 4rpx solid;
 }
 
 /* .wenben{
@@ -177,6 +179,7 @@
 }
 
 .title3 {
+  padding-top: 10rpx;
   font-size: 22rpx;
   overflow: auto;
   line-height: 15rpx;
@@ -280,11 +283,18 @@
   background-color: #fff;
   padding: 40rpx 10rpx 40rpx 20rpx;
 }
+button{
+  background-color: #8DA5FF;
+  color: #FFFFFF
+}
 
 .country {
   font-size: 34rpx;
 
 }
+/* button::after {
+  color: #8DA5FF
+} */
 
 .xunwen-btn {
   width: 160rpx;
@@ -371,4 +381,21 @@
   overflow: hidden;
   width: 440rpx;
   /* margin-right: 60rpx */
+}
+
+.tabswitchcontainer {
+  overflow: hidden;
+  /* margin: 0 24rpx; */
+  color: #545454;
+  /* font-size: 32rpx; */
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-around;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  height: 80rpx;
+}
+.zixunbtn{
+  
 }
