@@ -1,7 +1,16 @@
-<view class="page-body-info">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-</view>
-<view class="btn-area">
-  <button open-type="getUserInfo" type="primary" bindgetuserinfo="getUserInfo">获取用户信息</button>
-</view>
+12321
+<van-steps steps="{{process}}" active="10" direction="vertical" active-color="#8da5ff">
+  <!-- <van-step wx:for="{{process}}" wx:key="index">
+    <text>{{item.Title}}</text>
+    <text>{{item.Description}}</text>
+  </van-step> -->
+</van-steps>
+
+
+
+
+1231313131
+
+
+
+<van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-color="#f44" />

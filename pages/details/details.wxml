@@ -71,46 +71,6 @@
                             </view>
                         </view>
                     </block>
-                    <!-- <view class="content1">
-                        <text class="title1">费用包含</text>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">签证费（签证费代缴）</view>
-                        </view>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">服务费（服务费服务费服务费服务费服务费服务费服务费服务费）</view>
-                        </view>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">签证费（签证费代缴）</view>
-                        </view>
-                    </view>
-                    <view class="content1">
-                        <text class="title1">费用不包含</text>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">办理护照的费用</view>
-                        </view>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">材料寄送给我司的快递费</view>
-                        </view>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">其他未提及费用</view>
-                        </view>
-                    </view>
-                    <view class="content1">
-                        <text class="title1">办理须知</text>
-                        <view class="neirongone">
-                            <view class="dian"></view>
-                            <view class="neirongone1">
-                                在办理签证期间，芊芊可能会根据你的材料情况要求增补其他材料；
-                                领馆也可能会针对你的实际情况。要求增补其他材料，或延长签证受理时间
-                            </view>
-                        </view>
-                    </view> -->
                 </view>
                 <view id="two">
                     <view class="title">所需材料</view>
@@ -120,18 +80,6 @@
                                 <view class="btntxt">{{item.tabname}}</view>
                             </view>
                         </block>
-                        <!-- <view class="btn">
-                            <view class="btntxt">退休人员</view>
-                        </view>
-                        <view class="btn btnselect">
-                            <view class="btntxt">在职人员</view>
-                        </view>
-                        <view class="btn">
-                            <view class="btntxt">在校学生</view>
-                        </view>
-                        <view class="btn">
-                            <view class="btntxt">学龄前儿童</view>
-                        </view> -->
                     </view>
                     <view class="material">
                         <view class="materialtitle">*必须提供的资料</view>
@@ -144,14 +92,8 @@
                                         {{item.Name}}
                                         <text wx:if="{{item.IsMust==0}}" class="must">*</text>
                                     </view>
-                                    <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
-                            <!-- <view class="neirongone">
-                                <view class="dian"></view>
-                                <view class="neirongone1 must">照片*</view>
-                                
-                            </view> -->
                             <view bindtap="moreDetails" wx:if="{{requiredata.App[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
                                 <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
@@ -166,7 +108,6 @@
                                         {{item.Name}}
                                         <text wx:if="{{item.IsMust==0}}" class="must">*</text>
                                     </view>
-                                    <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Ems[0]}}" class="appmaterialdetail">
@@ -183,7 +124,6 @@
                                         {{item.Name}}
                                         <text wx:if="{{item.IsMust==0}}" class="must">*</text>
                                     </view>
-                                    <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Face[0]}}" class="appmaterialdetail">
@@ -200,7 +140,6 @@
                                         {{item.Name}}
                                         <text wx:if="{{item.IsMust==0}}" class="must">*</text>
                                     </view>
-                                    <!-- <view class="must">*</view> -->
                                 </view>
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Inbound[0]}}" class="appmaterialdetail">
@@ -212,7 +151,10 @@
                 </view>
                 <view id="three">
                     <view class="title">办理流程</view>
-                    <block wx:for="{{morendatadetail.processes}}" wx:key="index">
+                    <van-steps steps="{{morendatadetailprocesses}}" direction="vertical" active="10" active-color="#8da5ff">
+                    
+                </van-steps>
+                    <!-- <block wx:for="{{morendatadetailprocesses}}" wx:key="index">
                         <view class="duizhao">
                             <view class="workprocesstxt1">
                                 <view class="workprocesstltle1">{{item.Title}}</view>
@@ -220,12 +162,14 @@
                             </view>
                             <image src="../../images/椭圆 43.png" class="workprocesstxtdian"></image>
                         </view>
-                    </block>
+                    </block> -->
                 </view>
                 <view id="four">
                     <view class="title">签证图例</view>
                     <image src="{{morendatadetail.VisaPath}}" />
                 </view>
+               
+                
             </scroll-view>
         </view>
     </view>
@@ -233,39 +177,19 @@
         咨 询
     </button>
     <view id="modal">
-        <view class="mask" wx:if="{{showModal}}"></view>
+        <view class="mask" bindtap="cancle" wx:if="{{showModal}}"></view>
         <view class="modalDlg" wx:if="{{showModal}}" wx:key="index">
             <view class="modaltitle">
                 <image bindtap="cancle" class="modaltitleimg" src="../../images/关闭.png" />
-                <view class="modaltitletxt">套餐类型</view>
+                <view bindtap="cancle" class="modaltitletxt">套餐类型</view>
             </view>
-            <!-- <text id="{{item.id}}" bindtap="go">{{item.title}}</text> -->
             <view class="packageitemcontainer">
                 <view wx:for="{{dataildata}}" wx:key="index" id="{{item.Id}}" bindtap="gotoselect" class="packageitem forpackageitem">
                     <view class="packagedescription">{{item.Name}}</view>
                     <view class="referenceprice">参考价 ￥{{item.ReferencePrice}}</view>
-                    <!-- <image class="packageselect" src="../../images/符号 10 – 1.png" /> -->
+                    <image wx:if="{{xianshiid==item.Id}}" class="packageselect" src="../../images/符号 10 – 1.png" />
                 </view>
             </view>
         </view>
     </view>
-    <!-- <view id="timemodal">
-        <view class="mask" wx:if="{{showtimeModal}}"></view>
-        <view class="timemodalDlg" wx:if="{{showtimeModal}}">
-            <view class="timemodaltitle">
-                <image bindtap="timecancle" class="modaltitleimg" src="../../images/关闭.png" />
-                <view class="modaltitletxt">预计办理</view>
-            </view>
-            <view class="timemodalDlgtxt">
-                <text class="timebox">7工作日</text>
-                <text class="timetxt">
-                    从资料收齐后开始计算：资料操作处理
-                    <text class="boldtxt">1</text>
-                    工作日+使馆受理
-                    <text class="boldtxt">6</text>
-                    工作日
-                </text>
-            </view>
-        </view>
-    </view> -->
 </view>

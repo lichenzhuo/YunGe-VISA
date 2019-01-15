@@ -140,7 +140,7 @@ Page({
               });
               setTimeout(()=>{
                 wx.navigateBack()
-              },3000)
+              },2000)
             } else {
               wx.showToast({
                 title: '未知错误，绑定失败',

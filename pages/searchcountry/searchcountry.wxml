@@ -3,7 +3,7 @@
   <view class="search">
     <view class="df search_arr">
       <icon class="searchcion" size='20' type='search'></icon>
-      <input focus='true' placeholder="搜索国家/地区" value="{{searchValue}}" bindinput="searchValueInput" />
+      <input focus='true' placeholder="搜索国家/地区" value="{{searchValue}}" placeholder-class="placeholderclass" bindinput="searchValueInput" />
     </view>
   </view>
   <!-- <view class='sousuo' bindtap="quxiaosousuo">取消</view> -->

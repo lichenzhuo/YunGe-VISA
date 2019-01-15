@@ -1,14 +1,12 @@
 <view class='container'>
   <view class='header'>
-    <swiper style="width: 750rpx;height: 490rpx;" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
-        <swiper-item>
-          <image class='bg-img' src='../../images/BANNER1.png'></image>
-          
-        </swiper-item>
-         <swiper-item>
-          <image class='bg-img' src='../../images/BANNER2.png'></image>
-          
-        </swiper-item>
+    <swiper style="width: 750rpx;height: 490rpx;" indicator-dots="true" autoplay="true" interval="5000" duration="500" circular="true">
+      <swiper-item>
+        <image class='bg-img' src='../../images/BANNER1.png'></image>
+      </swiper-item>
+      <swiper-item>
+        <image class='bg-img' src='../../images/BANNER2.png'></image>
+      </swiper-item>
     </swiper>
     <!-- <image class='bg-img' src='../../images/BANNER1.png'></image> -->
     <input class='search' bindtap="searchcountry"></input>
@@ -19,7 +17,7 @@
   <view class="problem-main">
     <image bindtap="gotoproblemlist" class='problem-img' src='../../images/problem.png'></image>
     <text bindtap="gotoproblemlist" class='problem-text1'>常见问题</text>
-    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="4000">
       <block wx:for="{{problemlunbo}}" wx:key='index'>
         <swiper-item>
           <view bindtap="thisproblemdetail" data-index="{{index+1}}" data-id="{{item.Id}}" class="swiper_item">
@@ -51,9 +49,9 @@
           <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item" data-id="{{item.Id}}" wx:key='index'>
             <image bindtap='gotodetails' data-id="{{item.Id}}" class='country-list-img' src="{{item.HomeImage}}"></image>
             <view class="gotodetails"></view>
-            <view class="smallbox">
-              <text class="gotodetails-name">{{item.Country_ZH}}</text>
-              <text data-id="{{item.Id}}" bindtap='gotodetails' class="gotodetails-name1">
+            <view data-id="{{item.Id}}" class="smallbox" bindtap='gotodetails'>
+              <text data-id="{{item.Id}}" class="gotodetails-name">{{item.Country_ZH}}</text>
+              <text data-id="{{item.Id}}" class="gotodetails-name1">
                 查看详情
               </text>
             </view>
@@ -85,8 +83,8 @@
           <block wx:for="{{asiadata}}" wx:key='index' wx:for-item="item">
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition'>
-                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+              <view class='topposition' data-id="{{item.Id}}">
+                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
@@ -96,6 +94,7 @@
               </view>
             </view>
           </block>
+          <!-- <image src="../../images/组 1@2x.png" /> -->
         </view>
       </scroll-view>
       <view id="three">
@@ -117,8 +116,8 @@
           <block wx:for="{{americadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition'>
-                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+              <view class='topposition' data-id="{{item.Id}}">
+                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
@@ -149,8 +148,8 @@
           <block wx:for="{{europedata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition'>
-                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+              <view class='topposition' data-id="{{item.Id}}">
+                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
@@ -181,8 +180,8 @@
           <block wx:for="{{afrivcadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition'>
-                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+              <view class='topposition' data-id="{{item.Id}}">
+                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
@@ -213,8 +212,8 @@
           <block wx:for="{{oceaniadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
               <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition'>
-                <view class='toppositioncountry'>{{item.Country_ZH}}</view>
+              <view class='topposition' data-id="{{item.Id}}">
+                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>

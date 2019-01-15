@@ -10,22 +10,22 @@ Page({
    */
   data: {
     countrylist: [],
-    
+
 
   },
   gotodetails: function (e) {
-     console.log(e.currentTarget.dataset.id)
-        wx.navigateTo({
-          url: '../details/details?id='+e.currentTarget.dataset.id,
-        })
-      },
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../details/details?id=' + e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     // var that=this
     console.log(options.listid)
-    var listid=options.listid
+    var listid = options.listid
     // wx.setNavigationBarTitle({
     //   title: '亚洲Asia'
     // })
@@ -37,9 +37,9 @@ Page({
       },
       success: (res) => {
         console.log(res.data.Data)
-        let newarr=[res.data.Data]
-        for(let i = 0; i < newarr.length; i++){
-          for(let j = 0; j < newarr[i].length; j++){
+        let newarr = [res.data.Data]
+        for (let i = 0; i < newarr.length; i++) {
+          for (let j = 0; j < newarr[i].length; j++) {
             newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
           }
         }

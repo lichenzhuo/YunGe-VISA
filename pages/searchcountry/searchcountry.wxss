@@ -110,3 +110,7 @@
   color:rgba(0,0,0,1);
   margin-left: 20rpx
 }
+.placeholderclass{
+  font-size: 28rpx;
+  color: #707070
+}

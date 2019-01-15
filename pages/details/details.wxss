@@ -207,7 +207,7 @@
 }
 
 .packagetitle {
-    padding-left: 12rpx;
+    padding-left: 24rpx;
 
 }
 
@@ -245,7 +245,7 @@
 
 /*     套餐选项    */
 .packageitem {
-    margin-left: 12rpx;
+    margin-left: 20rpx;
     margin-top: 14rpx;
     width: 710rpx;
     /* height: 108rpx; */
@@ -327,7 +327,7 @@
 .title {
     font-size: 32rpx;
     font-family: PingFang SC;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 44rpx;
     color: rgba(0, 0, 0, 1);
     text-align: center;

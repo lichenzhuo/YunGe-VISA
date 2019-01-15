@@ -68,7 +68,7 @@ Page({
             });
             setTimeout(()=>{
               wx.navigateBack()
-            },3000)
+            },2000)
 
           } else {
             wx.showToast({

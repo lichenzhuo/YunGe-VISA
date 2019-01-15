@@ -29,7 +29,9 @@
 }
 
 .txt {
-    margin-left: 40rpx
+    margin-left: 40rpx;
+    display: flex;
+    justify-content: space-between
 }
 
 .txt1 {
@@ -50,7 +52,7 @@
     line-height: 34rpx;
     color: rgba(171, 171, 171, 1);
     display: inline-block;
-    margin-left: 410rpx
+    margin-right: 20rpx;
 }
 
 .next {
@@ -81,4 +83,7 @@
     align-items: center;
     display: -webkit-flex;
     margin-top: 100rpx
+}
+.box{
+    display: inline;
 }
