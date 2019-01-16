@@ -16,7 +16,7 @@
 .useimg {
     width: 140rpx;
     height: 140rpx;
-    border: 1px solid rgba(106, 112, 116, 1);
+    border: 2rpx solid rgba(106, 112, 116, 1);
     border-radius: 50%;
 }
 

@@ -1,5 +1,5 @@
 <view class="bg">
-    <image style="width:750rpx;height:288rpx" src="../../images/矩形103.png" />
+    <image style="width:750rpx;height:288rpx" src="../../images/bg.png" />
     <view class="centerbox">
         <image class="useimg" src="{{avatarUrl}}"></image>
         <view class="usename">{{nickName}}</view>
@@ -10,14 +10,14 @@
         <view class="txt1">微信号</view>
         <view class="box">
             <view style="" class="txt2">{{wxnum}}</view>
-            <image class="next" src="../../images/下一步.png" />
+            <image class="next" src="../../images/next.png" />
         </view>
     </view>
     <view class="txt" bindtap="bindphone">
         <view class="txt1">手机号</view>
         <view class="box">
   <view class="txt2">{{phonenum}}</view>
-        <image class="next" src="../../images/下一步.png" />
+        <image class="next" src="../../images/next.png" />
         </view>
       
     </view>

@@ -73,7 +73,9 @@ Page({
     toView: '', //scroll-view组件，未正常使用
     showtimeModal: false, //控制预计办理时间点击弹框
      currentTargetname:'',
-
+     systemInfo: {}, //手机是ios还是安卓
+    durationtime: 300, //ios滑动时间300，安卓就变成0
+    itemlist:['微信咨询', '手机号咨询'],//点击咨询出来的选项，安卓增加取消选项
   },
   pricemodal: function () { //参考价明细点击弹框
     wx.showModal({
@@ -161,25 +163,26 @@ Page({
       catalogSelect: e.currentTarget.dataset.select,
       toView: e.currentTarget.dataset.select
     })
+    
     if (selectid == 'one') {
       wx.pageScrollTo({ //导航tab固定高度74rpx
         scrollTop: that.data.topone-40,
-        duration: 500
+        duration: that.data.durationtime
       })
     } else if (selectid == 'two') {
       wx.pageScrollTo({
         scrollTop: that.data.toptwo-40,
-        duration: 500
+        duration: that.data.durationtime
       })
     } else if (selectid == 'three') {
       wx.pageScrollTo({
         scrollTop: that.data.topthree-40,
-        duration: 500
+        duration: that.data.durationtime
       })
     } else {
       wx.pageScrollTo({
         scrollTop: that.data.topthree+80,
-        duration: 500
+        duration: that.data.durationtime
       })
     }
   },
@@ -391,7 +394,7 @@ Page({
               phonenum: res.data.Data.Phone,
             })
             wx.showActionSheet({
-              itemList: ['微信咨询', '手机号咨询'],
+              itemList: that.data.itemlist,
               success(res) {
                 if (res.tapIndex == 0) { //点击的是微信咨询
                   if (that.data.Token) { //判断是否有token
@@ -442,7 +445,7 @@ Page({
                       url: '../bindweixin/bindweixin', //没有token，提示绑定微信和微信号码
                     })
                   }
-                } else {
+                } else if(res.tapIndex == 1) {
                   if (that.data.Token) {
                     if (that.data.phonenum == '') {
                       wx.navigateTo({
@@ -485,6 +488,8 @@ Page({
                       url: '../bindphone/bindphone',
                     })
                   }
+                }else{
+                  //安卓取消
                 }
               }
             })
@@ -567,7 +572,7 @@ Page({
                               phonenum: res.data.Data.Phone,
                             })
                             wx.showActionSheet({
-                              itemList: ['微信咨询', '手机号咨询'],
+                              itemList: that.data.itemlist,
                               success(res) {
                                 if (res.tapIndex == 0) { //点击的是微信咨询
                                   if (that.data.Token) { //判断是否有token
@@ -618,7 +623,7 @@ Page({
                                       url: '../bindweixin/bindweixin', //没有token，提示绑定微信和微信号码
                                     })
                                   }
-                                } else {
+                                } else if (res.tapIndex == 0) {
                                   if (that.data.Token) {
                                     if (that.data.phonenum == '') {
                                       wx.navigateTo({
@@ -661,6 +666,8 @@ Page({
                                       url: '../bindphone/bindphone',
                                     })
                                   }
+                                }else{
+                                  //安卓取消
                                 }
                               }
                             })
@@ -697,7 +704,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-
     wx.getStorage({ //进入页面，获取缓存中的token
       key: 'token',
       success(res) {
@@ -867,7 +873,23 @@ Page({
         }
       })
     }
-    
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res,
+        })
+        if (res.platform == "devtools") {
+
+        } else if (res.platform == "ios") {
+          IOS
+        } else if (res.platform == "android") {
+          that.setData({
+            durationtime:0,
+            itemlist: ['微信咨询', '手机号咨询','取消'],
+          })
+        }
+      }
+    })
 
   },
   onPageScroll: function (e) {

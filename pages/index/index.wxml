@@ -12,7 +12,7 @@
     <input class='search' bindtap="searchcountry"></input>
     <image class='search-img' bindtap="searchcountry" src='../../images/icn_disocver_active.png'></image>
     <text bindtap="searchcountry" class='tips'>搜索国家/地区</text>
-    <image bindtap="gotoselfcenter" class='personal-center' src='../../images/个人中心.png'></image>
+    <image bindtap="gotoselfcenter" class='personal-center' src='../../images/selfcenter.png'></image>
   </view>
   <view class="problem-main">
     <image bindtap="gotoproblemlist" class='problem-img' src='../../images/problem.png'></image>
@@ -27,7 +27,7 @@
       </block>
     </swiper>
     <text bindtap="gotoproblemlist" class='problem-text2'>更多</text>
-    <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/下一步.png'></image>
+    <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/next.png'></image>
   </view>
   <view id='list' style="position: sticky;top:0;position: -webkit-sticky;z-index:999;width:750rpx">
     <view class='tabswitchcontainer'>
@@ -72,7 +72,7 @@
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
               <view bindtap="gotocountrylistasia" style='float:right'>
                 <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+                <image class='nextpage more-country' src='../../images/next.png'></image>
               </view>
             </view>
           </view>
@@ -105,7 +105,7 @@
               <text style='display:inline-block;margin-left:130rpx'>America</text>
               <view bindtap="gotocountrylistamerica" style='float:right'>
                 <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+                <image class='nextpage more-country' src='../../images/next.png'></image>
               </view>
             </view>
           </view>
@@ -137,7 +137,7 @@
               <text style='display:inline-block;margin-left:130rpx'>Europe</text>
               <view bindtap="gotocountrylisteurope" style='float:right'>
                 <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+                <image class='nextpage more-country' src='../../images/next.png'></image>
               </view>
             </view>
           </view>
@@ -169,7 +169,7 @@
               <text style='display:inline-block;margin-left:130rpx'>Africa</text>
               <view bindtap="gotocountrylistafrica" style='float:right'>
                 <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+                <image class='nextpage more-country' src='../../images/next.png'></image>
               </view>
             </view>
           </view>
@@ -201,7 +201,7 @@
               <text style='display:inline-block;margin-left:130rpx'>Oceania</text>
               <view bindtap="gotocountrylistoceania" style='float:right'>
                 <text class='more-country'>更多国家</text>
-                <image class='nextpage more-country' src='../../images/下一步.png'></image>
+                <image class='nextpage more-country' src='../../images/next.png'></image>
               </view>
             </view>
           </view>

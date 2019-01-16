@@ -10,9 +10,9 @@
 </view>
 <view class="listmoren" wx:if="{{lishi_Show}}">
   <view style="padding:15rpx 0 20rpx 0">
-    <image style="height:26rpx;width:26rpx;padding-left:30rpx" src="../../images/历史@2x.png" />
+    <image style="height:26rpx;width:26rpx;padding-left:30rpx" src="../../images/history.png" />
     <view class="searchhis">搜索历史</view>
-    <image style="width:20rpx;height:26rpx;margin-left:450rpx" src="../../images/清空@2x.png" />
+    <image style="width:20rpx;height:26rpx;margin-left:450rpx" src="../../images/clear.png" />
     <view class="clear" bindtap="clearhis">清空</view>
   </view>
   <!-- 搜索历史 -->
@@ -33,7 +33,7 @@
 <view wx:if="{{jieguo_show}}">   
   <view>
     <view class="searchbox1">
-      <image style="width:18rpx;height:24rpx" src="../../images/目的地@2x.png" />
+      <image style="width:18rpx;height:24rpx" src="../../images/mudidi.png" />
       <view class="mudidi">目的地</view>
     </view>
     <block wx:for="{{searchcountry}}">
@@ -44,7 +44,7 @@
   </view>
   <view>
     <view class="searchbox1">
-      <image style="width:24rpx;height:24rpx" src="../../images/签证2@2x.png" />
+      <image style="width:24rpx;height:24rpx" src="../../images/qianzheng.png" />
       <view class="mudidi">签证</view>
     </view>
     <block wx:for="{{searchdata}}">

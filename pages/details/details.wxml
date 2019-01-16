@@ -1,6 +1,6 @@
 <!-- pages/details/details.wxml -->
 <view id="whole" style="margin-bottom:100rpx">
-    <image class="details-top-bg" src="../../images/矩形103.png" />
+    <image class="details-top-bg" src="../../images/bg.png" />
     <view class="header">
         <text class="headertitle">{{morendatadetail.Name}}</text>
         <view class='headerprice-container'>
@@ -42,12 +42,12 @@
                 <text class="nowpackage">当前套餐</text>
                 <text class="packageid">（商品编号：011119）</text>
                 <text bindtap="submit" class="wholepackage">全部（{{dataildata.length}}）</text>
-                <image bindtap="submit" class="packagenext" src="../../images/符号 9 – 1.png" />
+                <image bindtap="submit" class="packagenext" src="../../images/next1.png" />
             </view>
             <view class="packageitem">
                 <view class="packagedescription">{{morendatadetail.Name}}</view>
                 <view class="referenceprice">参考价 ￥{{morendatadetail.ReferencePrice}}</view>
-                <image class="packageselect" src="../../images/符号 10 – 1.png" />
+                <image class="packageselect" src="../../images/select.png" />
             </view>
         </view>
     </view>
@@ -96,7 +96,7 @@
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.App[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
-                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                                <image class="appmaterialdetailimg" src="../../images/next1.png" />
                             </view>
                         </view>
                         <view wx:if="{{requiredata.Ems[0]}}" class="appmaterial">
@@ -112,7 +112,7 @@
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Ems[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
-                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                                <image class="appmaterialdetailimg" src="../../images/next1.png" />
                             </view>
                         </view>
                         <view wx:if="{{requiredata.Face[0]}}" class="appmaterial">
@@ -128,7 +128,7 @@
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Face[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
-                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                                <image class="appmaterialdetailimg" src="../../images/next1.png" />
                             </view>
                         </view>
                         <view wx:if="{{requiredata.Inbound[0]}}" class="appmaterial">
@@ -144,7 +144,7 @@
                             </block>
                             <view bindtap="moreDetails" wx:if="{{requiredata.Inbound[0]}}" class="appmaterialdetail">
                                 <text class="appmaterialdetailtxt">查看详细要求</text>
-                                <image class="appmaterialdetailimg" src="../../images/符号 9 – 1.png" />
+                                <image class="appmaterialdetailimg" src="../../images/next1.png" />
                             </view>
                         </view>
                     </view>
@@ -180,14 +180,14 @@
         <view class="mask" bindtap="cancle" wx:if="{{showModal}}"></view>
         <view class="modalDlg" wx:if="{{showModal}}" wx:key="index">
             <view class="modaltitle">
-                <image bindtap="cancle" class="modaltitleimg" src="../../images/关闭.png" />
+                <image bindtap="cancle" class="modaltitleimg" src="../../images/close.png" />
                 <view bindtap="cancle" class="modaltitletxt">套餐类型</view>
             </view>
             <view class="packageitemcontainer">
                 <view wx:for="{{dataildata}}" wx:key="index" id="{{item.Id}}" bindtap="gotoselect" class="packageitem forpackageitem">
                     <view class="packagedescription">{{item.Name}}</view>
                     <view class="referenceprice">参考价 ￥{{item.ReferencePrice}}</view>
-                    <image wx:if="{{xianshiid==item.Id}}" class="packageselect" src="../../images/符号 10 – 1.png" />
+                    <image wx:if="{{xianshiid==item.Id}}" class="packageselect" src="../../images/select.png" />
                 </view>
             </view>
         </view>
