@@ -1,20 +1,19 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/sad/sad",
+  
     "pages/countrylist/countrylist",
-    "pages/ceshi/ceshi",
+  
     "pages/details/details",
-    "pages/ceshi1/ceshi1",
+
     "pages/problemlist/problemlist",
     "pages/problemdetail/problemdetail",
-    "pages/lunbo/lunbo",
+
     "pages/searchcountry/searchcountry",
     "pages/selfcenter/selfcenter",
     "pages/bindphone/bindphone",
     "pages/bindweixin/bindweixin",
-    "pages/login/login",
-    "pages/shuju/shuju",
+
     "pages/morerequire/morerequire"
   ],
   "window": {
