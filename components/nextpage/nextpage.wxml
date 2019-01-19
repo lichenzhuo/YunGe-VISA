@@ -1,0 +1,4 @@
+<view style='float:right'>
+  <text class='more-country'>更多国家</text>
+  <image class='nextpage more-country' src='../../images/next.png'></image>
+</view>

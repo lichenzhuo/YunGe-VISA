@@ -2,7 +2,8 @@
 #whole {
     position: relative;
     background-color: rgb(248, 248, 248);
-    width: 750rpx
+    width: 750rpx;
+    -webkit-overflow-scrolling: touch
 }
 
 .details-top-bg {
@@ -56,15 +57,15 @@
     border-radius: 45%;
     font-size: 18rpx;
     padding: 0 2rpx 0 0;
-    border: 1px solid white;
+    border: 2rpx solid white;
     display: inline-block;
     padding: 5rpx;
-    line-height: 18rpx
-
+    line-height: 18rpx;
+    vertical-align: middle
 }
 
 .headerdatecontainer {
-    margin-top:20rpx; 
+    margin-top: 20rpx;
     text-align: center;
     color: #FFFFFF;
 }
@@ -91,7 +92,7 @@
     height: 188rpx;
     background-color: #FFFFFF;
     /* position: relative; */
-    border-radius: 5px;
+    border-radius: 10rpx;
     position: absolute;
     display: flex;
     align-items: center;
@@ -99,7 +100,7 @@
 
     top: 320rpx;
     left: 46rpx;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0rpx 0rpx 12rpx rgba(0, 0, 0, 0.16);
 }
 
 /* .valid-time image {
@@ -379,7 +380,7 @@
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 40rpx;
-    
+
     color: rgba(112, 112, 112, 1);
     margin-left: 30rpx;
     margin-bottom: 10rpx;
@@ -391,7 +392,7 @@
     font-family: PingFang SC;
     font-weight: 400;
     line-height: 40rpx;
- 
+
     color: rgba(112, 112, 112, 1);
     margin-left: 30rpx;
     margin-bottom: 10rpx;
@@ -545,6 +546,8 @@
     background-color: #6E8CFE;
     position: fixed;
     bottom: 0;
+    z-index: 8;
+    opacity: 1;
 }
 
 /*       modal框          */
@@ -564,13 +567,13 @@
     height: auto;
     position: fixed;
     bottom: 0;
-
     z-index: 9999;
     /* margin: -370rpx 85rpx; */
     background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15rpx
 }
 
 .modaltitleimg {
@@ -611,7 +614,7 @@
     position: fixed;
     bottom: 50%;
     left: 15%;
-    border-radius: 10px;
+    border-radius: 20rpx;
     z-index: 9999;
     /* margin: -370rpx 85rpx; */
     background-color: #fff;
@@ -637,12 +640,12 @@
     color: #8DA5FF;
     font-size: 32rpx;
     border: 1px solid rgba(141, 165, 255, 1);
-    border-radius: 2px;
+    border-radius: 4rpx;
     padding: 0 20rpx;
 }
 
 .timetxt {
-    font-size: 14px;
+    font-size: 28rpx;
     color: #545454;
     /* margin-top: 10rpx */
 }
@@ -655,4 +658,18 @@
 
 ul.circle {
     list-style-type: circle;
+}
+
+.xuanxiang {
+    padding: 20rpx 0 20rpx 0;
+    width: 100%;
+    text-align: center;
+}
+
+#btn1 {
+    border-bottom: 1rpx solid #F8F8F8
+}
+
+#btn2 {
+    border-bottom: 8rpx solid #F8F8F8
 }

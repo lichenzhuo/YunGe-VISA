@@ -2,8 +2,6 @@
 import {
   config
 } from '../../config.js'
-// let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907/'
 Page({
 
   /**

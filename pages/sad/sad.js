@@ -1,34 +1,66 @@
-// pages/list-1/list-1.js
-var list = require('../../utils/list.js')
+// pages/sad/sad.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    // 左侧点击类样式
-    curNav: 'A',
+
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
-    // 生命周期函数--监听页面初次渲染完成
-    var listChild1 = list.List[0];
-    var that = this;
-    // 获取可视区高度
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          list: listChild1,
-          winHeight: res.windowHeight,
-        })
-      }
-    })
+
   },
-  //点击左侧 tab ，右侧列表相应位置联动 置顶
-  switchRightTab: function (e) {
-    var id = e.target.id;
-    console.log(typeof id)
-    this.setData({
-      // 动态把获取到的 id 传给 scrollTopId
-      scrollTopId: id,
-      // 左侧点击类样式
-      curNav: id
-    })
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })
-

@@ -66,16 +66,17 @@ Page({
     thatindex: 3, //职业tab切换所点击那一项的index
     catalogSelect: 'one', //导航tab切换默认哪一项
     showModal: false, //控制套餐modal显示
+    showModal1: false,
     nowid: '', //点击过套餐选择后的当前页面商品id
     Proid: '', //从搜索页面点击商品获取到的商品id
     thatid: '', //点击国家进来默认展示第一个商品的id
     xianshiid: '', //套餐选择界面显示哪个套餐被选中状态
     toView: '', //scroll-view组件，未正常使用
     showtimeModal: false, //控制预计办理时间点击弹框
-     currentTargetname:'',
-     systemInfo: {}, //手机是ios还是安卓
+    currentTargetname: '',
+    systemInfo: {}, //手机是ios还是安卓
     durationtime: 300, //ios滑动时间300，安卓就变成0
-    itemlist:['微信咨询', '手机号咨询'],//点击咨询出来的选项，安卓增加取消选项
+    // itemlist: ['微信咨询', '手机号咨询'], //点击咨询出来的选项，安卓增加取消选项
   },
   pricemodal: function () { //参考价明细点击弹框
     wx.showModal({
@@ -147,9 +148,7 @@ Page({
     // console.log(that.data.xianshiid)
   },
   preventTouchMove: function () { //防止弹框弹出屏幕滑动
-
   },
-
   cancle: function () { //关闭套餐选择弹框
     this.setData({
       showModal: false,
@@ -163,25 +162,24 @@ Page({
       catalogSelect: e.currentTarget.dataset.select,
       toView: e.currentTarget.dataset.select
     })
-    
     if (selectid == 'one') {
       wx.pageScrollTo({ //导航tab固定高度74rpx
-        scrollTop: that.data.topone-40,
+        scrollTop: that.data.topone - 40,
         duration: that.data.durationtime
       })
     } else if (selectid == 'two') {
       wx.pageScrollTo({
-        scrollTop: that.data.toptwo-40,
+        scrollTop: that.data.toptwo - 40,
         duration: that.data.durationtime
       })
     } else if (selectid == 'three') {
       wx.pageScrollTo({
-        scrollTop: that.data.topthree-40,
+        scrollTop: that.data.topthree - 40,
         duration: that.data.durationtime
       })
     } else {
       wx.pageScrollTo({
-        scrollTop: that.data.topthree+80,
+        scrollTop: that.data.topthree + 80,
         duration: that.data.durationtime
       })
     }
@@ -226,8 +224,8 @@ Page({
       console.log(that.data.requiredata, that.data.thatindex)
     }
   },
-  query:function(){     //获取4个节点的位置
-    var that=this
+  query: function () { //获取4个节点的位置
+    var that = this
     const query1 = wx.createSelectorQuery()
     query1.select('#one').boundingClientRect()
     query1.selectViewport().scrollOffset()
@@ -237,9 +235,8 @@ Page({
       console.log(res[0].top)
       console.log(res[1].scrollTop)
       that.setData({
-        topone:res[0].top+res[1].scrollTop
+        topone: res[0].top + res[1].scrollTop
       })
-    
     })
     const query2 = wx.createSelectorQuery()
     query2.select('#two').boundingClientRect()
@@ -250,9 +247,9 @@ Page({
       console.log(res[0].top)
       console.log(res[1].scrollTop)
       that.setData({
-        toptwo:res[0].top+res[1].scrollTop
+        toptwo: res[0].top + res[1].scrollTop
       })
-    }) 
+    })
     const query3 = wx.createSelectorQuery()
     query3.select('#three').boundingClientRect()
     query3.selectViewport().scrollOffset()
@@ -262,9 +259,9 @@ Page({
       console.log(res[0].top)
       console.log(res[1].scrollTop)
       that.setData({
-        topthree:res[0].top+res[1].scrollTop
+        topthree: res[0].top + res[1].scrollTop
       })
-    }) 
+    })
   },
   gotoselect: function (e) { //套餐选择模态框点击套餐事件
     var that = this
@@ -321,7 +318,7 @@ Page({
     this.setData({
       showModal: false,
       nowid: e.currentTarget.id,
-      xianshiid:e.currentTarget.id,
+      xianshiid: e.currentTarget.id,
     })
     console.log(this.data.nowid, '这是nowid')
   },
@@ -351,20 +348,17 @@ Page({
   },
   getUserInfo: function (e) { //集成到咨询按钮里面的button开放能力，点击获取用户授权
     var that = this
-    
-    
-    if(that.data.xianshiid==''){
+    if (that.data.xianshiid == '') {
       that.setData({
         currentTargetname: that.data.thatid
       })
-      console.log(that.data.thatid,'thatid')
-    }else{
+      console.log(that.data.thatid, 'thatid')
+    } else {
       that.setData({
         currentTargetname: that.data.xianshiid
       })
-      console.log(that.data.xianshiid,'xianshiid')
+      console.log(that.data.xianshiid, 'xianshiid')
     }
-    
     // var currentTargetname=e.currentTarget.dataset.name
     // that.setData({
     //   xianshi: false
@@ -393,109 +387,11 @@ Page({
               wxnum: res.data.Data.VXNumber,
               phonenum: res.data.Data.Phone,
             })
-            wx.showActionSheet({
-              itemList: that.data.itemlist,
-              success(res) {
-                if (res.tapIndex == 0) { //点击的是微信咨询
-                  if (that.data.Token) { //判断是否有token
-                    if (that.data.wxnum == '') { //绑定信息中是否有微信号
-                      console.log("没有微信")
-                      wx.navigateTo({
-                        url: '../bindweixin/bindweixin', //绑定信息没有微信号，去微信绑定
-                      })
-                    } else { //绑定信息有微信号，发送请求
-                      console.log(that.data.wxnum)
-                      wx.request({
-                        url: config.api_base_url + 'Consultation/Save',
-                        method: 'post',
-                        data: {
-                          //微信咨询传的值
-                          ContactType: 1,
-                          Name: that.data.currentTargetname
-                        },
-                        header: {
-                          'content-type': 'application/json',
-                          'Authorization': 'BasicAuth ' + that.data.Token
-                        },
-                        success: (res) => {
-                          // console.log(res)
-                          if (res.data.Code == 0) {
-                            wx.showToast({
-                              title: '我们将会在24小时之内联系您',
-                              icon: 'none',
-                              duration: 2000
-                            });
-                          } else {
-                            // wx.request({
-                            //   url: config.api_base_url + 'User / GetToken',//openid
-                            //   success: (res) =>{
-                            //     console.log(res)
-                            //   }
-                            // })
-
-
-                          }
-
-                        },
-
-                      })
-                    }
-                  } else {
-                    wx.navigateTo({
-                      url: '../bindweixin/bindweixin', //没有token，提示绑定微信和微信号码
-                    })
-                  }
-                } else if(res.tapIndex == 1) {
-                  if (that.data.Token) {
-                    if (that.data.phonenum == '') {
-                      wx.navigateTo({
-                        url: '../bindphone/bindphone',
-                      })
-                    } else {
-                      wx.request({
-                        url: config.api_base_url + 'Consultation/Save',
-                        method: 'post',
-                        data: {
-                          //微信咨询传的值
-                          ContactType: 2,
-                          Name: e.currentTarget.dataset.name
-                        },
-                        header: {
-                          'content-type': 'application/json',
-                          'Authorization': 'BasicAuth ' + that.data.Token
-                        },
-                        success: (res) => {
-                          console.log(res)
-                          if (res.data.Code == 0) {
-                            wx.showToast({
-                              title: '我们将会在24小时之内联系您',
-                              icon: 'none',
-                              duration: 2000
-                            });
-                          } else { //有token，有手机号但是获取不到，token过期
-                            wx.showToast({
-                              title: '未知错误，发送失败',
-                              icon: 'none',
-                              duration: 2000
-                            });
-                          }
-
-                        }
-                      })
-                    }
-                  } else {
-                    wx.navigateTo({
-                      url: '../bindphone/bindphone',
-                    })
-                  }
-                }else{
-                  //安卓取消
-                }
-              }
+            that.setData({
+              showModal1: true
             })
-
           },
-          fail: function (res) {
+          fail: function (res) {//token过期，重新授权
             that._getUserInfo();
           }
         })
@@ -571,122 +467,19 @@ Page({
                               wxnum: res.data.Data.VXNumber,
                               phonenum: res.data.Data.Phone,
                             })
-                            wx.showActionSheet({
-                              itemList: that.data.itemlist,
-                              success(res) {
-                                if (res.tapIndex == 0) { //点击的是微信咨询
-                                  if (that.data.Token) { //判断是否有token
-                                    if (that.data.wxnum == '') { //绑定信息中是否有微信号
-                                      console.log("没有微信")
-                                      wx.navigateTo({
-                                        url: '../bindweixin/bindweixin', //绑定信息没有微信号，去微信绑定
-                                      })
-                                    } else { //绑定信息有微信号，发送请求
-                                      console.log(that.data.wxnum)
-                                      wx.request({
-                                        url: config.api_base_url + 'Consultation/Save',
-                                        method: 'post',
-                                        data: {
-                                          //微信咨询传的值
-                                          ContactType: 1,
-                                          Name: that.data.currentTargetname
-                                        },
-                                        header: {
-                                          'content-type': 'application/json',
-                                          'Authorization': 'BasicAuth ' + that.data.Token
-                                        },
-                                        success: (res) => {
-                                          // console.log(res)
-                                          if (res.data.Code == 0) {
-                                            wx.showToast({
-                                              title: '我们将会在24小时之内联系您',
-                                              icon: 'none',
-                                              duration: 2000
-                                            });
-                                          } else {
-                                            // wx.request({
-                                            //   url: config.api_base_url + 'User / GetToken',//openid
-                                            //   success: (res) =>{
-                                            //     console.log(res)
-                                            //   }
-                                            // })
-
-
-                                          }
-
-                                        },
-
-                                      })
-                                    }
-                                  } else {
-                                    wx.navigateTo({
-                                      url: '../bindweixin/bindweixin', //没有token，提示绑定微信和微信号码
-                                    })
-                                  }
-                                } else if (res.tapIndex == 0) {
-                                  if (that.data.Token) {
-                                    if (that.data.phonenum == '') {
-                                      wx.navigateTo({
-                                        url: '../bindphone/bindphone',
-                                      })
-                                    } else {
-                                      wx.request({
-                                        url: config.api_base_url + 'Consultation/Save',
-                                        method: 'post',
-                                        data: {
-                                          //微信咨询传的值
-                                          ContactType: 2,
-                                          Name: that.data.currentTargetname
-                                        },
-                                        header: {
-                                          'content-type': 'application/json',
-                                          'Authorization': 'BasicAuth ' + that.data.Token
-                                        },
-                                        success: (res) => {
-                                          console.log(res)
-                                          if (res.data.Code == 0) {
-                                            wx.showToast({
-                                              title: '我们将会在24小时之内联系您',
-                                              icon: 'none',
-                                              duration: 2000
-                                            });
-                                          } else { //有token，有手机号但是获取不到，token过期
-                                            wx.showToast({
-                                              title: '未知错误，发送失败',
-                                              icon: 'none',
-                                              duration: 2000
-                                            });
-                                          }
-
-                                        }
-                                      })
-                                    }
-                                  } else {
-                                    wx.navigateTo({
-                                      url: '../bindphone/bindphone',
-                                    })
-                                  }
-                                }else{
-                                  //安卓取消
-                                }
-                              }
+                            that.setData({
+                              showModal1:true
                             })
-
                           },
-
                         })
                         // console.log(that.data)
                       }
                     })
                   }
                 })
-
-
               }
             })
-
           },
-
         })
       },
       fail: function (res) {
@@ -818,7 +611,7 @@ Page({
         method: 'post',
         data: {
           Id: options.proid, //通过搜索界面点击传过来的商品套餐id获取该套餐的数据
-          xianshiid:options.proid
+          xianshiid: options.proid
         },
         success: (res) => {
           console.log(res.data.Data)
@@ -836,7 +629,7 @@ Page({
               requiredata: res.data.Data.datum.jobPerson,
               needknow: newthisarr,
               Proid: options.proid,
-              xianshiid:options.proid,
+              xianshiid: options.proid,
             })
 
           } else if (lastarr == ' ') {
@@ -884,8 +677,8 @@ Page({
           IOS
         } else if (res.platform == "android") {
           that.setData({
-            durationtime:0,
-            itemlist: ['微信咨询', '手机号咨询','取消'],
+            durationtime: 0,
+            // itemlist: ['微信咨询', '手机号咨询', '取消'],
           })
         }
       }
@@ -950,5 +743,101 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  btnclick: function (e) {
+    var that = this
+    console.log(e.currentTarget.id)
+    if (e.currentTarget.id == 'btn1') {
+      if (that.data.Token) { //判断是否有token
+        if (that.data.wxnum == '') { //绑定信息中是否有微信号
+          console.log("没有微信")
+          wx.navigateTo({
+            url: '../bindweixin/bindweixin', //绑定信息没有微信号，去微信绑定
+          })
+        } else { //绑定信息有微信号，发送请求
+          console.log(that.data.wxnum)
+          wx.request({
+            url: config.api_base_url + 'Consultation/Save',
+            method: 'post',
+            data: {
+              //微信咨询传的值
+              ContactType: 1,
+              Name: that.data.currentTargetname
+            },
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'BasicAuth ' + that.data.Token
+            },
+            success: (res) => {
+              // console.log(res)
+              if (res.data.Code == 0) {
+                wx.showToast({
+                  title: '我们将会在24小时之内联系您',
+                  icon: 'none',
+                  duration: 2000
+                });
+              } else {}
+            },
+          })
+        }
+      } else {
+        wx.navigateTo({
+          url: '../bindweixin/bindweixin', //没有token，提示绑定微信和微信号码
+        })
+      }
+      that.setData({
+        showModal1: false
+      })
+    } else if (e.currentTarget.id == 'btn2') {
+      if (that.data.Token) {
+        if (that.data.phonenum == '') {
+          wx.navigateTo({
+            url: '../bindphone/bindphone',
+          })
+        } else {
+          wx.request({
+            url: config.api_base_url + 'Consultation/Save',
+            method: 'post',
+            data: {
+              //微信咨询传的值
+              ContactType: 2,
+              Name: that.data.currentTargetname
+            },
+            header: {
+              'content-type': 'application/json',
+              'Authorization': 'BasicAuth ' + that.data.Token
+            },
+            success: (res) => {
+              console.log(res)
+              if (res.data.Code == 0) {
+                wx.showToast({
+                  title: '我们将会在24小时之内联系您',
+                  icon: 'none',
+                  duration: 2000
+                });
+              } else {
+
+              }
+            }
+          })
+        }
+      } else {
+        wx.navigateTo({
+          url: '../bindphone/bindphone',
+        })
+      }
+      that.setData({
+        showModal1: false
+      })
+    } else {
+      that.setData({
+        showModal1: false
+      })
+    }
+  },
+  cancle1:function(){
+    this.setData({
+      showModal1:false
+    })
   }
 })

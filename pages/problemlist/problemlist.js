@@ -2,8 +2,6 @@
 import {
   config
 } from '../../config.js'
-// let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907/'
 Page({
 
   /**
@@ -25,19 +23,7 @@ Page({
   searchValueInput: function (e) {
     var that = this
     var value = e.detail.value;
-    // that.setData({
-    //   listshow: false,
-    //   searchshow: true
-    // })
     console.log(value)
-    // that.setData({
-    //   searchValue: value,
-    // });
-    // if (!value && that.data.productData.length == 0) {
-    //   that.setData({
-    //     centent_Show: false,
-    //   });
-    // }
     wx.request({
       url: config.api_base_url + 'Index/GetFAQsList', //后台搜索接口
       method: 'post',

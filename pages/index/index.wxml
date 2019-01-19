@@ -1,4 +1,4 @@
-<view class='container'>
+<view id='container'>
   <view class='header'>
     <swiper style="width: 750rpx;height: 490rpx;" indicator-dots="true" autoplay="true" interval="5000" duration="500" circular="true">
       <swiper-item>
@@ -29,7 +29,7 @@
     <text bindtap="gotoproblemlist" class='problem-text2'>更多</text>
     <image bindtap="gotoproblemlist" class='nextstep1' src='../../images/next.png'></image>
   </view>
-  <view id='list' style="position: sticky;top:0;position: -webkit-sticky;z-index:999;width:750rpx">
+  <view id='list' style="position: sticky;top:0;position: -webkit-sticky;z-index:99;width:750rpx">
     <view class='tabswitchcontainer'>
       <block wx:for="{{tabswitch}}" wx:key='index'>
         <text id="{{item.id}}" bindtap="tabclick" data-select="{{item.select}}" class="{{item.select==catalogSelect?'select':''}}">
@@ -39,10 +39,10 @@
     </view>
   </view>
   <view class='main'>
-    <scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="two">
+    <!-- <scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="two"> -->
       <view id="one">
         <view class='title'>
-          <text bindtap="goTop" class='title1'>热门国家和地区</text>
+          <text class='title1'>热门国家和地区</text>
           <text class='title2'>Hot country or region</text>
         </view>
         <view class='country-list'>
@@ -66,14 +66,15 @@
       </view>
       <view id="two">
         <view class='title'>
-          <text bindtap='tapqqq' class='title1'>亚洲</text>
+          <text class='title1'>亚洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Asia</text>
-              <view bindtap="gotocountrylistasia" style='float:right'>
+              <nextpage data-index="1" bindtap="gotocountrylist"/>
+              <!-- <view data-index='1' bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/next.png'></image>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -82,7 +83,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{asiadata}}" wx:key='index' wx:for-item="item">
             <view class='img-box-asia' data-id="{{item.Id}}">
-              <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}">
                 <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -99,14 +100,15 @@
       </scroll-view>
       <view id="three">
         <view class='title'>
-          <text bindtap='tapqqq' class='title1'>美洲</text>
+          <text class='title1'>美洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>America</text>
-              <view bindtap="gotocountrylistamerica" style='float:right'>
+              <nextpage data-index="2" bindtap="gotocountrylist"/>
+              <!-- <view data-index='2' bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/next.png'></image>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -115,7 +117,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{americadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
-              <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}">
                 <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -131,14 +133,15 @@
       </scroll-view>
       <view id="four">
         <view class='title'>
-          <text bindtap='tapqqq' class='title1'>欧洲</text>
+          <text class='title1'>欧洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Europe</text>
-              <view bindtap="gotocountrylisteurope" style='float:right'>
+              <nextpage data-index="3" bindtap="gotocountrylist"/>
+              <!-- <view data-index='3' bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/next.png'></image>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -147,7 +150,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{europedata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
-              <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}">
                 <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -163,14 +166,15 @@
       </scroll-view>
       <view id="five">
         <view class='title'>
-          <text bindtap='tapqqq' class='title1'>非洲</text>
+          <text class='title1'>非洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Africa</text>
-              <view bindtap="gotocountrylistafrica" style='float:right'>
+              <nextpage data-index="4" bindtap="gotocountrylist"/>
+              <!-- <view data-index='4' bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/next.png'></image>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -179,7 +183,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{afrivcadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
-              <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}">
                 <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -195,14 +199,15 @@
       </scroll-view>
       <view id="six">
         <view class='title'>
-          <text bindtap='tapqqq' class='title1'>大洋洲</text>
+          <text class='title1'>大洋洲</text>
           <view>
             <view class='title3'>
               <text style='display:inline-block;margin-left:130rpx'>Oceania</text>
-              <view bindtap="gotocountrylistoceania" style='float:right'>
+              <nextpage data-index="5" bindtap="gotocountrylist"/>
+              <!-- <view data-index='5' bindtap="gotocountrylist" style='float:right'>
                 <text class='more-country'>更多国家</text>
                 <image class='nextpage more-country' src='../../images/next.png'></image>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -211,7 +216,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{oceaniadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}">
-              <image data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}">
                 <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -225,7 +230,16 @@
           </block>
         </view>
       </scroll-view>
-    </scroll-view>
+    <!-- </scroll-view> -->
   </view>
   <image style="width:750rpx;height:638rpx" src="../../images/foot.png" />
+   <view id="modal">
+        <view class="mask" bindtap="cancle1" wx:if="{{showModal1}}"></view>
+        <view class="modalDlg" wx:if="{{showModal1}}" wx:key="index">
+            
+            <view class="xuanxiang" id="btn1" bindtap="btnclick">微信咨询</view>
+            <view class="xuanxiang" id="btn2" bindtap="btnclick">手机号咨询</view>
+            <view class="xuanxiang" id="btn3" bindtap="btnclick">取消</view>
+        </view>
+    </view>
 </view>

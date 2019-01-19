@@ -1,9 +1,7 @@
 import {
   config
 } from '../../config.js'
-// let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907'
-var searchValue = ''
+
 Page({
 
   /**
@@ -58,13 +56,6 @@ Page({
               title: '微信绑定成功',
               icon: 'none',
               duration: 2000,
-              // complete:function(){
-              //   wx.navigateBack({
-              //     success:function(){
-              //       // that.onLoad()
-              //     }
-              //   })
-              // }
             });
             setTimeout(()=>{
               wx.navigateBack()
@@ -78,7 +69,6 @@ Page({
             });
             that.onLoad()
           }
-
         }
       })
     }

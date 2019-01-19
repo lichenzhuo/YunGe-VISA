@@ -1,8 +1,6 @@
 import {
   config
 } from '../../config.js'
-// let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907/'
 Page({
 
   /**
@@ -30,7 +28,7 @@ Page({
     //   title: '亚洲Asia'
     // })
     wx.request({
-      url: 'http://192.168.1.102:804/api/Index/CountryList',
+      url: config.api_base_url+'Index/CountryList',
       method: 'post',
       data: {
         Continent: listid
@@ -40,7 +38,7 @@ Page({
         let newarr = [res.data.Data]
         for (let i = 0; i < newarr.length; i++) {
           for (let j = 0; j < newarr[i].length; j++) {
-            newarr[i][j].HomeImage = img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
+            newarr[i][j].HomeImage =config.img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
           }
         }
         this.setData({

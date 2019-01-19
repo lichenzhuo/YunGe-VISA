@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "nextpage":"../../components/nextpage/nextpage"
+  }
 }

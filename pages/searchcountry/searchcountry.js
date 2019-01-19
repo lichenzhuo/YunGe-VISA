@@ -1,10 +1,6 @@
 import {
   config
 } from '../../config.js'
-// let http=new HTTP()
-const img_base_url = 'http://192.168.1.102:907/'
-// var app = getApp();
-var searchValue = ''
 Page({
 
   /**
@@ -87,13 +83,6 @@ Page({
     wx.navigateTo({
       url: '../details/details?id=' + e.currentTarget.dataset.id,
     })
-    //  wx.request({
-    //   url: config.api_base_url + 'Historical/SaveHistorical',
-    //   method: 'post',
-    //   data: {
-    //     Contents: this.data.baocunname
-    //   }
-    // })
   },
   //点击商品
   searchproclick: function (e) {
@@ -101,13 +90,6 @@ Page({
     wx.navigateTo({
       url: "../details/details?id=" + e.currentTarget.dataset.id + "&proid=" + e.currentTarget.dataset.proid,
     })
-    //  wx.request({
-    //   url: config.api_base_url + 'Historical/SaveHistorical',
-    //   method: 'post',
-    //   data: {
-    //     Contents: this.data.baocunname
-    //   }
-    // })
   },
   //点击搜索历史
   //  注释-----------e.currentTarget.dataset.name后面会多个空格，不知什么原因。两种方法去后面的空格

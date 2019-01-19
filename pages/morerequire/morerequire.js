@@ -11,16 +11,16 @@ Page({
     Ems: [],
     Face: [],
     Inbound: [],
-    
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options,'这是options')
-    console.log(options.id,'这是id')
-    console.log(options.index,'这是index')
+    console.log(options, '这是options')
+    console.log(options.id, '这是id')
+    console.log(options.index, '这是index')
     var that = this
     wx.request({
       url: config.api_base_url + 'Materials/MoreDetails',
@@ -31,54 +31,58 @@ Page({
       },
       success: (res) => {
         console.log(res.data.Data)
-        let data = res.data.Data;
-        that.App = data.App;
-        that.Ems = data.Ems;
-        that.Face = data.Face;
-        that.Inbound = data.Inbound;
-        console.log(that.App, that.Ems)
-        for (let i = 0; i < that.App.length; i++) {
-          that.App[i].Description = that.App[i].Description.split('。');
-          that.App[i].Description.pop();
+        var data = res.data.Data;
+        var thatApp = data.App;
+        var thatEms = data.Ems;
+        var thatFace = data.Face;
+        // console.log(thatApp, thatEms)
+        for (let i = 0; i < thatApp.length; i++) {
+          thatApp[i].Description = thatApp[i].Description.split('。');
+          thatApp[i].Description.pop();
         }
-        for (let i = 0; i < that.Ems.length; i++) {
-          that.Ems[i].Description = that.Ems[i].Description.split('。');
-          that.Ems[i].Description.pop();
+        for (let i = 0; i < thatEms.length; i++) {
+          thatEms[i].Description = thatEms[i].Description.split('。');
+          thatEms[i].Description.pop();
         }
-        for (let i = 0; i < that.Face.length; i++) {
-          that.Face[i].Description = that.Face[i].Description.split('。');
-          that.Face[i].Description.pop();
+        for (let i = 0; i < thatFace.length; i++) {
+          thatFace[i].Description = thatFace[i].Description.split('。');
+          thatFace[i].Description.pop();
         }
-        for (let i = 0; i < that.Inbound.length; i++) {
-          that.Inbound[i].Description = that.Inbound[i].Description.split('。');
-          that.Inbound[i].Description.pop();
+        if (data.Inbound) {
+          var thatInbound = data.Inbound;
+          for (let i = 0; i < thatInbound.length; i++) {
+            thatInbound[i].Description = thatInbound[i].Description.split('。');
+            thatInbound[i].Description.pop();
+          }
         }
-        console.log(that.App)
-        console.log(that.Ems)
+
+
+        console.log(thatApp)
+        console.log(thatEms)
         that.setData({
-          App: that.App,
-          Ems: that.Ems,
-          Face: that.Face,
-          Inbound: that.Inbound,
+          App: thatApp,
+          Ems: thatEms,
+          Face: thatFace,
+          Inbound: thatInbound,
         })
         var thistitle
         switch (1) {
           case 1:
-              thistitle = "自由职业者";
-              break;
+            thistitle = "自由职业者";
+            break;
           case 2:
-              thistitle = "退休人员";
-              break;
+            thistitle = "退休人员";
+            break;
           case 3:
-              thistitle = "在职人员";
-              break;
+            thistitle = "在职人员";
+            break;
           case 4:
-              thistitle = "在校学生";
-              break;
+            thistitle = "在校学生";
+            break;
           case 5:
-              thistitle = "学龄前儿童";
-              break;
-      }
+            thistitle = "学龄前儿童";
+            break;
+        }
         wx.setNavigationBarTitle({
           title: thistitle
         })
