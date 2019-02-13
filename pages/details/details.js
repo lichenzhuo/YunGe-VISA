@@ -68,6 +68,7 @@ Page({
     showModal: false, //控制套餐modal显示
     showModal1: false,
     nowid: '', //点击过套餐选择后的当前页面商品id
+    countryname:'',//点击过来传递的国家名称
     Proid: '', //从搜索页面点击商品获取到的商品id
     thatid: '', //点击国家进来默认展示第一个商品的id
     xianshiid: '', //套餐选择界面显示哪个套餐被选中状态
@@ -86,9 +87,9 @@ Page({
       content: '此价格仅为参考价格，费用包含：咨询费用+审核费用+填表费用+签证费代缴+专人代递带取+顺丰回寄',
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          // console.log('用户点击确定')
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          // console.log('用户点击取消')
         }
       }
     })
@@ -101,9 +102,9 @@ Page({
       content: '具体时间以领事馆为主',
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          // console.log('用户点击确定')
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          // console.log('用户点击取消')
         }
       }
     })
@@ -155,7 +156,7 @@ Page({
     })
   },
   clicktab: function (e) { //导航tab点击事件
-    console.log(e.currentTarget.dataset.select)
+    // console.log(e.currentTarget.dataset.select)
     var selectid = e.currentTarget.dataset.select
     var that = this;
     that.setData({ //把选中值放入判断值
@@ -186,7 +187,7 @@ Page({
   },
   jobtab: function (e) { //职业tab切换点击事件
     this.query()
-    console.log(e.currentTarget.dataset.index)
+    // console.log(e.currentTarget.dataset.index)
     var that = this;
     that.setData({ //把选中值放入判断值
       jobswitchselect: e.currentTarget.dataset.select
@@ -197,31 +198,31 @@ Page({
         requiredata: that.data.morendatadetail.datum.freeOcc,
         thatindex: 1
       })
-      console.log(that.data.requiredata, that.data.thatindex)
+      // console.log(that.data.requiredata, that.data.thatindex)
     } else if (e.currentTarget.dataset.select == 'two') {
       that.setData({
         requiredata: that.data.morendatadetail.datum.retire,
         thatindex: 2
       })
-      console.log(that.data.requiredata, that.data.thatindex)
+      // console.log(that.data.requiredata, that.data.thatindex)
     } else if (e.currentTarget.dataset.select == 'three') {
       that.setData({
         requiredata: that.data.morendatadetail.datum.jobPerson,
         thatindex: 3
       })
-      console.log(that.data.requiredata, that.data.thatindex)
+      // console.log(that.data.requiredata, that.data.thatindex)
     } else if (e.currentTarget.dataset.select == 'four') {
       that.setData({
         requiredata: that.data.morendatadetail.datum.student,
         thatindex: 4
       })
-      console.log(that.data.requiredata, that.data.thatindex)
+      // console.log(that.data.requiredata, that.data.thatindex)
     } else {
       that.setData({
         requiredata: that.data.morendatadetail.datum.children,
         thatindex: 5
       })
-      console.log(that.data.requiredata, that.data.thatindex)
+      // console.log(that.data.requiredata, that.data.thatindex)
     }
   },
   query: function () { //获取4个节点的位置
@@ -232,8 +233,8 @@ Page({
     query1.exec(function (res) {
       res[0].top // #the-id节点的上边界坐标
       res[1].scrollTop // 显示区域的竖直滚动位置
-      console.log(res[0].top)
-      console.log(res[1].scrollTop)
+      // console.log(res[0].top)
+      // console.log(res[1].scrollTop)
       that.setData({
         topone: res[0].top + res[1].scrollTop
       })
@@ -244,8 +245,8 @@ Page({
     query2.exec(function (res) {
       res[0].top // #the-id节点的上边界坐标
       res[1].scrollTop // 显示区域的竖直滚动位置
-      console.log(res[0].top)
-      console.log(res[1].scrollTop)
+      // console.log(res[0].top)
+      // console.log(res[1].scrollTop)
       that.setData({
         toptwo: res[0].top + res[1].scrollTop
       })
@@ -256,8 +257,8 @@ Page({
     query3.exec(function (res) {
       res[0].top // #the-id节点的上边界坐标
       res[1].scrollTop // 显示区域的竖直滚动位置
-      console.log(res[0].top)
-      console.log(res[1].scrollTop)
+      // console.log(res[0].top)
+      // console.log(res[1].scrollTop)
       that.setData({
         topthree: res[0].top + res[1].scrollTop
       })
@@ -522,150 +523,159 @@ Page({
         })
       },
     })
-    console.log(options)
-    if (!options.proid) { //从搜索页面进入详情页面，判定点击的是国家还是商品
-      var that = this
-      wx.request({
-        url: config.api_base_url + 'Products/list',
-        method: 'post',
-        data: {
-          CategoryId: options.id //通过搜索页面点击传过来的国家id获取该国家下的数据
-        },
-        success: (res) => {
-          // console.log(res.data.Data[0])
-
-          var thatid = res.data.Data[0].Id //thatid是从国家进来默认展示第一个商品的id
-          // console.log("1231323123321")                
-          console.log(thatid, '从国家进来默认展示第一个商品的thatid')
-          that.setData({
-              dataildata: res.data.Data,
-              // morendata: res.data.Data[0],
-              taocanlength: res.data.Data.length,
-              thatid: res.data.Data[0].Id
-
-            }),
-            wx.request({
-              url: config.api_base_url + 'Products/ProductDetail', //获取默认商品id下的详细数据
-              method: 'post',
-              data: {
-                Id: thatid
-              },
-              success: (res) => {
-                console.log(res.data.Data) //这里copy
-                if (res.data.Data.VisaPath) {
-                  res.data.Data.VisaPath = config.img_base_url + res.data.Data.VisaPath.replace(/\\/g, "\/") //将图片路径中的\变成/
-                }
-
-                var thisarr = res.data.Data.BaseInfo
-                var newthisarr = thisarr.replace(/(\s*$)/g, "").split("。") //以句号为分隔符将字符串分割成数组
-                //  var thislength=newthisarr.length
-                var lastarr = newthisarr.pop() //去除数组最后一项并返回
-                console.log(newthisarr) //去除最后一项之后的数组
-                console.log(lastarr)
-                if (lastarr == '') { //判定最后一项是否是空
-                  // console.log("是空")
-                  that.setData({
-                    morendatadetail: res.data.Data,
-                    morendatadetailprocesses: res.data.Data.processes,
-                    requiredata: res.data.Data.datum.jobPerson,
-                    needknow: newthisarr,
-                  })
-
-
-                } else if (lastarr == ' ') { //判定最后一项是否是空格
-                  // console.log("空格")
-                  that.setData({
-                    morendatadetail: res.data.Data,
-                    morendatadetailprocesses: res.data.Data.processes,
-                    requiredata: res.data.Data.datum.jobPerson,
-                    needknow: newthisarr
-                  })
-                } else {
-                  // console.log("都不是")
-                  this.setData({
-                    morendatadetail: res.data.Data,
-                    morendatadetailprocesses: res.data.Data.processes,
-                    requiredata: res.data.Data.datum.jobPerson,
-                    needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
-
-                  })
-                }
-                // console.log("2132132")
-                console.log(this.data.requiredata)
-
-                // console.log(that.data.needknow)
-                //  console.log(this.data.morendatadetail.BaseInfo)
-
-
-              }
-            })
-
-        }
-      })
-    } else {
-      console.log(options.id, '这是id')
-      console.log(options.proid, '这是proid')
-      var that = this
-      wx.request({
-        url: config.api_base_url + 'Products/ProductDetail',
-        method: 'post',
-        data: {
-          Id: options.proid, //通过搜索界面点击传过来的商品套餐id获取该套餐的数据
-          xianshiid: options.proid
-        },
-        success: (res) => {
-          console.log(res.data.Data)
-          var thisarr = res.data.Data.BaseInfo
-          var newthisarr = thisarr.replace(/(\s*$)/g, "").split("。")
-          //  var thislength=newthisarr.length
-          var lastarr = newthisarr.pop()
-          console.log(newthisarr)
-          console.log(lastarr)
-          if (lastarr == '') {
-            // console.log("是空")
+    console.log(options,'这是options')
+    if(options){
+      if (!options.proid) { //从搜索页面进入详情页面，判定点击的是国家还是商品
+        var that = this
+        wx.request({
+          url: config.api_base_url + 'Products/list',
+          method: 'post',
+          data: {
+            CategoryId: options.id //通过搜索页面点击传过来的国家id获取该国家下的数据
+          },
+          success: (res) => {
+            console.log(res,'这是国家')
+            // console.log(res.data.Data[0])
+  
+            var thatid = res.data.Data[0].Id //thatid是从国家进来默认展示第一个商品的id
+            // console.log("1231323123321")                
+            console.log(thatid, '从国家进来默认展示第一个商品的thatid')
             that.setData({
-              morendatadetail: res.data.Data,
-              morendatadetailprocesses: res.data.Data.processes,
-              requiredata: res.data.Data.datum.jobPerson,
-              needknow: newthisarr,
-              Proid: options.proid,
-              xianshiid: options.proid,
-            })
-
-          } else if (lastarr == ' ') {
-            // console.log("空格")
-            that.setData({
-              morendatadetail: res.data.Data,
-              morendatadetailprocesses: res.data.Data.processes,
-              requiredata: res.data.Data.datum.jobPerson,
-              needknow: newthisarr
-            })
-          } else {
-            // console.log("都不是")
+                dataildata: res.data.Data,
+                // morendata: res.data.Data[0],
+                taocanlength: res.data.Data.length,
+                thatid: res.data.Data[0].Id,
+                countryname:options.name           //跳转过来传递的国家名称
+  
+              }),
+              wx.request({
+                url: config.api_base_url + 'Products/ProductDetail', //获取默认商品id下的详细数据
+                method: 'post',
+                data: {
+                  Id: thatid
+                },
+                success: (res) => {
+                  console.log(res.data.Data) //这里copy
+                  if (res.data.Data.VisaPath) {
+                    res.data.Data.VisaPath = config.img_base_url + res.data.Data.VisaPath.replace(/\\/g, "\/") //将图片路径中的\变成/
+                  }
+  
+                  var thisarr = res.data.Data.BaseInfo
+                  var newthisarr = thisarr.replace(/(\s*$)/g, "").split("。") //以句号为分隔符将字符串分割成数组
+                  //  var thislength=newthisarr.length
+                  var lastarr = newthisarr.pop() //去除数组最后一项并返回
+                  console.log(newthisarr) //去除最后一项之后的数组
+                  console.log(lastarr)
+                  if (lastarr == '') { //判定最后一项是否是空
+                    // console.log("是空")
+                    that.setData({
+                      morendatadetail: res.data.Data,
+                      morendatadetailprocesses: res.data.Data.processes,
+                      requiredata: res.data.Data.datum.jobPerson,
+                      needknow: newthisarr,
+                    })
+  
+  
+                  } else if (lastarr == ' ') { //判定最后一项是否是空格
+                    // console.log("空格")
+                    that.setData({
+                      morendatadetail: res.data.Data,
+                      morendatadetailprocesses: res.data.Data.processes,
+                      requiredata: res.data.Data.datum.jobPerson,
+                      needknow: newthisarr
+                    })
+                  } else {
+                    // console.log("都不是")
+                    this.setData({
+                      morendatadetail: res.data.Data,
+                      morendatadetailprocesses: res.data.Data.processes,
+                      requiredata: res.data.Data.datum.jobPerson,
+                      needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
+  
+                    })
+                  }
+                  // console.log("2132132")
+                  console.log(this.data.requiredata)
+  
+                  // console.log(that.data.needknow)
+                  //  console.log(this.data.morendatadetail.BaseInfo)
+  
+  
+                }
+              })
+  
+          }
+        })
+      } else {
+        console.log(options.id, '这是id')
+        console.log(options.proid, '这是proid')
+        var that = this
+        wx.request({
+          url: config.api_base_url + 'Products/ProductDetail',
+          method: 'post',
+          data: {
+            Id: options.proid, //通过搜索界面点击传过来的商品套餐id获取该套餐的数据
+            xianshiid: options.proid
+          },
+          success: (res) => {
+            console.log(res.data.Data)
+            if (res.data.Data.VisaPath) {
+              res.data.Data.VisaPath = config.img_base_url + res.data.Data.VisaPath.replace(/\\/g, "\/") //将图片路径中的\变成/
+            }
+            var thisarr = res.data.Data.BaseInfo
+            var newthisarr = thisarr.replace(/(\s*$)/g, "").split("。")
+            //  var thislength=newthisarr.length
+            var lastarr = newthisarr.pop()
+            console.log(newthisarr)
+            console.log(lastarr)
+            if (lastarr == '') {
+              // console.log("是空")
+              that.setData({
+                morendatadetail: res.data.Data,
+                morendatadetailprocesses: res.data.Data.processes,
+                requiredata: res.data.Data.datum.jobPerson,
+                needknow: newthisarr,
+                Proid: options.proid,
+                xianshiid: options.proid,
+                countryname:options.name           //跳转过来传递的国家名称
+              })
+  
+            } else if (lastarr == ' ') {
+              // console.log("空格")
+              that.setData({
+                morendatadetail: res.data.Data,
+                morendatadetailprocesses: res.data.Data.processes,
+                requiredata: res.data.Data.datum.jobPerson,
+                needknow: newthisarr
+              })
+            } else {
+              // console.log("都不是")
+              this.setData({
+                morendatadetail: res.data.Data,
+                morendatadetailprocesses: res.data.Data.processes,
+                requiredata: res.data.Data.datum.jobPerson,
+                needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
+  
+              })
+            }
+          }
+        })
+        wx.request({
+          url: config.api_base_url + 'Products/list',
+          method: 'post',
+          data: {
+            CategoryId: options.id //通过搜索界面点击商品套餐传过来的该套餐所属的国家id获取所有套餐信息
+          },
+          success: (res) => {
+            // console.log(res.data.Data.length)
             this.setData({
-              morendatadetail: res.data.Data,
-              morendatadetailprocesses: res.data.Data.processes,
-              requiredata: res.data.Data.datum.jobPerson,
-              needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
-
+              dataildata: res.data.Data,
             })
           }
-        }
-      })
-      wx.request({
-        url: config.api_base_url + 'Products/list',
-        method: 'post',
-        data: {
-          CategoryId: options.id //通过搜索界面点击商品套餐传过来的该套餐所属的国家id获取所有套餐信息
-        },
-        success: (res) => {
-          // console.log(res.data.Data.length)
-          this.setData({
-            dataildata: res.data.Data,
-          })
-        }
-      })
+        })
+      }
     }
+    
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -762,7 +772,8 @@ Page({
             data: {
               //微信咨询传的值
               ContactType: 1,
-              Name: that.data.currentTargetname
+              // Name: that.data.currentTargetname
+              Name: that.data.countryname
             },
             header: {
               'content-type': 'application/json',
@@ -801,7 +812,8 @@ Page({
             data: {
               //微信咨询传的值
               ContactType: 2,
-              Name: that.data.currentTargetname
+              // Name: that.data.currentTargetname
+              Name: that.data.countryname
             },
             header: {
               'content-type': 'application/json',

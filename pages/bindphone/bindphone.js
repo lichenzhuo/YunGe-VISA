@@ -64,7 +64,7 @@ Page({
     if (phone == '') {
       warn = "号码不能为空";
     } else if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
-      warn = "手机号格式不正确";
+      warn = "手机号码格式不正确";
     } else {
       //当手机号正确的时候提示用户短信验证码已经发送
       wx.showToast({
@@ -307,7 +307,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
+    wx.showToast({
+      title: "loading",
+      icon: 'loading',
+      duration: 1000,
+      success: function () {
+        wx.stopPullDownRefresh()
+      }
+    })
   },
 
   /**

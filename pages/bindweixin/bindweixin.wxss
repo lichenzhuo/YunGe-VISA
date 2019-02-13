@@ -1,10 +1,8 @@
-/* pages/bindweixin/bindweixin.wxss */
 .main {
     width: 750rpx;
     height: 380rpx;
     background-color: #FAFAFA;
     padding-top: 40rpx;
- 
 }
 
 .page_row {
@@ -18,14 +16,12 @@
 }
 
 .search_arr {
-    /* border: 1px solid #d0d0d0; */
     border-radius: 20rpx;
     margin-left: 20rpx;
     background-color: #ffff
 }
 
 .search_arr input {
-    /* margin-left: 60rpx; */
     height: 60rpx;
     border-radius: 5px;
     display: inline-block;
@@ -60,10 +56,12 @@
     opacity: 1;
     border-radius: 38rpx;
     font-size: 28rpx;
-    text-align: center;margin:90rpx 0 0 30rpx;
-vertical-align: middle;
-line-height: 60rpx
+    text-align: center;
+    margin: 90rpx 0 0 30rpx;
+    vertical-align: middle;
+    line-height: 60rpx
 }
+
 .modal {
     width: 100%;
     height: 100%;
@@ -73,11 +71,20 @@ line-height: 60rpx
     background: #ffffff;
     z-index: 99;
     opacity: 1;
-    
-    /* position: relative; */
-}.btncontainer{
+}
+
+.btncontainer {
     justify-content: center;
     align-items: center;
     display: -webkit-flex;
     margin-top: 100rpx
+}
+.AuthorizeTitle {
+  margin: 50rpx 0 20rpx 0;
+  text-align: center;
+}
+
+.AuthorizeText {
+  color: #9d9d9d;
+  text-align: center;
 }

@@ -8,7 +8,6 @@
         <image class='bg-img' src='../../images/BANNER2.png'></image>
       </swiper-item>
     </swiper>
-    <!-- <image class='bg-img' src='../../images/BANNER1.png'></image> -->
     <input class='search' bindtap="searchcountry"></input>
     <image class='search-img' bindtap="searchcountry" src='../../images/icn_disocver_active.png'></image>
     <text bindtap="searchcountry" class='tips'>搜索国家/地区</text>
@@ -39,19 +38,18 @@
     </view>
   </view>
   <view class='main'>
-    <!-- <scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="two"> -->
       <view id="one">
         <view class='title'>
           <text class='title1'>热门国家和地区</text>
           <text class='title2'>Hot country or region</text>
         </view>
         <view class='country-list'>
-          <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item" data-id="{{item.Id}}" wx:key='index'>
-            <image bindtap='gotodetails' data-id="{{item.Id}}" class='country-list-img' src="{{item.HomeImage}}"></image>
+          <view class='img-box' wx:for="{{hotdata}}" wx:for-item="item" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" wx:key='index'>
+            <image bindtap='gotodetails' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='country-list-img' src="{{item.HomeImage}}"></image>
             <view class="gotodetails"></view>
-            <view data-id="{{item.Id}}" class="smallbox" bindtap='gotodetails'>
-              <text data-id="{{item.Id}}" class="gotodetails-name">{{item.Country_ZH}}</text>
-              <text data-id="{{item.Id}}" class="gotodetails-name1">
+            <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class="smallbox" bindtap='gotodetails'>
+              <text data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class="gotodetails-name">{{item.Country_ZH}}</text>
+              <text data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class="gotodetails-name1">
                 查看详情
               </text>
             </view>
@@ -82,20 +80,19 @@
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{asiadata}}" wx:key='index' wx:for-item="item">
-            <view class='img-box-asia' data-id="{{item.Id}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition' data-id="{{item.Id}}">
-                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
+            <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
-                <view data-id="{{item.Id}}" bindtap='gotodetails' class='toppositiondetail'>
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='toppositiondetail'>
                   查看详情
                 </view>
               </view>
             </view>
           </block>
-          <!-- <image src="../../images/组 1@2x.png" /> -->
         </view>
       </scroll-view>
       <view id="three">
@@ -116,14 +113,14 @@
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{americadata}}" wx:for-item="item" wx:key='index'>
-            <view class='img-box-asia' data-id="{{item.Id}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition' data-id="{{item.Id}}">
-                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
+            <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
-                <view data-id="{{item.Id}}" bindtap='gotodetails' class='toppositiondetail'>
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='toppositiondetail'>
                   查看详情
                 </view>
               </view>
@@ -149,10 +146,10 @@
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{europedata}}" wx:for-item="item" wx:key='index'>
-            <view class='img-box-asia' data-id="{{item.Id}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition' data-id="{{item.Id}}">
-                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
+            <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
@@ -182,14 +179,14 @@
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{afrivcadata}}" wx:for-item="item" wx:key='index'>
-            <view class='img-box-asia' data-id="{{item.Id}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition' data-id="{{item.Id}}">
-                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
+            <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
-                <view data-id="{{item.Id}}" bindtap='gotodetails' class='toppositiondetail'>
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='toppositiondetail'>
                   查看详情
                 </view>
               </view>
@@ -215,14 +212,14 @@
       <scroll-view scroll-x="true">
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{oceaniadata}}" wx:for-item="item" wx:key='index'>
-            <view class='img-box-asia' data-id="{{item.Id}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
-              <view class='topposition' data-id="{{item.Id}}">
-                <view data-id="{{item.Id}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
+            <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
                   立即咨询
                 </button>
-                <view data-id="{{item.Id}}" bindtap='gotodetails' class='toppositiondetail'>
+                <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='toppositiondetail'>
                   查看详情
                 </view>
               </view>
@@ -230,13 +227,11 @@
           </block>
         </view>
       </scroll-view>
-    <!-- </scroll-view> -->
   </view>
   <image style="width:750rpx;height:638rpx" src="../../images/foot.png" />
    <view id="modal">
         <view class="mask" bindtap="cancle1" wx:if="{{showModal1}}"></view>
         <view class="modalDlg" wx:if="{{showModal1}}" wx:key="index">
-            
             <view class="xuanxiang" id="btn1" bindtap="btnclick">微信咨询</view>
             <view class="xuanxiang" id="btn2" bindtap="btnclick">手机号咨询</view>
             <view class="xuanxiang" id="btn3" bindtap="btnclick">取消</view>

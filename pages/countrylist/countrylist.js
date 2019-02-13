@@ -14,7 +14,7 @@ Page({
   gotodetails: function (e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../details/details?id=' + e.currentTarget.dataset.id,
+      url: '../details/details?id=' + e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.name,
     })
   },
   /**
@@ -22,13 +22,14 @@ Page({
    */
   onLoad: function (options) {
     // var that=this
-    console.log(options.listid)
+    if(options){
+      console.log(options.listid)
     var listid = options.listid
     // wx.setNavigationBarTitle({
     //   title: '亚洲Asia'
     // })
     wx.request({
-      url: config.api_base_url+'Index/CountryList',
+      url: config.api_base_url + 'Index/CountryList',
       method: 'post',
       data: {
         Continent: listid
@@ -38,7 +39,7 @@ Page({
         let newarr = [res.data.Data]
         for (let i = 0; i < newarr.length; i++) {
           for (let j = 0; j < newarr[i].length; j++) {
-            newarr[i][j].HomeImage =config.img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
+            newarr[i][j].HomeImage = config.img_base_url + newarr[i][j].HomeImage.replace(/\\/g, "\/")
           }
         }
         this.setData({
@@ -47,6 +48,8 @@ Page({
 
       }
     })
+    }
+    
   },
 
   /**

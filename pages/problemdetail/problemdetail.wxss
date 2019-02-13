@@ -1,28 +1,25 @@
-/* pages/problemdetail/problemdetail.wxss */
-.container{
+.container {
     background-color: #FAFAFA;
     padding-top: 40rpx
 }
-.title{
-  
 
-font-size:16px;
-font-family:PingFang SC;
-font-weight:400;
-line-height:22px;
-color:rgba(141,165,255,1);
-background-color: #fff;
-padding: 20rpx 48rpx
+.title {
+    font-size: 16px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(141, 165, 255, 1);
+    background-color: #fff;
+    padding: 20rpx 48rpx
 }
-.detail{
+
+.detail {
     margin-top: 1rpx;
-background-color: #fff;
-padding: 20rpx 76rpx;
-
-font-size:13px;
-font-family:PingFang SC;
-font-weight:400;
-line-height:20px;
-color:rgba(84,84,84,1);
-
+    background-color: #fff;
+    padding: 20rpx 76rpx;
+    font-size: 13px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(84, 84, 84, 1);
 }

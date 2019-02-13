@@ -1,19 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-  
     "pages/countrylist/countrylist",
-  
     "pages/details/details",
-
     "pages/problemlist/problemlist",
     "pages/problemdetail/problemdetail",
-
     "pages/searchcountry/searchcountry",
     "pages/selfcenter/selfcenter",
     "pages/bindphone/bindphone",
     "pages/bindweixin/bindweixin",
-
     "pages/morerequire/morerequire"
   ],
   "window": {

@@ -337,8 +337,9 @@ Page({
   //跳转详情页面
   gotodetails:function(e){
     console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.name)
     wx.navigateTo({
-      url: "../details/details?id="+e.currentTarget.dataset.id,
+      url: "../details/details?id="+e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.name,
     })
   } 
   ,
@@ -374,7 +375,7 @@ Page({
             oceaniadata: newarr[5],
 
           })
-          // console.log(this.data.hotdata)
+          console.log(this.data.hotdata,'这是hotdata')
         }
       }),
       wx.request({

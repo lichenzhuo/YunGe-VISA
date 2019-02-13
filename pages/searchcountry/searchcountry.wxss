@@ -29,8 +29,6 @@
   line-height: 20px;
   color: rgba(0, 0, 0, 1);
   padding-top: 10rpx;
-  /* text-align: center; */
-
   border-radius: 10rpx;
 }
 
@@ -63,27 +61,12 @@
   margin-left: 40rpx
 }
 
-/* .hotsearch {
-  font-size: 28rpx;
-  font-weight: bold;
-  display: inline-block;
-
-} */
-
-/* .hotsearch-tips {
-  background: #FAFAFA;
-  border-radius: 14px;
-  display: inline;
-  margin: 20rpx 40rpx 0
-} */
-
 .mudidi {
   color: #ABABAB;
 }
 
 .mudidi {
   display: inline-block;
-
 }
 
 .searchbox1 {
@@ -95,22 +78,23 @@
 .searchtxt1 {
   padding: 0 0 22rpx 40rpx;
   border-bottom: 1rpx solid #FAFAFA;
-
 }
 
 .txt {
   padding: 0 30rpx
 }
-.clear{
-  display:inline-block;
-  font-size:13px;
-  font-family:PingFang SC;
-  font-weight:400;
-  line-height:18px;
-  color:rgba(0,0,0,1);
+
+.clear {
+  display: inline-block;
+  font-size: 13px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 1);
   margin-left: 20rpx
 }
-.placeholderclass{
+
+.placeholderclass {
   font-size: 28rpx;
   color: #707070
 }

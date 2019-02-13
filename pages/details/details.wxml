@@ -1,4 +1,3 @@
-<!-- pages/details/details.wxml -->
 <view id="whole" style="margin-bottom:100rpx">
     <image class="details-top-bg" src="../../images/bg.png" />
     <view class="header">

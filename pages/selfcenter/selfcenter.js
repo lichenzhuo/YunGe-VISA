@@ -2,10 +2,6 @@ import {
   config
 } from '../../config.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     nickName: '',
     avatarUrl: '',
@@ -16,7 +12,6 @@ Page({
     codema: '',
     theiv: '',
     theencrypt: '',
-
   },
   getUserInfo: function () {
     var that = this
@@ -25,8 +20,6 @@ Page({
       xianshi: false
     })
     that._getUserInfo();
-
-    
   },
   _getUserInfo:function() {
     var that=this
@@ -94,18 +87,14 @@ Page({
                               phonenum: res.data.Data.Phone,
                             })
                           },
-
                         })
                         // console.log(that.data)
                       }
                     })
                   }
                 })
-
-
               }
             })
-
           }
         })
       }
@@ -162,20 +151,8 @@ Page({
         that.setData({
           xianshi: true
         })
-        // wx.removeStorage({
-        //   key: 'token',
-        //   success(res) {
-        //     console.log(res)
-        //     // that.setData({
-        //     //   xianshi:true
-        //     // })
-        //   }
-        // })
-
       }
-
     })
-
   },
 
   /**

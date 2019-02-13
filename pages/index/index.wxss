@@ -1,6 +1,4 @@
-#container{
-  
-}
+
 .header {
   width: 100%;
   position: relative;
@@ -31,7 +29,7 @@
 }
 
 .tips {
-  /* width: 90px; */
+
   height: 40rpx;
   font-size: 28rpx;
   font-family: PingFang SC;
@@ -52,20 +50,11 @@
   right: 18rpx;
 }
 
-/* .problem {
-  border-bottom: 1rpx solid #f8f8f8;
-}
-.problem-container {
-  height: 86rpx;
-  width: 750rpx;
-} */
+
 .problem-main {
   display: -webkit-flex;
-  display: flex;
-  /* -webkit-align-items: center; */
+  display: flex; 
   align-items: center;
-  /* -webkit-justify-content: center; */
-  /* justify-content: center; */
   padding: 8rpx 0 14rpx 0;
   border-bottom: 1rpx solid #F8F8F8
 }
@@ -77,21 +66,16 @@
 }
 
 .swiper_container {
-  /* background-color: red; */
   width: 400rpx;
   height: 50rpx;
-  /* width: 100%; */
-  /* display: inline-block; */
 }
 
 .swiper_item {
   font-size: 30rpx;
-  /* line-height: 30rpx; */
   width: 300rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* padding-top: 10rpx */
 }
 
 .problem-img {
@@ -110,7 +94,6 @@
 .problem-text2 {
   font-size: 28rpx;
   color: #707070;
-  /* margin-left: 50rpx */
 }
 
 .nextstep1 {
@@ -125,13 +108,6 @@
 }
 
 #list {
-  /* padding-bottom: 20rpx; */
-  /* padding: 0 40rpx 20rpx 40rpx; */
-  /* width: 680rpx; */
-
-  /* margin: 0 40rpx; */
-  /* font-size: 28rpx; */
-  /* line-height: 80rpx; */
   background-color: white;
 }
 
@@ -142,25 +118,11 @@
 .show {
   visibility: hidden;
 }
-
-/* .item {
-  color: #d8d5d5;
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: space-around;
-} */
-
 .select {
   padding-bottom: 20rpx;
   color: #d10202;
   border-bottom: 4rpx solid;
 }
-
-/* .wenben{
-  padding: 6rpx 8rpx
-} */
-
 /*    title      */
 
 .title {
@@ -180,7 +142,6 @@
   font-size: 22rpx;
   display: block;
 }
-
 .title3 {
   padding-top: 10rpx;
   font-size: 22rpx;
@@ -188,21 +149,14 @@
   line-height: 15rpx;
   -webkit-overflow-scrolling: touch
 }
-
 .countryname {
   display: inline-block;
   margin-left: 110rpx;
 }
-
-
-
 /*        国家列表      */
-
 .country-list {
   margin: 0 10rpx;
-  /* display: flex */
 }
-
 .img-box {
   display: flex;
   flex-direction: row;
@@ -227,16 +181,10 @@
   opacity: 0.2;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
 }
 
 .gotodetails-name {
-  /* position: absolute; */
-  /* top: 74rpx;
-  left: 198rpx; */
-  /* width: 42px; */
-  /* height: 58rpx; */
   font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: 400;
@@ -244,9 +192,6 @@
   color: #FFFFFF;
   opacity: 1;
   margin-top: 30rpx;
-  /* z-index: 9; */
-  /* margin-top: 20rpx */
-
 }
 
 .smallbox {
@@ -256,23 +201,13 @@
   position: absolute;
   top: 34rpx;
   left: 142rpx;
-
-
 }
 
 .gotodetails-name1 {
-  /* position: absolute;
-  top: 136rpx;
-  left: 184rpx; */
-  /* width: 112rpx; */
-  /* height: 40rpx; */
   font-size: 28rpx;
   font-family: PingFang SC;
   font-weight: 400;
-  /* line-height: 40rpx; */
   color: #FFFFFF;
-  /* z-index: 9; */
-  /* opacity: 1; */
 }
 
 .country-list-btn {
@@ -379,14 +314,11 @@ button{
   height: 25rpx;
   overflow: hidden;
   width: 440rpx;
-  /* margin-right: 60rpx */
 }
 
 .tabswitchcontainer {
   overflow: hidden;
-  /* margin: 0 24rpx; */
   color: #545454;
-  /* font-size: 32rpx; */
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
@@ -394,9 +326,6 @@ button{
   font-size: 28rpx;
   line-height: 28rpx;
   height: 80rpx;
-}
-.zixunbtn{
-  
 }
 .mask {
   width: 100%;
@@ -414,7 +343,6 @@ button{
   position: fixed;
   bottom: 0;
   z-index: 9999;
-  /* margin: -370rpx 85rpx; */
   background-color: #fff;
   display: flex;
   flex-direction: column;

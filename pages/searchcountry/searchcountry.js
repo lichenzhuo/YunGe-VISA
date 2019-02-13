@@ -32,7 +32,7 @@ Page({
     that.setData({
       searchValue: value,
     });
-    if (!value && that.data.productData.length == 0) {
+    if (!value) {                   //被删除   && that.data.productData.length == 0
       that.setData({
         centent_Show: false,
       });
@@ -58,14 +58,22 @@ Page({
         Name: value
       },
       success: function (res) {
-        console.log(res)
-        //  console.log(res.data.Data.Name)
-        // console.log(res.data.Data.CountryName[0].Country_ZH)
-        that.setData({
-          searchdata: res.data.Data.Name,
-          searchcountry: res.data.Data.CountryName,
-          baocunname: res.data.Data.CountryName[0].Country_ZH
-        })
+        console.log(res, '这是res')
+        if (!res.data.Data.CountryName[0]) {
+          wx.showToast({
+            title: '搜索失败',
+            duration: 2000
+          });
+        } else {
+          //  console.log(res.data.Data.Name)
+          // console.log(res.data.Data.CountryName[0].Country_ZH)
+          that.setData({
+            searchdata: res.data.Data.Name,
+            searchcountry: res.data.Data.CountryName,
+            baocunname: res.data.Data.CountryName[0].Country_ZH
+          })
+          console.log(that.data.baocunname, '这是baocunname')
+        }
       },
       fail: function (e) {
         wx.showToast({
@@ -78,17 +86,19 @@ Page({
   },
   //点击国家
   searchcountryclick: function (e) {
-    //  console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.name)
 
     wx.navigateTo({
-      url: '../details/details?id=' + e.currentTarget.dataset.id,
+      url: '../details/details?id=' + e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.name,
     })
   },
   //点击商品
   searchproclick: function (e) {
     console.log(e)
+    console.log(this.data.baocunname)
     wx.navigateTo({
-      url: "../details/details?id=" + e.currentTarget.dataset.id + "&proid=" + e.currentTarget.dataset.proid,
+      url: "../details/details?id=" + e.currentTarget.dataset.id + "&proid=" + e.currentTarget.dataset.proid + "&name=" + this.data.baocunname,
     })
   },
   //点击搜索历史
@@ -100,7 +110,7 @@ Page({
     // console.log(e.currentTarget.dataset.name)
     console.log(typeof (e.currentTarget.dataset.name))
     that.setData({
-      thatsearchname:e.currentTarget.dataset.name.trim()
+      thatsearchname: e.currentTarget.dataset.name.trim()
     })
     wx.request({
       url: config.api_base_url + 'Index/GetProductsList', //搜索结果
@@ -109,9 +119,9 @@ Page({
         Name: that.data.thatsearchname
       },
       success: function (res) {
-        console.log(res.data.Data.CountryName[0].Id)
+        console.log(res.data.Data,'这是点击的res')
         wx.navigateTo({
-          url: '../details/details?id=' + res.data.Data.CountryName[0].Id,
+          url: '../details/details?id=' + res.data.Data.CountryName[0].Id + "&name=" + res.data.Data.CountryName[0].Country_ZH,
         })
       },
       fail: function (e) {
@@ -122,8 +132,8 @@ Page({
       },
     });
   },
-  clearhis:function(){
-    let that=this
+  clearhis: function () {
+    let that = this
     wx.request({
       url: config.api_base_url + 'Historical/DeleteHistorical', //搜索结果
       method: 'post',
@@ -225,13 +235,13 @@ Page({
   onPullDownRefresh: function () {
     this.onLoad()
     wx.showToast({
-      title:"loading",
-      icon:'loading',
-      duration:1000,
-      success:function(){
+      title: "loading",
+      icon: 'loading',
+      duration: 1000,
+      success: function () {
         wx.stopPullDownRefresh()
       }
-  })
+    })
   },
 
   /**

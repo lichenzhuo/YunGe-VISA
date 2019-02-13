@@ -37,7 +37,7 @@
       <view class="mudidi">目的地</view>
     </view>
     <block wx:for="{{searchcountry}}">
-      <view data-id="{{item.Id}}" class="searchtxt1" bindtap="searchcountryclick">
+      <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class="searchtxt1" bindtap="searchcountryclick">
         {{item.Country_ZH}}
       </view>
     </block>

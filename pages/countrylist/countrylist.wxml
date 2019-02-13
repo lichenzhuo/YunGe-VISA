@@ -2,10 +2,10 @@
 <!-- <text class="detailtitle">亚洲 Asia</text> -->
 <view class='country-list'>
     <block wx:for="{{countrylist}}">
-        <view bindtap="gotodetails" class='img-box' data-id="{{item.Id}}">
+        <view bindtap="gotodetails" class='img-box' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
             <image data-id="{{item.Id}}" class='country-list-img' src="{{item.HomeImage}}"></image>
             <view class="gotodetails">
-                
+                <!-- 背景圆框 -->
             </view>
             <view class="smallbox">
               <text class="gotodetails-name">{{item.Country_ZH}}</text>
