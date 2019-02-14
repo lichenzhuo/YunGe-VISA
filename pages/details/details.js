@@ -773,7 +773,7 @@ Page({
               //微信咨询传的值
               ContactType: 1,
               // Name: that.data.currentTargetname
-              Name: that.data.countryname
+              Name: that.data.morendatadetail.Name
             },
             header: {
               'content-type': 'application/json',
@@ -813,7 +813,7 @@ Page({
               //微信咨询传的值
               ContactType: 2,
               // Name: that.data.currentTargetname
-              Name: that.data.countryname
+              Name: that.data.morendatadetail.Name
             },
             header: {
               'content-type': 'application/json',
