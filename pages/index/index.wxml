@@ -81,7 +81,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{asiadata}}" wx:key='index' wx:for-item="item">
             <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load='true' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
                 <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -114,7 +114,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{americadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load='true' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
                 <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -147,7 +147,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{europedata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load='true' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
                 <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -180,7 +180,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{afrivcadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load='true' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
                 <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
@@ -213,7 +213,7 @@
         <view scroll-x="true" class='country-list-asia'>
           <block wx:for="{{oceaniadata}}" wx:for-item="item" wx:key='index'>
             <view class='img-box-asia' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-              <image lazy-load="{{true}}" data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
+              <image lazy-load='true' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" bindtap='gotodetails' class='country-list-img' src="{{item.HomeImage}}"></image>
               <view class='topposition' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
                 <view data-id="{{item.Id}}" data-name="{{item.Country_ZH}}" class='toppositioncountry' bindtap='gotodetails'>{{item.Country_ZH}}</view>
                 <button data-name="{{item.Country_ZH}}" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">

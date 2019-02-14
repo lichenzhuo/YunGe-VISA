@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 // import{HTTP} from '../../http.js'
+const app = getApp()
 import {
   config
 } from '../../config.js'
@@ -464,7 +465,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -481,6 +482,7 @@ Page({
         })
       }
     })
+    console.log(app.globalData.userInfo, '这是全局')
   },
   /**
    * 生命周期函数--监听页面隐藏

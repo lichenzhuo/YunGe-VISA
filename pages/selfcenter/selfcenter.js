@@ -1,6 +1,7 @@
 import {
   config
 } from '../../config.js'
+const app = getApp() 
 Page({
   data: {
     nickName: '',
@@ -159,7 +160,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // app.globalData.userInfo1=222
+    // console.log(app.globalData.userInfo1)
+    getApp().globalData.userInfo = "12345";
+    console.log(app.globalData.userInfo,'这是全局')
   },
 
   /**
