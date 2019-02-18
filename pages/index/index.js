@@ -185,6 +185,7 @@ Page({
         that.setData({
           Token: res.data
         })
+        console.log(that.data.Token,'这是Token21321')
         wx.request({
           url: config.api_base_url + 'User/GetUserInfo',
           method: 'post',
@@ -195,6 +196,9 @@ Page({
           success: function (res) {
             console.log("获取用户数据成功")
             console.log(res)
+            if(!res.data.Data){
+              console.log('空，不存在')
+            }
             that.setData({
               nickName: res.data.Data.NickName,
               avatarUrl: res.data.Data.headimgurl,
@@ -288,7 +292,7 @@ Page({
                               phonenum: res.data.Data.Phone,
                             })
                             that.setData({
-                              showModal1:true
+                              // showModal1:true
                             })
         
                           },
@@ -399,7 +403,7 @@ Page({
       success(res) {
         console.log("取缓存成功")
         console.log(res)
-        if (res.data) {
+        if (res.data.Data) {
           that.setData({
             Token: res.data,
           })
@@ -429,7 +433,9 @@ Page({
             key: 'token',
             success(res) {
               console.log("清缓存成功")
+              that._getUserInfo()
             }
+            
           })
         }
 
@@ -451,7 +457,7 @@ Page({
         if (res.platform == "devtools") {
 
         } else if (res.platform == "ios") {
-          IOS
+          
         } else if (res.platform == "android") {
           that.setData({
             durationtime:0,
@@ -476,13 +482,13 @@ Page({
     wx.getStorage({
       key: 'token',
       success(res) {
-        console.log("回到首页获取缓存成功")
+        // console.log("回到首页获取缓存成功")
         that.setData({
           Token: res.data,
         })
       }
     })
-    console.log(app.globalData.userInfo, '这是全局')
+    // console.log(app.globalData.userInfo, '这是全局')
   },
   /**
    * 生命周期函数--监听页面隐藏

@@ -684,7 +684,7 @@ Page({
         if (res.platform == "devtools") {
 
         } else if (res.platform == "ios") {
-          IOS
+          
         } else if (res.platform == "android") {
           that.setData({
             durationtime: 0,

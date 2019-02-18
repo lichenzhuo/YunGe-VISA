@@ -1,9 +1,10 @@
 <!-- pages/countrylist/countrylist.wxml -->
 <!-- <text class="detailtitle">亚洲 Asia</text> -->
+<scroll-view>
 <view class='country-list'>
     <block wx:for="{{countrylist}}">
         <view bindtap="gotodetails" class='img-box' data-id="{{item.Id}}" data-name="{{item.Country_ZH}}">
-            <image data-id="{{item.Id}}" class='country-list-img' src="{{item.HomeImage}}"></image>
+            <image data-id="{{item.Id}}" lazy-load="true" class='country-list-img' src="{{item.HomeImage}}"></image>
             <view class="gotodetails">
                 <!-- 背景圆框 -->
             </view>
@@ -14,3 +15,4 @@
         </view>
     </block>
 </view>
+</scroll-view>
