@@ -152,7 +152,7 @@
                 </view>
                 <view id="three">
                     <view class="title">办理流程</view>
-                    <van-steps steps="{{morendatadetailprocesses}}" direction="vertical" active="10" active-color="#8da5ff"></van-steps>
+                    <van-steps steps="{{morendatadetailprocesses}}" direction="vertical" active="{{morendatadetailprocesseslength}}" active-color="#8da5ff"></van-steps>
                     <!-- <block wx:for="{{morendatadetailprocesses}}" wx:key="index">
                         <view class="duizhao">
                             <view class="workprocesstxt1">

@@ -10,6 +10,7 @@ Page({
     requiredata: [], //所需资料
     morendatadetail: [], //页面展示的数据
     morendatadetailprocesses: [],
+    morendatadetailprocesseslength:'',
     // morendata: [],
     dataildata: [], //国家下的所有套餐信息
     needknow: [], //办理须知
@@ -289,6 +290,7 @@ Page({
           that.setData({
             morendatadetail: res.data.Data,
             morendatadetailprocesses: res.data.Data.processes,
+            morendatadetailprocesseslength:res.data.Data.processes.length-1,
             requiredata: res.data.Data.datum.jobPerson,
             needknow: newthisarr,
           })
@@ -297,6 +299,7 @@ Page({
           that.setData({
             morendatadetail: res.data.Data,
             morendatadetailprocesses: res.data.Data.processes,
+            morendatadetailprocesseslength:res.data.Data.processes.length-1,
             requiredata: res.data.Data.datum.jobPerson,
             needknow: newthisarr
           })
@@ -305,6 +308,7 @@ Page({
           that.setData({
             morendatadetail: res.data.Data,
             morendatadetailprocesses: res.data.Data.processes,
+            morendatadetailprocesseslength:res.data.Data.processes.length-1,
             requiredata: res.data.Data.datum.jobPerson,
             needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
           })
@@ -571,6 +575,7 @@ Page({
                     that.setData({
                       morendatadetail: res.data.Data,
                       morendatadetailprocesses: res.data.Data.processes,
+                      morendatadetailprocesseslength:res.data.Data.processes.length-1,
                       requiredata: res.data.Data.datum.jobPerson,
                       needknow: newthisarr,
                     })
@@ -581,6 +586,7 @@ Page({
                     that.setData({
                       morendatadetail: res.data.Data,
                       morendatadetailprocesses: res.data.Data.processes,
+                      morendatadetailprocesseslength:res.data.Data.processes.length-1,
                       requiredata: res.data.Data.datum.jobPerson,
                       needknow: newthisarr
                     })
@@ -589,6 +595,7 @@ Page({
                     this.setData({
                       morendatadetail: res.data.Data,
                       morendatadetailprocesses: res.data.Data.processes,
+                      morendatadetailprocesseslength:res.data.Data.processes.length-1,
                       requiredata: res.data.Data.datum.jobPerson,
                       needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
   
@@ -633,6 +640,7 @@ Page({
               that.setData({
                 morendatadetail: res.data.Data,
                 morendatadetailprocesses: res.data.Data.processes,
+                morendatadetailprocesseslength:res.data.Data.processes.length-1,
                 requiredata: res.data.Data.datum.jobPerson,
                 needknow: newthisarr,
                 Proid: options.proid,
@@ -645,6 +653,7 @@ Page({
               that.setData({
                 morendatadetail: res.data.Data,
                 morendatadetailprocesses: res.data.Data.processes,
+                morendatadetailprocesseslength:res.data.Data.processes.length-1,
                 requiredata: res.data.Data.datum.jobPerson,
                 needknow: newthisarr
               })
@@ -653,6 +662,7 @@ Page({
               this.setData({
                 morendatadetail: res.data.Data,
                 morendatadetailprocesses: res.data.Data.processes,
+                morendatadetailprocesseslength:res.data.Data.processes.length-1,
                 requiredata: res.data.Data.datum.jobPerson,
                 needknow: res.data.Data.BaseInfo.replace(/(\s*$)/g, "").split("。")
   
